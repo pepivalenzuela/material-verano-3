@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Repaso de Verano · Matemáticas 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root {
+      --verde:     #2e7d32;
+      --verde-c:   #e8f5e9;
+      --azul:      #1565c0;
+      --naranja:   #e65100;
+      --gris-bg:   #f5f7fa;
+      --texto:     #212121;
+      --radio:     12px;
+      --sombra:    0 2px 8px rgba(0,0,0,.10);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--gris-bg); color: var(--texto); }
+
+    /* NAV */
+    nav {
+      background: var(--verde);
+      color: white;
+      padding: .7rem 1.5rem;
+      font-size: .9rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    nav span { opacity: .75; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--verde) 0%, #1b5e20 100%);
+      color: white;
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+    .hero .curso-label {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      border-radius: 20px;
+      padding: .3rem 1rem;
+      font-size: .85rem;
+      letter-spacing: .05em;
+      margin-bottom: 1rem;
+    }
+    .hero h1 { font-size: 2.4rem; line-height: 1.2; margin-bottom: .6rem; }
+    .hero h1 em { font-style: italic; font-weight: 300; }
+    .hero p { font-size: 1.05rem; opacity: .88; max-width: 520px; margin: 0 auto; }
+
+    /* MAIN */
+    main { max-width: 780px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+
+    /* FORM CARD */
+    .card {
+      background: white;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+    }
+    .card h2 { font-size: 1.1rem; color: var(--verde); margin-bottom: 1.2rem; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media(max-width:520px){ .form-grid { grid-template-columns: 1fr; } }
+
+    .form-group label {
+      display: block;
+      font-size: .85rem;
+      color: #555;
+      margin-bottom: .35rem;
+      font-weight: 600;
+    }
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: .6rem .85rem;
+      border: 1.5px solid #ddd;
+      border-radius: 8px;
+      font-size: .95rem;
+      font-family: inherit;
+      transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--verde);
+    }
+    .error-msg {
+      display: none;
+      color: #c62828;
+      font-size: .85rem;
+      margin-top: .8rem;
+    }
+    .btn-entrar {
+      display: block;
+      width: 100%;
+      margin-top: 1.4rem;
+      padding: .85rem;
+      background: var(--verde);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-entrar:hover { background: #1b5e20; }
+
+    /* INFO BLOQUES */
+    .info-title {
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: #888;
+      margin-bottom: 1rem;
+    }
+    .bloques-preview { display: flex; flex-direction: column; gap: .9rem; }
+    .bloque-row {
+      background: white;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.3rem;
+      border-left: 5px solid #ccc;
+    }
+    .bloque-row.b0 { border-left-color: var(--verde); }
+    .bloque-row.b1 { border-left-color: var(--azul); }
+    .bloque-row.b2 { border-left-color: var(--naranja); }
+    .bloque-num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      min-width: 2rem;
+      text-align: center;
+    }
+    .b0 .bloque-num { color: var(--verde); }
+    .b1 .bloque-num { color: var(--azul); }
+    .b2 .bloque-num { color: var(--naranja); }
+    .bloque-info h3 { font-size: 1rem; }
+    .bloque-info p  { font-size: .85rem; color: #666; margin-top: .15rem; }
+
+    /* COMO FUNCIONA */
+    .pasos { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: .5rem; }
+    @media(max-width:520px){ .pasos { grid-template-columns: 1fr; } }
+    .paso {
+      background: var(--gris-bg);
+      border-radius: var(--radio);
+      padding: 1rem 1.1rem;
+      text-align: center;
+    }
+    .paso .num {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--verde);
+      margin-bottom: .4rem;
+    }
+    .paso h4 { font-size: .95rem; margin-bottom: .3rem; }
+    .paso p  { font-size: .82rem; color: #555; line-height: 1.5; }
+
+    footer {
+      text-align: center;
+      font-size: .82rem;
+      color: #aaa;
+      padding: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <strong>Las Chapas ECOS</strong>
+  <span>·</span>
+  <span>Matemáticas · Verano 2025</span>
+</nav>
+
+<div class="hero">
+  <div class="curso-label">3º ESO</div>
+  <h1>Repaso de <em>Verano</em></h1>
+  <p>Consolida los fundamentos matemáticos a tu ritmo, antes de empezar 4º ESO.</p>
+</div>
+
+<main>
+
+  <!-- FORMULARIO -->
+  <div class="card">
+    <h2>Identifícate para comenzar</h2>
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" placeholder="Tu nombre" />
+      </div>
+      <div class="form-group">
+        <label for="apellidos">Apellidos</label>
+        <input type="text" id="apellidos" placeholder="Tus apellidos" />
+      </div>
+      <div class="form-group">
+        <label for="grupo">Grupo en 3º ESO</label>
+        <select id="grupo">
+          <option value="">— Elige tu grupo —</option>
+          <option>3º A</option>
+          <option>3º B</option>
+          <option>3º C</option>
+          <option>3º D</option>
+        </select>
+      </div>
+    </div>
+    <p class="error-msg" id="error-msg">Por favor, rellena todos los campos antes de continuar.</p>
+    <button class="btn-entrar" onclick="entrar()">Entrar al portal →</button>
+  </div>
+
+  <!-- QUÉ VAS A TRABAJAR -->
+  <p class="info-title">¿Qué vas a trabajar este verano?</p>
+  <div class="bloques-preview">
+    <div class="bloque-row b0">
+      <span class="bloque-num">0</span>
+      <div class="bloque-info">
+        <h3>Números</h3>
+        <p>Naturales, enteros, racionales y radicales — la base de todo lo demás</p>
+      </div>
+    </div>
+    <div class="bloque-row b1">
+      <span class="bloque-num">1</span>
+      <div class="bloque-info">
+        <h3>Álgebra</h3>
+        <p>Polinomios, productos notables y factorización</p>
+      </div>
+    </div>
+    <div class="bloque-row b2">
+      <span class="bloque-num">2</span>
+      <div class="bloque-info">
+        <h3>Ecuaciones</h3>
+        <p>1er y 2º grado, polinómicas, racionales e irracionales</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CÓMO FUNCIONA -->
+  <div class="card" style="margin-top:2rem">
+    <h2>¿Cómo funciona?</h2>
+    <div class="pasos">
+      <div class="paso">
+        <div class="num">01</div>
+        <h4>Elige un bloque</h4>
+        <p>Navega libremente o sigue el orden recomendado empezando por el Bloque 0.</p>
+      </div>
+      <div class="paso">
+        <div class="num">02</div>
+        <h4>Trabaja los módulos</h4>
+        <p>Teoría clara + ejercicios con corrección inmediata en cada módulo.</p>
+      </div>
+      <div class="paso">
+        <div class="num">03</div>
+        <h4>Comprueba tu progreso</h4>
+        <p>El portal recuerda qué módulos has completado en tu dispositivo.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>Departamento de Matemáticas · Las Chapas ECOS · Marbella · Curso 2024–25</footer>
+
+<script>
+  function entrar() {
+    const nombre    = document.getElementById('nombre').value.trim();
+    const apellidos = document.getElementById('apellidos').value.trim();
+    const grupo     = document.getElementById('grupo').value;
+    const err       = document.getElementById('error-msg');
+
+    if (!nombre || !apellidos || !grupo) {
+      err.style.display = 'block';
+      return;
+    }
+    err.style.display = 'none';
+
+    sessionStorage.setItem('alumno_nombre',    nombre);
+    sessionStorage.setItem('alumno_apellidos', apellidos);
+    sessionStorage.setItem('alumno_grupo',     grupo);
+
+    window.location.href = 'bloque0-hub.html';
+  }
+</script>
+
+</body>
+</html>

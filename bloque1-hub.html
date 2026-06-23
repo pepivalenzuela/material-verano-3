@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloque 1 · Álgebra · 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root {
+      --color:   #1565c0;
+      --color-c: #e3f2fd;
+      --gris-bg: #f5f7fa;
+      --texto:   #212121;
+      --radio:   12px;
+      --sombra:  0 2px 8px rgba(0,0,0,.09);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--gris-bg); color: var(--texto); }
+
+    nav {
+      background: var(--color);
+      color: white;
+      padding: .7rem 1.4rem;
+      font-size: .9rem;
+      display: flex; align-items: center; gap: .5rem;
+    }
+    nav a { color: rgba(255,255,255,.8); text-decoration: none; }
+    nav a:hover { color: white; }
+    nav span { opacity: .6; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--color), #0d47a1);
+      color: white;
+      padding: 2.2rem 1.5rem 2rem;
+      text-align: center;
+    }
+    .hero .bloque-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      border-radius: 20px;
+      padding: .3rem 1rem;
+      font-size: .82rem;
+      letter-spacing: .06em;
+      margin-bottom: .9rem;
+    }
+    .hero h1 { font-size: 1.9rem; margin-bottom: .4rem; }
+    .hero p  { opacity: .88; font-size: .98rem; }
+
+    main { max-width: 780px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+
+    .progreso-bar-wrap {
+      background: white;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      padding: 1rem 1.4rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .label { font-size: .85rem; color: #555; white-space: nowrap; }
+    .barra-outer { flex: 1; background: #e0e0e0; border-radius: 99px; height: 10px; overflow: hidden; }
+    .barra-inner { height: 100%; background: var(--color); border-radius: 99px; transition: width .4s; }
+    .progreso-pct { font-weight: 700; color: var(--color); font-size: .9rem; white-space: nowrap; }
+
+    .subtema-section { margin-bottom: 2.2rem; }
+    .subtema-title {
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: #888;
+      margin-bottom: .8rem;
+    }
+
+    .modulos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media(max-width:520px){ .modulos-grid { grid-template-columns: 1fr; } }
+
+    .modulo-card {
+      background: white;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      text-decoration: none;
+      color: var(--texto);
+      display: flex;
+      flex-direction: column;
+      padding: 1.1rem 1.3rem;
+      border-top: 4px solid #e0e0e0;
+      transition: transform .15s, box-shadow .15s, border-color .15s;
+      position: relative;
+    }
+    .modulo-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px rgba(0,0,0,.13);
+      border-top-color: var(--color);
+    }
+    .modulo-card.completado { border-top-color: var(--color); }
+    .modulo-card.completado::after {
+      content: '✓';
+      position: absolute;
+      top: .7rem; right: .9rem;
+      background: var(--color-c);
+      color: var(--color);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: .15rem .5rem;
+      border-radius: 20px;
+    }
+    .modulo-icon  { font-size: 1.6rem; margin-bottom: .5rem; }
+    .modulo-nombre { font-size: .98rem; font-weight: 600; margin-bottom: .25rem; }
+    .modulo-desc  { font-size: .82rem; color: #666; line-height: 1.5; }
+
+    .btn-volver {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: .6rem 1.2rem;
+      background: white;
+      border: 1.5px solid var(--color);
+      color: var(--color);
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+    .btn-volver:hover { background: var(--color-c); }
+
+    footer { text-align: center; font-size: .82rem; color: #aaa; padding: 1.5rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Las Chapas ECOS</a>
+  <span>·</span>
+  <span>Matemáticas 3º ESO</span>
+  <span>·</span>
+  <strong>Bloque 1</strong>
+</nav>
+
+<div class="hero">
+  <div class="bloque-badge">Bloque 1</div>
+  <h1>Álgebra</h1>
+  <p>Polinomios, productos notables y factorización</p>
+</div>
+
+<main>
+
+  <div class="progreso-bar-wrap">
+    <span class="label">Tu progreso</span>
+    <div class="barra-outer"><div class="barra-inner" id="barra" style="width:0%"></div></div>
+    <span class="progreso-pct" id="pct">0 / 3</span>
+  </div>
+
+  <div class="subtema-section">
+    <p class="subtema-title">Módulos del bloque</p>
+    <div class="modulos-grid">
+
+      <a href="b1-polinomios.html" class="modulo-card" id="card-b1-poli">
+        <div class="modulo-icon">📊</div>
+        <div class="modulo-nombre">Polinomios y operaciones</div>
+        <div class="modulo-desc">Suma, resta, multiplicación y división de polinomios. Valor numérico.</div>
+      </a>
+
+      <a href="b1-productos-notables.html" class="modulo-card" id="card-b1-pn">
+        <div class="modulo-icon">⭐</div>
+        <div class="modulo-nombre">Productos notables</div>
+        <div class="modulo-desc">Cuadrado de la suma, cuadrado de la diferencia, suma por diferencia.</div>
+      </a>
+
+      <a href="b1-factorizacion.html" class="modulo-card" id="card-b1-fact">
+        <div class="modulo-icon">🔧</div>
+        <div class="modulo-nombre">Factorización de polinomios</div>
+        <div class="modulo-desc">Factor común, identidades notables y regla de Ruffini.</div>
+      </a>
+
+    </div>
+  </div>
+
+  <a href="index.html" class="btn-volver">← Volver al portal</a>
+
+</main>
+
+<footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
+
+<script>
+  const MODULOS_B1 = ['b1-poli','b1-pn','b1-fact'];
+
+  function actualizarProgreso() {
+    const completados = JSON.parse(sessionStorage.getItem('modulos_3eso_b1') || '[]');
+    let cuenta = 0;
+    MODULOS_B1.forEach(id => {
+      const card = document.getElementById('card-' + id);
+      if (card && completados.includes(id)) {
+        card.classList.add('completado');
+        cuenta++;
+      }
+    });
+    const pct = Math.round(cuenta / MODULOS_B1.length * 100);
+    document.getElementById('barra').style.width = pct + '%';
+    document.getElementById('pct').textContent = cuenta + ' / ' + MODULOS_B1.length;
+  }
+
+  actualizarProgreso();
+</script>
+
+</body>
+</html>

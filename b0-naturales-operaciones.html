@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operaciones con naturales · Bloque 0 · 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root {
+      --color:   #2e7d32;
+      --color-c: #e8f5e9;
+      --gris-bg: #f5f7fa;
+      --texto:   #212121;
+      --radio:   12px;
+      --sombra:  0 2px 8px rgba(0,0,0,.09);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--gris-bg); color: var(--texto); line-height: 1.6; }
+
+    nav {
+      background: var(--color);
+      color: white;
+      padding: .7rem 1.4rem;
+      font-size: .9rem;
+      display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+    }
+    nav a { color: rgba(255,255,255,.8); text-decoration: none; }
+    nav a:hover { color: white; }
+    nav span { opacity: .6; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--color), #1b5e20);
+      color: white;
+      padding: 1.8rem 1.5rem 1.6rem;
+      text-align: center;
+    }
+    .hero .modulo-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      border-radius: 20px;
+      padding: .25rem .9rem;
+      font-size: .8rem;
+      letter-spacing: .06em;
+      margin-bottom: .7rem;
+    }
+    .hero h1 { font-size: 1.6rem; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+
+    /* SECCIONES */
+    .seccion {
+      background: white;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 1.8rem;
+    }
+    .seccion h2 {
+      font-size: 1.05rem;
+      color: var(--color);
+      margin-bottom: 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 2px solid var(--color-c);
+    }
+    .seccion p { margin-bottom: .8rem; font-size: .96rem; }
+    .seccion ul { margin: .5rem 0 .8rem 1.2rem; }
+    .seccion li { margin-bottom: .4rem; font-size: .96rem; }
+
+    /* EJEMPLO */
+    .ejemplo {
+      background: var(--color-c);
+      border-left: 4px solid var(--color);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      font-size: .94rem;
+    }
+    .ejemplo strong { color: var(--color); }
+
+    /* NOTA */
+    .nota {
+      background: #fff8e1;
+      border-left: 4px solid #f9a825;
+      border-radius: 8px;
+      padding: .8rem 1rem;
+      margin: .8rem 0;
+      font-size: .88rem;
+      color: #4e3a00;
+    }
+
+    /* EJERCICIOS */
+    .ejercicio {
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.2rem;
+      background: #fafafa;
+    }
+    .ejercicio .enunciado {
+      font-size: .96rem;
+      margin-bottom: .9rem;
+      font-weight: 500;
+    }
+    .opciones { display: flex; flex-direction: column; gap: .5rem; margin-bottom: .8rem; }
+    .opcion {
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      padding: .55rem .9rem;
+      border-radius: 8px;
+      border: 1.5px solid #ddd;
+      background: white;
+      cursor: pointer;
+      font-size: .93rem;
+      transition: border-color .15s, background .15s;
+    }
+    .opcion:hover { border-color: var(--color); background: var(--color-c); }
+    .opcion input[type=radio] { accent-color: var(--color); }
+
+    .btn-comprobar {
+      padding: .55rem 1.2rem;
+      background: var(--color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .btn-comprobar:hover { background: #1b5e20; }
+
+    .feedback {
+      display: none;
+      margin-top: .8rem;
+      padding: .7rem 1rem;
+      border-radius: 8px;
+      font-size: .9rem;
+      font-weight: 500;
+    }
+    .feedback.correcto {
+      background: var(--color-c);
+      color: #1b5e20;
+      border-left: 4px solid var(--color);
+    }
+    .feedback.incorrecto {
+      background: #ffebee;
+      color: #b71c1c;
+      border-left: 4px solid #c62828;
+    }
+
+    /* COMPLETADO */
+    .completar-wrap {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      margin-bottom: 1.5rem;
+    }
+    .completar-wrap p { font-size: .92rem; color: #555; margin-bottom: 1rem; }
+    .btn-completar {
+      padding: .7rem 1.8rem;
+      background: var(--color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-completar:hover { background: #1b5e20; }
+    .completado-msg {
+      display: none;
+      background: var(--color-c);
+      color: #1b5e20;
+      border-radius: 10px;
+      padding: 1rem;
+      font-weight: 600;
+      font-size: .97rem;
+    }
+
+    .nav-modulos {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-nav {
+      padding: .6rem 1.2rem;
+      background: white;
+      border: 1.5px solid var(--color);
+      color: var(--color);
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+    .btn-nav:hover { background: var(--color-c); }
+
+    footer { text-align: center; font-size: .82rem; color: #aaa; padding: 1.5rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Inicio</a>
+  <span>·</span>
+  <a href="bloque0-hub.html">Bloque 0</a>
+  <span>·</span>
+  <strong>Operaciones con naturales</strong>
+</nav>
+
+<div class="hero">
+  <div class="modulo-badge">Bloque 0 · Números naturales</div>
+  <h1>🔢 Operaciones con números naturales</h1>
+</div>
+
+<main>
+
+  <!-- TEORÍA -->
+  <div class="seccion">
+    <h2>📖 Teoría</h2>
+
+    <p>Los <strong>números naturales</strong> (\(\mathbb{N} = \{0, 1, 2, 3, \ldots\}\)) son los números de contar. Sobre ellos se definen cuatro operaciones básicas.</p>
+
+    <ul>
+      <li><strong>Suma:</strong> \(a + b\). Propiedad conmutativa: \(a+b = b+a\). Asociativa: \((a+b)+c = a+(b+c)\).</li>
+      <li><strong>Resta:</strong> \(a - b\). No es conmutativa ni siempre posible en \(\mathbb{N}\) (si \(b > a\), el resultado sería negativo).</li>
+      <li><strong>Multiplicación:</strong> \(a \times b\). Conmutativa, asociativa y distributiva respecto de la suma.</li>
+      <li><strong>División entera:</strong> \(a \div b = c\) con resto \(r\), tal que \(a = b \cdot c + r\), con \(0 \leq r < b\).</li>
+      <li><strong>Potenciación:</strong> \(a^n = a \cdot a \cdots a\) (\(n\) veces). El exponente indica cuántas veces se multiplica la base.</li>
+    </ul>
+
+    <div class="ejemplo">
+      <strong>Ejemplo — División:</strong><br>
+      \(137 \div 6\)<br>
+      \(137 = 6 \times 22 + 5\)<br>
+      Cociente: \(22\), resto: \(5\)
+    </div>
+
+    <div class="ejemplo">
+      <strong>Ejemplo — Potencia:</strong><br>
+      \(3^4 = 3 \times 3 \times 3 \times 3 = 81\)
+    </div>
+
+    <div class="nota">
+      ⚠️ La división por cero no está definida: \(a \div 0\) no tiene sentido matemático.
+    </div>
+  </div>
+
+  <!-- EJERCICIOS -->
+  <div class="seccion">
+    <h2>✏️ Ejercicios</h2>
+
+    <!-- EJ 1 -->
+    <div class="ejercicio" id="ej1">
+      <div class="enunciado">Calcula: \(2^5\)</div>
+      <div class="opciones">
+        <label class="opcion"><input type="radio" name="ej1" value="a"> \(10\)</label>
+        <label class="opcion"><input type="radio" name="ej1" value="b"> \(25\)</label>
+        <label class="opcion"><input type="radio" name="ej1" value="c"> \(32\)</label>
+        <label class="opcion"><input type="radio" name="ej1" value="d"> \(64\)</label>
+      </div>
+      <button class="btn-comprobar" onclick="comprobar('ej1','c','\\(2^5 = 2\\times2\\times2\\times2\\times2 = 32\\)')">Comprobar</button>
+      <div class="feedback" id="fb-ej1"></div>
+    </div>
+
+    <!-- EJ 2 -->
+    <div class="ejercicio" id="ej2">
+      <div class="enunciado">¿Cuál es el resto de dividir \(253\) entre \(7\)?</div>
+      <div class="opciones">
+        <label class="opcion"><input type="radio" name="ej2" value="a"> \(0\)</label>
+        <label class="opcion"><input type="radio" name="ej2" value="b"> \(1\)</label>
+        <label class="opcion"><input type="radio" name="ej2" value="c"> \(3\)</label>
+        <label class="opcion"><input type="radio" name="ej2" value="d"> \(5\)</label>
+      </div>
+      <button class="btn-comprobar" onclick="comprobar('ej2','c','\\(253 = 7 \\times 36 + 1\\). Espera — comprobemos: \\(7\\times36=252\\), así que \\(253-252=1\\). El resto es \\(1\\).')">Comprobar</button>
+      <div class="feedback" id="fb-ej2"></div>
+    </div>
+
+    <!-- EJ 3 -->
+    <div class="ejercicio" id="ej3">
+      <div class="enunciado">¿Cuál es el resto de dividir \(253\) entre \(7\)? (versión correcta)</div>
+      <div class="opciones">
+        <label class="opcion"><input type="radio" name="ej3" value="a"> \(0\)</label>
+        <label class="opcion"><input type="radio" name="ej3" value="b"> \(1\)</label>
+        <label class="opcion"><input type="radio" name="ej3" value="c"> \(3\)</label>
+        <label class="opcion"><input type="radio" name="ej3" value="d"> \(5\)</label>
+      </div>
+      <button class="btn-comprobar" onclick="comprobar('ej3','b','\\(253 = 7 \\times 36 + 1\\), ya que \\(7\\times36 = 252\\) y \\(253 - 252 = 1\\).')">Comprobar</button>
+      <div class="feedback" id="fb-ej3"></div>
+    </div>
+
+    <!-- EJ 4 -->
+    <div class="ejercicio" id="ej4">
+      <div class="enunciado">¿Cuánto vale \(3^0\)?</div>
+      <div class="opciones">
+        <label class="opcion"><input type="radio" name="ej4" value="a"> \(0\)</label>
+        <label class="opcion"><input type="radio" name="ej4" value="b"> \(3\)</label>
+        <label class="opcion"><input type="radio" name="ej4" value="c"> \(1\)</label>
+        <label class="opcion"><input type="radio" name="ej4" value="d"> No está definido</label>
+      </div>
+      <button class="btn-comprobar" onclick="comprobar('ej4','c','Todo número (distinto de cero) elevado a \\(0\\) vale \\(1\\): \\(a^0 = 1\\).')">Comprobar</button>
+      <div class="feedback" id="fb-ej4"></div>
+    </div>
+
+  </div>
+
+  <!-- MARCAR COMPLETADO -->
+  <div class="completar-wrap" id="completar-wrap">
+    <p>Cuando hayas terminado todos los ejercicios, marca este módulo como completado.</p>
+    <button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button>
+  </div>
+  <div class="completado-msg" id="completado-msg">
+    ✅ Módulo completado. ¡Buen trabajo! Vuelve al Bloque 0 para continuar.
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="nav-modulos">
+    <a href="bloque0-hub.html" class="btn-nav">← Volver al Bloque 0</a>
+    <a href="b0-naturales-jerarquia.html" class="btn-nav">Siguiente: Jerarquía →</a>
+  </div>
+
+</main>
+
+<footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
+
+<script>
+  const MODULE_ID   = 'b0-nat-op';
+  const SESSION_KEY = 'modulos_3eso_b0';
+
+  // --- comprobación de respuestas ---
+  function comprobar(ejId, correcta, explicacion) {
+    const seleccion = document.querySelector('input[name="' + ejId + '"]:checked');
+    const fb = document.getElementById('fb-' + ejId);
+    if (!seleccion) {
+      fb.style.display = 'block';
+      fb.className = 'feedback incorrecto';
+      fb.textContent = 'Selecciona una opción antes de comprobar.';
+      return;
+    }
+    fb.style.display = 'block';
+    if (seleccion.value === correcta) {
+      fb.className = 'feedback correcto';
+      fb.innerHTML = '✓ ¡Correcto! ' + explicacion;
+    } else {
+      fb.className = 'feedback incorrecto';
+      fb.innerHTML = '✗ No es correcto. ' + explicacion;
+    }
+    MathJax.typesetPromise([fb]);
+  }
+
+  // --- marcar completado ---
+  function marcarCompletado() {
+    const completados = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '[]');
+    if (!completados.includes(MODULE_ID)) completados.push(MODULE_ID);
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify(completados));
+    document.getElementById('completar-wrap').style.display = 'none';
+    document.getElementById('completado-msg').style.display = 'block';
+  }
+
+  // --- restaurar estado si ya estaba completado ---
+  (function() {
+    const completados = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '[]');
+    if (completados.includes(MODULE_ID)) {
+      document.getElementById('completar-wrap').style.display = 'none';
+      document.getElementById('completado-msg').style.display = 'block';
+    }
+  })();
+</script>
+
+</body>
+</html>

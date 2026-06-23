@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[NOMBRE DEL MÓDULO] · [BLOQUE] · 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    /*
+     * COLORES POR BLOQUE — descomenta el bloque correspondiente y borra los demás:
+     *
+     * Bloque 0 (verde):
+     *   --color: #2e7d32;  --color-c: #e8f5e9;
+     *
+     * Bloque 1 (azul):
+     *   --color: #1565c0;  --color-c: #e3f2fd;
+     *
+     * Bloque 2 (naranja):
+     *   --color: #e65100;  --color-c: #fff3e0;
+     */
+    :root {
+      --color:   #2e7d32;   /* ← CAMBIA SEGÚN EL BLOQUE */
+      --color-c: #e8f5e9;
+      --gris-bg: #f5f7fa;
+      --texto:   #212121;
+      --radio:   12px;
+      --sombra:  0 2px 8px rgba(0,0,0,.09);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--gris-bg); color: var(--texto); line-height: 1.6; }
+
+    nav {
+      background: var(--color);
+      color: white;
+      padding: .7rem 1.4rem;
+      font-size: .9rem;
+      display: flex; align-items: center; gap: .5rem; flex-wrap: wrap;
+    }
+    nav a { color: rgba(255,255,255,.8); text-decoration: none; }
+    nav a:hover { color: white; }
+    nav span { opacity: .6; }
+
+    .hero {
+      background: linear-gradient(135deg, var(--color), color-mix(in srgb, var(--color) 70%, black));
+      color: white;
+      padding: 1.8rem 1.5rem 1.6rem;
+      text-align: center;
+    }
+    .modulo-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.18);
+      border-radius: 20px;
+      padding: .25rem .9rem;
+      font-size: .8rem;
+      letter-spacing: .06em;
+      margin-bottom: .7rem;
+    }
+    .hero h1 { font-size: 1.6rem; }
+
+    main { max-width: 760px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+
+    .seccion {
+      background: white;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 1.8rem;
+    }
+    .seccion h2 {
+      font-size: 1.05rem;
+      color: var(--color);
+      margin-bottom: 1rem;
+      padding-bottom: .5rem;
+      border-bottom: 2px solid var(--color-c);
+    }
+    .seccion p  { margin-bottom: .8rem; font-size: .96rem; }
+    .seccion ul { margin: .5rem 0 .8rem 1.2rem; }
+    .seccion li { margin-bottom: .4rem; font-size: .96rem; }
+
+    .ejemplo {
+      background: var(--color-c);
+      border-left: 4px solid var(--color);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      font-size: .94rem;
+    }
+    .ejemplo strong { color: var(--color); }
+
+    .nota {
+      background: #fff8e1;
+      border-left: 4px solid #f9a825;
+      border-radius: 8px;
+      padding: .8rem 1rem;
+      margin: .8rem 0;
+      font-size: .88rem;
+      color: #4e3a00;
+    }
+
+    .ejercicio {
+      border: 1.5px solid #e0e0e0;
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.2rem;
+      background: #fafafa;
+    }
+    .ejercicio .enunciado { font-size: .96rem; margin-bottom: .9rem; font-weight: 500; }
+    .opciones { display: flex; flex-direction: column; gap: .5rem; margin-bottom: .8rem; }
+    .opcion {
+      display: flex; align-items: center; gap: .7rem;
+      padding: .55rem .9rem;
+      border-radius: 8px;
+      border: 1.5px solid #ddd;
+      background: white;
+      cursor: pointer;
+      font-size: .93rem;
+      transition: border-color .15s, background .15s;
+    }
+    .opcion:hover { border-color: var(--color); background: var(--color-c); }
+    .opcion input[type=radio] { accent-color: var(--color); }
+    .btn-comprobar {
+      padding: .55rem 1.2rem;
+      background: var(--color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-comprobar:hover { filter: brightness(.9); }
+    .feedback {
+      display: none;
+      margin-top: .8rem;
+      padding: .7rem 1rem;
+      border-radius: 8px;
+      font-size: .9rem;
+      font-weight: 500;
+    }
+    .feedback.correcto  { background: var(--color-c); color: #1b5e20; border-left: 4px solid var(--color); }
+    .feedback.incorrecto{ background: #ffebee; color: #b71c1c; border-left: 4px solid #c62828; }
+
+    .completar-wrap {
+      text-align: center;
+      padding: 1.5rem;
+      background: white;
+      border-radius: var(--radio);
+      box-shadow: var(--sombra);
+      margin-bottom: 1.5rem;
+    }
+    .completar-wrap p { font-size: .92rem; color: #555; margin-bottom: 1rem; }
+    .btn-completar {
+      padding: .7rem 1.8rem;
+      background: var(--color);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .completado-msg {
+      display: none;
+      background: var(--color-c);
+      color: #1b5e20;
+      border-radius: 10px;
+      padding: 1rem;
+      font-weight: 600;
+      font-size: .97rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .nav-modulos { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .btn-nav {
+      padding: .6rem 1.2rem;
+      background: white;
+      border: 1.5px solid var(--color);
+      color: var(--color);
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+    .btn-nav:hover { background: var(--color-c); }
+    footer { text-align: center; font-size: .82rem; color: #aaa; padding: 1.5rem; }
+  </style>
+</head>
+<body>
+
+<!-- ========================================================
+     AJUSTA: enlaces del nav, badge, título, icono
+     ======================================================== -->
+<nav>
+  <a href="index.html">Inicio</a>
+  <span>·</span>
+  <a href="bloqueX-hub.html">Bloque X</a>   <!-- ← CAMBIA -->
+  <span>·</span>
+  <strong>[Nombre del módulo]</strong>       <!-- ← CAMBIA -->
+</nav>
+
+<div class="hero">
+  <div class="modulo-badge">Bloque X · [Subtema]</div>  <!-- ← CAMBIA -->
+  <h1>[ICONO] [Nombre del módulo]</h1>                   <!-- ← CAMBIA -->
+</div>
+
+<main>
+
+  <!-- ======================================================
+       SECCIÓN 1: TEORÍA
+       ====================================================== -->
+  <div class="seccion">
+    <h2>📖 Teoría</h2>
+
+    <p>[Explicación principal del concepto...]</p>
+
+    <ul>
+      <li><strong>Propiedad 1:</strong> ...</li>
+      <li><strong>Propiedad 2:</strong> ...</li>
+    </ul>
+
+    <div class="ejemplo">
+      <strong>Ejemplo:</strong><br>
+      \( \text{expresión} = \text{resultado} \)
+    </div>
+
+    <div class="nota">
+      ⚠️ [Nota importante o caso especial]
+    </div>
+  </div>
+
+  <!-- ======================================================
+       SECCIÓN 2: EJERCICIOS
+       Patrón: comprobar(id, letra_correcta, explicación)
+       ====================================================== -->
+  <div class="seccion">
+    <h2>✏️ Ejercicios</h2>
+
+    <!-- EJERCICIO 1 -->
+    <div class="ejercicio" id="ej1">
+      <div class="enunciado">[Enunciado con LaTeX si hace falta: \( ... \)]</div>
+      <div class="opciones">
+        <label class="opcion"><input type="radio" name="ej1" value="a"> [Opción A]</label>
+        <label class="opcion"><input type="radio" name="ej1" value="b"> [Opción B]</label>
+        <label class="opcion"><input type="radio" name="ej1" value="c"> [Opción C — CORRECTA]</label>
+        <label class="opcion"><input type="radio" name="ej1" value="d"> [Opción D]</label>
+      </div>
+      <button class="btn-comprobar" onclick="comprobar('ej1','c','[Explicación de por qué es correcta]')">Comprobar</button>
+      <div class="feedback" id="fb-ej1"></div>
+    </div>
+
+    <!-- EJERCICIO 2 -->
+    <div class="ejercicio" id="ej2">
+      <div class="enunciado">[Enunciado]</div>
+      <div class="opciones">
+        <label class="opcion"><input type="radio" name="ej2" value="a"> ...</label>
+        <label class="opcion"><input type="radio" name="ej2" value="b"> ...</label>
+        <label class="opcion"><input type="radio" name="ej2" value="c"> ...</label>
+        <label class="opcion"><input type="radio" name="ej2" value="d"> ...</label>
+      </div>
+      <button class="btn-comprobar" onclick="comprobar('ej2','X','...')">Comprobar</button>
+      <div class="feedback" id="fb-ej2"></div>
+    </div>
+
+    <!-- Añade más ejercicios según necesites, cambiando ej3, ej4... -->
+
+  </div>
+
+  <!-- MARCAR COMPLETADO -->
+  <div class="completar-wrap" id="completar-wrap">
+    <p>Cuando hayas terminado todos los ejercicios, marca este módulo como completado.</p>
+    <button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button>
+  </div>
+  <div class="completado-msg" id="completado-msg">
+    ✅ Módulo completado. ¡Buen trabajo! Vuelve al hub para continuar.
+  </div>
+
+  <!-- NAVEGACIÓN -->
+  <div class="nav-modulos">
+    <a href="bloqueX-hub.html" class="btn-nav">← Volver al Bloque X</a>      <!-- ← CAMBIA -->
+    <a href="siguiente-modulo.html" class="btn-nav">Siguiente: [Nombre] →</a>  <!-- ← CAMBIA -->
+  </div>
+
+</main>
+
+<footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
+
+<script>
+  /*
+   * AJUSTA:
+   *   MODULE_ID   → id único de este módulo (debe coincidir con el id en el hub)
+   *   SESSION_KEY → 'modulos_3eso_b0', 'modulos_3eso_b1' o 'modulos_3eso_b2'
+   */
+  const MODULE_ID   = 'CAMBIA-ESTE-ID';   // ← ej: 'b0-nat-jer', 'b1-poli', etc.
+  const SESSION_KEY = 'modulos_3eso_bX';  // ← ej: 'modulos_3eso_b0'
+
+  function comprobar(ejId, correcta, explicacion) {
+    const seleccion = document.querySelector('input[name="' + ejId + '"]:checked');
+    const fb = document.getElementById('fb-' + ejId);
+    if (!seleccion) {
+      fb.style.display = 'block';
+      fb.className = 'feedback incorrecto';
+      fb.textContent = 'Selecciona una opción antes de comprobar.';
+      return;
+    }
+    fb.style.display = 'block';
+    if (seleccion.value === correcta) {
+      fb.className = 'feedback correcto';
+      fb.innerHTML = '✓ ¡Correcto! ' + explicacion;
+    } else {
+      fb.className = 'feedback incorrecto';
+      fb.innerHTML = '✗ No es correcto. ' + explicacion;
+    }
+    MathJax.typesetPromise([fb]);
+  }
+
+  function marcarCompletado() {
+    const completados = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '[]');
+    if (!completados.includes(MODULE_ID)) completados.push(MODULE_ID);
+    sessionStorage.setItem(SESSION_KEY, JSON.stringify(completados));
+    document.getElementById('completar-wrap').style.display = 'none';
+    document.getElementById('completado-msg').style.display = 'block';
+  }
+
+  (function() {
+    const completados = JSON.parse(sessionStorage.getItem(SESSION_KEY) || '[]');
+    if (completados.includes(MODULE_ID)) {
+      document.getElementById('completar-wrap').style.display = 'none';
+      document.getElementById('completado-msg').style.display = 'block';
+    }
+  })();
+</script>
+
+</body>
+</html>
