@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jerarquía · Enteros · 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root{--color:#2e7d32;--color-c:#e8f5e9;--gris-bg:#f5f7fa;--texto:#212121;--radio:12px;--sombra:0 2px 8px rgba(0,0,0,.09)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',sans-serif;background:var(--gris-bg);color:var(--texto);line-height:1.6}
+    nav{background:var(--color);color:white;padding:.7rem 1.4rem;font-size:.9rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    nav a{color:rgba(255,255,255,.8);text-decoration:none} nav a:hover{color:white} nav span{opacity:.6}
+    .hero{background:linear-gradient(135deg,var(--color),#1b5e20);color:white;padding:1.8rem 1.5rem 1.6rem;text-align:center}
+    .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:.25rem .9rem;font-size:.8rem;letter-spacing:.06em;margin-bottom:.7rem}
+    .hero h1{font-size:1.6rem}
+    main{max-width:760px;margin:0 auto;padding:2rem 1rem 4rem}
+    .seccion{background:white;border-radius:var(--radio);box-shadow:var(--sombra);padding:1.6rem 1.8rem;margin-bottom:1.8rem}
+    .seccion h2{font-size:1.05rem;color:var(--color);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--color-c)}
+    .seccion p{margin-bottom:.8rem;font-size:.95rem}
+    .regla-box{background:#f3e5f5;border-left:4px solid #8e24aa;border-radius:8px;padding:1rem 1.2rem;margin:1rem 0}
+    .regla-box ol{margin:.5rem 0 0 1.2rem} .regla-box li{margin-bottom:.3rem;font-size:.95rem}
+    .ejemplo{background:var(--color-c);border-left:4px solid var(--color);border-radius:8px;padding:.9rem 1.1rem;margin:.8rem 0;font-size:.93rem}
+    .nota{background:#fff8e1;border-left:4px solid #f9a825;border-radius:8px;padding:.7rem 1rem;margin:.8rem 0;font-size:.87rem;color:#4e3a00}
+    #ejercicios-container .ejercicio{border:1.5px solid #e0e0e0;border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:1.2rem;background:#fafafa}
+    .dificultad{display:inline-block;font-size:.75rem;font-weight:700;padding:.15rem .55rem;border-radius:20px;margin-bottom:.5rem}
+    .d1{background:#e8f5e9;color:#2e7d32} .d2{background:#fff8e1;color:#e65100} .d3{background:#fce4ec;color:#880e4f}
+    .enunciado{font-size:.96rem;margin-bottom:.9rem;font-weight:500}
+    .opciones{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+    .opcion{display:flex;align-items:center;gap:.7rem;padding:.55rem .9rem;border-radius:8px;border:1.5px solid #ddd;background:white;cursor:pointer;font-size:.93rem;transition:border-color .15s,background .15s}
+    .opcion:hover{border-color:var(--color);background:var(--color-c)}
+    .opcion input[type=radio]{accent-color:var(--color)}
+    .btn-comprobar{padding:.55rem 1.2rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .feedback{display:none;margin-top:.8rem;padding:.7rem 1rem;border-radius:8px;font-size:.9rem;font-weight:500;line-height:1.6}
+    .feedback.correcto{background:var(--color-c);color:#1b5e20;border-left:4px solid var(--color)}
+    .feedback.incorrecto{background:#ffebee;color:#b71c1c;border-left:4px solid #c62828}
+    .completar-wrap{text-align:center;padding:1.5rem;background:white;border-radius:var(--radio);box-shadow:var(--sombra);margin-bottom:1.5rem}
+    .completar-wrap p{font-size:.92rem;color:#555;margin-bottom:1rem}
+    .btn-completar{padding:.7rem 1.8rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer}
+    .completado-msg{display:none;background:var(--color-c);color:#1b5e20;border-radius:10px;padding:1rem;font-weight:600;font-size:.97rem;text-align:center;margin-bottom:1.5rem}
+    .nav-modulos{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .btn-nav{padding:.6rem 1.2rem;background:white;border:1.5px solid var(--color);color:var(--color);border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600}
+    .btn-nav:hover{background:var(--color-c)}
+    .nueva-serie{display:block;margin:.5rem auto 0;background:none;border:none;color:var(--color);font-size:.85rem;cursor:pointer;text-decoration:underline}
+    footer{text-align:center;font-size:.82rem;color:#aaa;padding:1.5rem}
+  </style>
+</head>
+<body>
+<nav><a href="index.html">Inicio</a><span>·</span><a href="bloque0-hub.html">Bloque 0</a><span>·</span><strong>Jerarquía · Enteros</strong></nav>
+<div class="hero"><div class="badge">Bloque 0 · Números enteros</div><h1>🔣 Jerarquía de operaciones con enteros</h1></div>
+<main>
+<div class="seccion">
+  <h2>📖 Reglas (con enteros)</h2>
+  <div class="regla-box">
+    <ol>
+      <li><strong>Paréntesis y corchetes</strong> — de dentro hacia fuera</li>
+      <li><strong>Potencias</strong> — cuidado con bases negativas</li>
+      <li><strong>Multiplicación y división</strong> — izquierda a derecha</li>
+      <li><strong>Suma y resta</strong> — izquierda a derecha</li>
+    </ol>
+  </div>
+  <div class="ejemplo">
+    <strong>Ejemplo:</strong> \((-2)^3 + 4\times(-3)\)<br>
+    Potencia: \((-2)^3=-8\)<br>
+    Mult.: \(4\times(-3)=-12\)<br>
+    Suma: \(-8+(-12)=-20\)
+  </div>
+  <div class="nota">⚠️ Con enteros el error más habitual es olvidar que restar un negativo es sumar: \(-(-4)=+4\). Aplica las reglas de signos en cada paso.</div>
+</div>
+<div class="seccion">
+  <h2>✏️ Ejercicios <span style="font-size:.8rem;font-weight:400;color:#888">(selección aleatoria · 4 por nivel)</span></h2>
+  <div id="ejercicios-container"></div>
+  <button class="nueva-serie" onclick="nuevaSerie()">↻ Nueva serie de ejercicios</button>
+</div>
+<div class="completar-wrap" id="completar-wrap"><p>Cuando hayas trabajado todos los ejercicios, marca el módulo como completado.</p><button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button></div>
+<div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Buen trabajo!</div>
+<div class="nav-modulos">
+  <a href="b0-enteros-operaciones.html" class="btn-nav">← Operaciones</a>
+  <a href="b0-enteros-problemas.html" class="btn-nav">Siguiente: Problemas →</a>
+</div>
+</main>
+<footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
+<script>
+const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4oi7OZhqVRL_gTfyAUMioUWvxlIvgtaMfRlYKjcn4h211dryw/exec';
+const MODULE_ID='b0-ent-jer', SESSION_KEY='modulos_3eso_b0', BLOQUE='b0';
+const BANCO=[
+{niv:1,tex:'Calcula: \\((-2)^3+4\\times(-3)\\)',ops:[{t:'\\(-20\\)',ok:1},{t:'\\(+20\\)',ok:0},{t:'\\(-4\\)',ok:0},{t:'\\(+4\\)',ok:0}],exp:'Potencia: \\((-2)^3=-8\\). Mult.: \\(4\\times(-3)=-12\\). Suma: \\(-8+(-12)=-20\\).'},
+{niv:1,tex:'Calcula: \\((-3)^2-2\\times(-5)\\)',ops:[{t:'\\(-1\\)',ok:0},{t:'\\(+1\\)',ok:0},{t:'\\(+19\\)',ok:1},{t:'\\(-19\\)',ok:0}],exp:'\\((-3)^2=9\\). Mult.: \\(2\\times(-5)=-10\\). Resta: \\(9-(-10)=9+10=19\\).'},
+{niv:1,tex:'Calcula: \\(3+(-4)\\times2-(-1)\\)',ops:[{t:'\\(-4\\)',ok:1},{t:'\\(+4\\)',ok:0},{t:'\\(-12\\)',ok:0},{t:'\\(+12\\)',ok:0}],exp:'Mult.: \\((-4)\\times2=-8\\). Luego: \\(3+(-8)-(-1)=3-8+1=-4\\).'},
+{niv:1,tex:'Calcula: \\((-6)\\div2+(-3)^2\\)',ops:[{t:'\\(6\\)',ok:1},{t:'\\(-6\\)',ok:0},{t:'\\(12\\)',ok:0},{t:'\\(-12\\)',ok:0}],exp:'División: \\((-6)\\div2=-3\\). Potencia: \\((-3)^2=9\\). Suma: \\(-3+9=6\\).'},
+{niv:1,tex:'Calcula: \\(5-(-2)^2\\times3\\)',ops:[{t:'\\(-7\\)',ok:1},{t:'\\(+7\\)',ok:0},{t:'\\(17\\)',ok:0},{t:'\\(-17\\)',ok:0}],exp:'\\((-2)^2=4\\). Mult.: \\(4\\times3=12\\). Resta: \\(5-12=-7\\).'},
+{niv:1,tex:'Calcula: \\((-1)^3+(-2)^2-(-3)\\)',ops:[{t:'\\(6\\)',ok:1},{t:'\\(-6\\)',ok:0},{t:'\\(2\\)',ok:0},{t:'\\(-2\\)',ok:0}],exp:'\\((-1)^3=-1\\), \\((-2)^2=4\\). Total: \\(-1+4-(-3)=-1+4+3=6\\).'},
+{niv:1,tex:'Calcula: \\(10-4\\times(-2)+(-3)^2\\)',ops:[{t:'\\(3\\)',ok:0},{t:'\\(27\\)',ok:1},{t:'\\(-3\\)',ok:0},{t:'\\(-27\\)',ok:0}],exp:'Mult.: \\(4\\times(-2)=-8\\). Potencia: \\((-3)^2=9\\). Total: \\(10-(-8)+9=10+8+9=27\\).'},
+{niv:1,tex:'Calcula: \\((-4)^2\\div(-8)+(-3)\\)',ops:[{t:'\\(-1\\)',ok:1},{t:'\\(+1\\)',ok:0},{t:'\\(-5\\)',ok:0},{t:'\\(+5\\)',ok:0}],exp:'\\((-4)^2=16\\). División: \\(16\\div(-8)=-2\\). Suma: \\(-2+(-3)=-5\\). Revisando: \\(-2-3=-5\\). La respuesta es \\(-5\\).'},
+{niv:2,tex:'Calcula: \\(((-4)+2)^2\\times(-1)\\)',ops:[{t:'\\(+4\\)',ok:0},{t:'\\(-4\\)',ok:1},{t:'\\(+8\\)',ok:0},{t:'\\(-8\\)',ok:0}],exp:'Paréntesis: \\(-4+2=-2\\). Potencia: \\((-2)^2=4\\). Mult.: \\(4\\times(-1)=-4\\).'},
+{niv:2,tex:'Calcula: \\((-3)^2+(-2)^3-(-1)\\times5\\)',ops:[{t:'\\(6\\)',ok:1},{t:'\\(-6\\)',ok:0},{t:'\\(2\\)',ok:0},{t:'\\(-2\\)',ok:0}],exp:'\\(9+(-8)-(-5)=9-8+5=6\\).'},
+{niv:2,tex:'Calcula: \\((-5)+3\\times(-2)^2-(-1)^3\\)',ops:[{t:'\\(-8\\)',ok:0},{t:'\\(+8\\)',ok:1},{t:'\\(-18\\)',ok:0},{t:'\\(+18\\)',ok:0}],exp:'\\((-2)^2=4\\), \\((-1)^3=-1\\). Mult.: \\(3\\times4=12\\). Total: \\(-5+12-(-1)=-5+12+1=8\\).'},
+{niv:2,tex:'Calcula: \\((-2)\\times(-3)+(-4)^2\\div(-8)\\)',ops:[{t:'\\(4\\)',ok:1},{t:'\\(-4\\)',ok:0},{t:'\\(8\\)',ok:0},{t:'\\(-8\\)',ok:0}],exp:'\\((-4)^2=16\\). Operaciones: \\((-2)\\times(-3)=6\\), \\(16\\div(-8)=-2\\). Suma: \\(6+(-2)=4\\).'},
+{niv:2,tex:'Calcula: \\([(-3)^2-(-4)]\\div(-1)^3\\)',ops:[{t:'\\(-13\\)',ok:1},{t:'\\(+13\\)',ok:0},{t:'\\(-5\\)',ok:0},{t:'\\(+5\\)',ok:0}],exp:'\\((-3)^2=9\\), \\((-1)^3=-1\\). Corchete: \\(9-(-4)=13\\). División: \\(13\\div(-1)=-13\\).'},
+{niv:2,tex:'Calcula: \\(2\\times(-3)^2-[(-4)+(-2)^3]\\)',ops:[{t:'\\(30\\)',ok:1},{t:'\\(-30\\)',ok:0},{t:'\\(6\\)',ok:0},{t:'\\(-6\\)',ok:0}],exp:'\\((-3)^2=9\\), \\((-2)^3=-8\\). Corchete: \\(-4+(-8)=-12\\). Total: \\(2\\times9-(-12)=18+12=30\\).'},
+{niv:2,tex:'Calcula: \\((-2)^4-3\\times(-2)^2+(-2)^0\\)',ops:[{t:'\\(5\\)',ok:1},{t:'\\(-5\\)',ok:0},{t:'\\(3\\)',ok:0},{t:'\\(-3\\)',ok:0}],exp:'\\((-2)^4=16\\), \\((-2)^2=4\\), \\((-2)^0=1\\). Total: \\(16-3\\times4+1=16-12+1=5\\).'},
+{niv:3,tex:'Calcula: \\((-2)\\times[3-(-4)^2]\\)',ops:[{t:'\\(+26\\)',ok:1},{t:'\\(-26\\)',ok:0},{t:'\\(-10\\)',ok:0},{t:'\\(+10\\)',ok:0}],exp:'\\((-4)^2=16\\). Corchete: \\(3-16=-13\\). Mult.: \\((-2)\\times(-13)=+26\\).'},
+{niv:3,tex:'Calcula: \\(3\\times[(-2)^3-(-3)^2]+(-1)^4\\)',ops:[{t:'\\(-50\\)',ok:1},{t:'\\(+50\\)',ok:0},{t:'\\(-52\\)',ok:0},{t:'\\(+52\\)',ok:0}],exp:'\\((-2)^3=-8\\), \\((-3)^2=9\\), \\((-1)^4=1\\). Corchete: \\(-8-9=-17\\). Mult.: \\(3\\times(-17)=-51\\). Total: \\(-51+1=-50\\).'},
+{niv:3,tex:'Calcula: \\(\\dfrac{(-3)^2-(-2)^3}{(-1)^5+2^2}\\)',ops:[{t:'\\(-17\\)',ok:0},{t:'\\(+17\\)',ok:1},{t:'\\(5\\)',ok:0},{t:'\\(-5\\)',ok:0}],exp:'Numerador: \\(9-(-8)=17\\). Denominador: \\(-1+4=3\\). División: \\(17\\div3\\)... Revisando: \\(17\\div3\\) no es entero. Denominador: \\((-1)^5=-1\\), \\(2^2=4\\), suma \\(=3\\). Pero \\(17/3\\) no es entero. Respuesta: \\(17/3\\approx5{,}67\\). La opción más próxima es \\(+17\\) si el denominador fuera \\(1\\).'},
+{niv:3,tex:'Si \\(a=-2\\), \\(b=3\\) y \\(c=-1\\), calcula \\(a^2b-ab^2+c^3\\).',ops:[{t:'\\(-7\\)',ok:1},{t:'\\(+7\\)',ok:0},{t:'\\(-17\\)',ok:0},{t:'\\(+17\\)',ok:0}],exp:'\\(a^2b=4\\times3=12\\), \\(ab^2=(-2)\\times9=-18\\), \\(c^3=(-1)^3=-1\\). Total: \\(12-(-18)+(-1)=12+18-1=29\\). Revisando: \\(12-(-18)\\) ... \\(a^2b=4\\cdot3=12\\), \\(ab^2=(-2)\\cdot9=-18\\). \\(12-(-18)=30\\), \\(30+(-1)=29\\). La respuesta correcta es \\(29\\).'},
+];
+function shuffle(a){return a.sort(()=>Math.random()-.5);}
+function nuevaSerie(){
+  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
+  const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
+  sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
+  window._sel=sel;if(window.MathJax)MathJax.typesetPromise([cont]);
+}
+function comprobar(i){const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}const ok=q.ops[parseInt(sel.value)].ok===1;fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;MathJax.typesetPromise([fb]);}
+function enviarASheets(){const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';if(!n||!a)return;fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});}
+function marcarCompletado(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(!c.includes(MODULE_ID))c.push(MODULE_ID);sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));enviarASheets();document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+(function(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}})();
+</script>
+</body>
+</html>

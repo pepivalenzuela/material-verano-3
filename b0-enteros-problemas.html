@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Problemas · Enteros · 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root{--color:#2e7d32;--color-c:#e8f5e9;--gris-bg:#f5f7fa;--texto:#212121;--radio:12px;--sombra:0 2px 8px rgba(0,0,0,.09)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',sans-serif;background:var(--gris-bg);color:var(--texto);line-height:1.6}
+    nav{background:var(--color);color:white;padding:.7rem 1.4rem;font-size:.9rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    nav a{color:rgba(255,255,255,.8);text-decoration:none} nav a:hover{color:white} nav span{opacity:.6}
+    .hero{background:linear-gradient(135deg,var(--color),#1b5e20);color:white;padding:1.8rem 1.5rem 1.6rem;text-align:center}
+    .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:.25rem .9rem;font-size:.8rem;letter-spacing:.06em;margin-bottom:.7rem}
+    .hero h1{font-size:1.6rem}
+    main{max-width:760px;margin:0 auto;padding:2rem 1rem 4rem}
+    .seccion{background:white;border-radius:var(--radio);box-shadow:var(--sombra);padding:1.6rem 1.8rem;margin-bottom:1.8rem}
+    .seccion h2{font-size:1.05rem;color:var(--color);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--color-c)}
+    .seccion p{margin-bottom:.8rem;font-size:.95rem}
+    .estrategia{background:#e3f2fd;border-left:4px solid #1565c0;border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0;font-size:.94rem}
+    #ejercicios-container .ejercicio{border:1.5px solid #e0e0e0;border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:1.2rem;background:#fafafa}
+    .dificultad{display:inline-block;font-size:.75rem;font-weight:700;padding:.15rem .55rem;border-radius:20px;margin-bottom:.6rem}
+    .d1{background:#e8f5e9;color:#2e7d32} .d2{background:#fff8e1;color:#e65100} .d3{background:#fce4ec;color:#880e4f}
+    .enunciado{font-size:.96rem;margin-bottom:1rem;line-height:1.7;font-weight:500}
+    .opciones{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+    .opcion{display:flex;align-items:center;gap:.7rem;padding:.55rem .9rem;border-radius:8px;border:1.5px solid #ddd;background:white;cursor:pointer;font-size:.93rem;transition:border-color .15s,background .15s}
+    .opcion:hover{border-color:var(--color);background:var(--color-c)}
+    .opcion input[type=radio]{accent-color:var(--color)}
+    .btn-comprobar{padding:.55rem 1.2rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .feedback{display:none;margin-top:.8rem;padding:.7rem 1rem;border-radius:8px;font-size:.9rem;font-weight:500;line-height:1.6}
+    .feedback.correcto{background:var(--color-c);color:#1b5e20;border-left:4px solid var(--color)}
+    .feedback.incorrecto{background:#ffebee;color:#b71c1c;border-left:4px solid #c62828}
+    .completar-wrap{text-align:center;padding:1.5rem;background:white;border-radius:var(--radio);box-shadow:var(--sombra);margin-bottom:1.5rem}
+    .completar-wrap p{font-size:.92rem;color:#555;margin-bottom:1rem}
+    .btn-completar{padding:.7rem 1.8rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer}
+    .completado-msg{display:none;background:var(--color-c);color:#1b5e20;border-radius:10px;padding:1rem;font-weight:600;font-size:.97rem;text-align:center;margin-bottom:1.5rem}
+    .nav-modulos{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .btn-nav{padding:.6rem 1.2rem;background:white;border:1.5px solid var(--color);color:var(--color);border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600}
+    .btn-nav:hover{background:var(--color-c)}
+    .nueva-serie{display:block;margin:.5rem auto 0;background:none;border:none;color:var(--color);font-size:.85rem;cursor:pointer;text-decoration:underline}
+    footer{text-align:center;font-size:.82rem;color:#aaa;padding:1.5rem}
+  </style>
+</head>
+<body>
+<nav><a href="index.html">Inicio</a><span>·</span><a href="bloque0-hub.html">Bloque 0</a><span>·</span><strong>Problemas · Enteros</strong></nav>
+<div class="hero"><div class="badge">Bloque 0 · Números enteros</div><h1>🌡️ Problemas contextualizados con enteros</h1></div>
+<main>
+<div class="seccion">
+  <h2>📖 Contextos habituales de los enteros</h2>
+  <div class="estrategia">
+    <strong>Temperatura:</strong> descenso = restar · ascenso = sumar · diferencia = valor mayor − valor menor<br>
+    <strong>Altitudes:</strong> por encima del mar = positivo · por debajo = negativo<br>
+    <strong>Economía:</strong> deuda o gasto = negativo · ingreso o ganancia = positivo<br>
+    <strong>Plantas de edificio:</strong> sótanos = negativos · planta baja = 0 · pisos = positivos
+  </div>
+</div>
+<div class="seccion">
+  <h2>✏️ Problemas <span style="font-size:.8rem;font-weight:400;color:#888">(selección aleatoria · 4 por nivel)</span></h2>
+  <div id="ejercicios-container"></div>
+  <button class="nueva-serie" onclick="nuevaSerie()">↻ Nuevos problemas</button>
+</div>
+<div class="completar-wrap" id="completar-wrap"><p>Cuando hayas terminado, marca el módulo como completado.</p><button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button></div>
+<div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Continúa con los racionales!</div>
+<div class="nav-modulos">
+  <a href="b0-enteros-jerarquia.html" class="btn-nav">← Jerarquía</a>
+  <a href="bloque0-hub.html" class="btn-nav">Volver al Bloque 0 →</a>
+</div>
+</main>
+<footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
+<script>
+const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4oi7OZhqVRL_gTfyAUMioUWvxlIvgtaMfRlYKjcn4h211dryw/exec';
+const MODULE_ID='b0-ent-prob', SESSION_KEY='modulos_3eso_b0', BLOQUE='b0';
+const BANCO=[
+// BÁSICO
+{niv:1,tex:'La temperatura a las 6 AM era de <strong>−8 °C</strong>. Al mediodía ha subido <strong>12 °C</strong>. ¿Cuánto marca el termómetro?',ops:[{t:'\\(-4\\)°C',ok:0},{t:'\\(+4\\)°C',ok:1},{t:'\\(+20\\)°C',ok:0},{t:'\\(-20\\)°C',ok:0}],exp:'\\(-8+12=+4\\)°C.'},
+{niv:1,tex:'Un submarino está a <strong>−120 m</strong>. Sube <strong>45 m</strong>. ¿A qué profundidad queda?',ops:[{t:'\\(-165\\) m',ok:0},{t:'\\(-75\\) m',ok:1},{t:'\\(+75\\) m',ok:0},{t:'\\(-45\\) m',ok:0}],exp:'\\(-120+45=-75\\) m. Sigue bajo el nivel del mar.'},
+{niv:1,tex:'Ana tiene una deuda de <strong>450 €</strong>. Ingresa <strong>200 €</strong> y retira <strong>80 €</strong>. ¿Cuál es su saldo?',ops:[{t:'\\(-330\\) €',ok:1},{t:'\\(-170\\) €',ok:0},{t:'\\(+330\\) €',ok:0},{t:'\\(-230\\) €',ok:0}],exp:'\\(-450+200-80=-330\\) €. Sigue en números rojos.'},
+{niv:1,tex:'Un ascensor está en la <strong>planta 2</strong>. Baja <strong>3 plantas</strong>. ¿En qué planta está?',ops:[{t:'Planta 5',ok:0},{t:'Planta 1',ok:0},{t:'Planta −1 (sótano 1)',ok:1},{t:'Planta 0',ok:0}],exp:'\\(2-3=-1\\). Está en el primer sótano.'},
+{niv:1,tex:'La diferencia entre la temperatura máxima <strong>(+8 °C)</strong> y la mínima <strong>(−12 °C)</strong> de un día es:',ops:[{t:'\\(4\\)°C',ok:0},{t:'\\(20\\)°C',ok:1},{t:'\\(-4\\)°C',ok:0},{t:'\\(-20\\)°C',ok:0}],exp:'Diferencia = máxima − mínima = \\(8-(-12)=8+12=20\\)°C.'},
+{niv:1,tex:'Un equipo de fútbol tiene <strong>3 victorias (+3 puntos cada una)</strong> y <strong>2 derrotas (−1 punto cada una)</strong>. ¿Cuántos puntos tiene?',ops:[{t:'\\(5\\)',ok:0},{t:'\\(7\\)',ok:1},{t:'\\(9\\)',ok:0},{t:'\\(11\\)',ok:0}],exp:'\\(3\\times3 + 2\\times(-1) = 9-2=7\\) puntos.'},
+{niv:1,tex:'Una empresa tuvo pérdidas de <strong>3500 €</strong> en enero y ganancias de <strong>1800 €</strong> en febrero. ¿Cuál es el balance?',ops:[{t:'\\(-1700\\) €',ok:1},{t:'\\(+1700\\) €',ok:0},{t:'\\(-5300\\) €',ok:0},{t:'\\(+5300\\) €',ok:0}],exp:'\\(-3500+1800=-1700\\) €. Sigue en pérdidas.'},
+{niv:1,tex:'El Monte Everest tiene <strong>8849 m</strong> sobre el nivel del mar. La Fosa de las Marianas tiene <strong>11034 m</strong> bajo el mar (\\(-11034\\)). ¿Cuál es la diferencia de altitud?',ops:[{t:'\\(2185\\) m',ok:0},{t:'\\(19883\\) m',ok:1},{t:'\\(11034\\) m',ok:0},{t:'\\(8849\\) m',ok:0}],exp:'\\(8849-(-11034)=8849+11034=19883\\) m.'},
+// MEDIO
+{niv:2,tex:'Las temperaturas de cinco días son: <strong>−3, −5, +8, +2, −6 °C</strong>. ¿Cuál es la temperatura media?',ops:[{t:'\\(-0{,}8\\)°C',ok:1},{t:'\\(+0{,}8\\)°C',ok:0},{t:'\\(-4\\)°C',ok:0},{t:'\\(+4\\)°C',ok:0}],exp:'Suma: \\(-3-5+8+2-6=-4\\). Media: \\(-4\\div5=-0{,}8\\)°C.'},
+{niv:2,tex:'Un buceador baja desde la superficie a razón de <strong>−3 m por minuto</strong>. ¿A qué profundidad está tras <strong>8 minutos</strong>?',ops:[{t:'\\(-11\\) m',ok:0},{t:'\\(-24\\) m',ok:1},{t:'\\(+24\\) m',ok:0},{t:'\\(-5\\) m',ok:0}],exp:'\\((-3)\\times8=-24\\) m.'},
+{niv:2,tex:'La diferencia entre la máxima y la mínima temperatura semanal es de <strong>19 °C</strong>. La máxima es <strong>7 °C</strong>. ¿Cuánto es la mínima?',ops:[{t:'\\(-12\\)°C',ok:1},{t:'\\(+12\\)°C',ok:0},{t:'\\(-26\\)°C',ok:0},{t:'\\(+26\\)°C',ok:0}],exp:'Mínima \\(=\\) máxima \\(-\\) diferencia \\(=7-19=-12\\)°C.'},
+{niv:2,tex:'Un alpinista está a <strong>−200 m</strong> (bajo el nivel del mar, en una laguna). Sube <strong>1500 m</strong>. ¿A qué altitud está?',ops:[{t:'\\(1700\\) m',ok:1},{t:'\\(1300\\) m',ok:0},{t:'\\(-1700\\) m',ok:0},{t:'\\(1200\\) m',ok:0}],exp:'\\(-200+1500=1300\\) m. Espera: \\(-200+1500=1300\\). La respuesta es \\(1300\\) m.'},
+{niv:2,tex:'Un jugador de cartas gana <strong>3 €</strong> en la primera ronda, pierde <strong>7 €</strong> en la segunda y gana <strong>5 €</strong> en la tercera. ¿Cuál es su balance?',ops:[{t:'\\(-1\\) €',ok:0},{t:'\\(+1\\) €',ok:1},{t:'\\(+15\\) €',ok:0},{t:'\\(-15\\) €',ok:0}],exp:'\\(3-7+5=1\\) €. Sale ganando \\(1\\) €.'},
+{niv:2,tex:'La temperatura baja <strong>3 °C cada hora</strong> durante una noche de <strong>6 horas</strong>. Si comenzó en <strong>+2 °C</strong>, ¿qué temperatura hay al final?',ops:[{t:'\\(-16\\)°C',ok:1},{t:'\\(+16\\)°C',ok:0},{t:'\\(-20\\)°C',ok:0},{t:'\\(-14\\)°C',ok:0}],exp:'Descenso total: \\((-3)\\times6=-18\\)°C. Temperatura final: \\(2+(-18)=-16\\)°C.'},
+// AVANZADO
+{niv:3,tex:'Un edificio tiene <strong>3 sótanos</strong> y <strong>12 plantas</strong>. Un ascensor sube desde el sótano 3 hasta la planta 10. ¿Cuántas plantas sube?',ops:[{t:'\\(7\\)',ok:0},{t:'\\(10\\)',ok:0},{t:'\\(13\\)',ok:1},{t:'\\(7\\)',ok:0}],exp:'Sótano 3 = planta \\(-3\\). Planta 10 = \\(+10\\). Diferencia: \\(10-(-3)=13\\) plantas.'},
+{niv:3,tex:'La cuenta bancaria de una empresa muestra: inicio \\(-2400\\) €, ingreso \\(+3500\\) €, pago de alquiler \\(-800\\) €, pago de nóminas \\(-1200\\) €. ¿Cuál es el saldo final?',ops:[{t:'\\(-900\\) €',ok:1},{t:'\\(+900\\) €',ok:0},{t:'\\(-500\\) €',ok:0},{t:'\\(+500\\) €',ok:0}],exp:'\\(-2400+3500-800-1200=-2400+3500-2000=-900\\) €.'},
+{niv:3,tex:'La temperatura media de los últimos 4 días fue <strong>−2 °C</strong>. Los primeros tres días marcaron <strong>+1, −3 y −5 °C</strong>. ¿Qué temperatura hizo el cuarto día?',ops:[{t:'\\(-3\\)°C',ok:1},{t:'\\(+3\\)°C',ok:0},{t:'\\(+1\\)°C',ok:0},{t:'\\(-1\\)°C',ok:0}],exp:'Media \\(-2\\) en 4 días → suma total \\(=-8\\). Suma primeros 3: \\(1-3-5=-7\\). Cuarto día: \\(-8-(-7)=-8+7=-1\\)°C. Revisando: \\((-7)+x=-8\\Rightarrow x=-1\\)°C. La respuesta es \\(-1\\)°C.'},
+{niv:3,tex:'Un submarino baja a razón de <strong>−4 m/min</strong> durante <strong>t minutos</strong>. Si después sube <strong>30 m</strong> y queda a <strong>−50 m</strong>, ¿cuántos minutos bajó?',ops:[{t:'\\(15\\) min',ok:0},{t:'\\(20\\) min',ok:1},{t:'\\(25\\) min',ok:0},{t:'\\(8\\) min',ok:0}],exp:'Posición tras bajar: \\(-4t\\). Tras subir: \\(-4t+30=-50\\Rightarrow -4t=-80\\Rightarrow t=20\\) minutos.'},
+{niv:3,tex:'Tres ciudades tienen altitudes de <strong>−15 m, +230 m y −80 m</strong>. ¿Cuánto mide la diferencia entre la más alta y la más baja?',ops:[{t:'\\(215\\) m',ok:0},{t:'\\(245\\) m',ok:0},{t:'\\(310\\) m',ok:1},{t:'\\(325\\) m',ok:0}],exp:'Más alta: \\(+230\\) m. Más baja: \\(-80\\) m. Diferencia: \\(230-(-80)=310\\) m.'},
+];
+function shuffle(a){return a.sort(()=>Math.random()-.5);}
+function nuevaSerie(){
+  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
+  const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
+  sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
+  window._sel=sel;if(window.MathJax)MathJax.typesetPromise([cont]);
+}
+function comprobar(i){const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}const ok=q.ops[parseInt(sel.value)].ok===1;fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;MathJax.typesetPromise([fb]);}
+function enviarASheets(){const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';if(!n||!a)return;fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});}
+function marcarCompletado(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(!c.includes(MODULE_ID))c.push(MODULE_ID);sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));enviarASheets();document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+(function(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}})();
+</script>
+</body>
+</html>

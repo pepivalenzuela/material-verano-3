@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Operaciones con enteros · Bloque 0 · 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root{--color:#2e7d32;--color-c:#e8f5e9;--gris-bg:#f5f7fa;--texto:#212121;--radio:12px;--sombra:0 2px 8px rgba(0,0,0,.09)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',sans-serif;background:var(--gris-bg);color:var(--texto);line-height:1.6}
+    nav{background:var(--color);color:white;padding:.7rem 1.4rem;font-size:.9rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    nav a{color:rgba(255,255,255,.8);text-decoration:none} nav a:hover{color:white} nav span{opacity:.6}
+    .hero{background:linear-gradient(135deg,var(--color),#1b5e20);color:white;padding:1.8rem 1.5rem 1.6rem;text-align:center}
+    .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:.25rem .9rem;font-size:.8rem;letter-spacing:.06em;margin-bottom:.7rem}
+    .hero h1{font-size:1.6rem}
+    main{max-width:760px;margin:0 auto;padding:2rem 1rem 4rem}
+    .seccion{background:white;border-radius:var(--radio);box-shadow:var(--sombra);padding:1.6rem 1.8rem;margin-bottom:1.8rem}
+    .seccion h2{font-size:1.05rem;color:var(--color);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--color-c)}
+    .seccion h3{font-size:.95rem;color:#333;margin:1rem 0 .4rem}
+    .seccion p{margin-bottom:.8rem;font-size:.95rem}
+    .seccion ul{margin:.3rem 0 .8rem 1.2rem} .seccion li{margin-bottom:.4rem;font-size:.94rem}
+    .ejemplo{background:var(--color-c);border-left:4px solid var(--color);border-radius:8px;padding:.9rem 1.1rem;margin:.8rem 0;font-size:.93rem}
+    .ejemplo strong{color:var(--color)}
+    .nota{background:#fff8e1;border-left:4px solid #f9a825;border-radius:8px;padding:.7rem 1rem;margin:.8rem 0;font-size:.87rem;color:#4e3a00}
+    #ejercicios-container .ejercicio{border:1.5px solid #e0e0e0;border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:1.2rem;background:#fafafa}
+    .dificultad{display:inline-block;font-size:.75rem;font-weight:700;padding:.15rem .55rem;border-radius:20px;margin-bottom:.5rem}
+    .d1{background:#e8f5e9;color:#2e7d32} .d2{background:#fff8e1;color:#e65100} .d3{background:#fce4ec;color:#880e4f}
+    .enunciado{font-size:.96rem;margin-bottom:.9rem;font-weight:500}
+    .opciones{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+    .opcion{display:flex;align-items:center;gap:.7rem;padding:.55rem .9rem;border-radius:8px;border:1.5px solid #ddd;background:white;cursor:pointer;font-size:.93rem;transition:border-color .15s,background .15s}
+    .opcion:hover{border-color:var(--color);background:var(--color-c)}
+    .opcion input[type=radio]{accent-color:var(--color)}
+    .btn-comprobar{padding:.55rem 1.2rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .btn-comprobar:hover{background:#1b5e20}
+    .feedback{display:none;margin-top:.8rem;padding:.7rem 1rem;border-radius:8px;font-size:.9rem;font-weight:500;line-height:1.6}
+    .feedback.correcto{background:var(--color-c);color:#1b5e20;border-left:4px solid var(--color)}
+    .feedback.incorrecto{background:#ffebee;color:#b71c1c;border-left:4px solid #c62828}
+    .completar-wrap{text-align:center;padding:1.5rem;background:white;border-radius:var(--radio);box-shadow:var(--sombra);margin-bottom:1.5rem}
+    .completar-wrap p{font-size:.92rem;color:#555;margin-bottom:1rem}
+    .btn-completar{padding:.7rem 1.8rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer}
+    .completado-msg{display:none;background:var(--color-c);color:#1b5e20;border-radius:10px;padding:1rem;font-weight:600;font-size:.97rem;text-align:center;margin-bottom:1.5rem}
+    .nav-modulos{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .btn-nav{padding:.6rem 1.2rem;background:white;border:1.5px solid var(--color);color:var(--color);border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600}
+    .btn-nav:hover{background:var(--color-c)}
+    .nueva-serie{display:block;margin:.5rem auto 0;background:none;border:none;color:var(--color);font-size:.85rem;cursor:pointer;text-decoration:underline}
+    footer{text-align:center;font-size:.82rem;color:#aaa;padding:1.5rem}
+  </style>
+</head>
+<body>
+<nav><a href="index.html">Inicio</a><span>·</span><a href="bloque0-hub.html">Bloque 0</a><span>·</span><strong>Operaciones con enteros</strong></nav>
+<div class="hero"><div class="badge">Bloque 0 · Números enteros</div><h1>± Operaciones con números enteros</h1></div>
+<main>
+<div class="seccion">
+  <h2>📖 Teoría esencial</h2>
+  <h3>Reglas de los signos</h3>
+  <ul>
+    <li><strong>Suma/resta:</strong> mismo signo → suma y conserva · distinto signo → resta y toma el del mayor en valor absoluto</li>
+    <li><strong>Multiplicación/división:</strong> signos iguales → resultado positivo · signos distintos → resultado negativo</li>
+  </ul>
+  <div class="ejemplo">
+    <strong>Resta de enteros:</strong> \((-4)-(-6) = (-4)+(+6) = +2\)<br>
+    Restar un negativo equivale a sumar su opuesto.
+  </div>
+  <h3>Potencias con base negativa</h3>
+  <ul>
+    <li>Exponente <strong>par</strong> → resultado <strong>positivo</strong>: \((-3)^2 = 9\)</li>
+    <li>Exponente <strong>impar</strong> → resultado <strong>negativo</strong>: \((-3)^3 = -27\)</li>
+  </ul>
+  <div class="nota">⚠️ Ojo: \(-3^2 = -9\) (se eleva el 3 y luego se niega) pero \((-3)^2 = +9\) (se eleva el \(-3\)). ¡El paréntesis importa!</div>
+</div>
+<div class="seccion">
+  <h2>✏️ Ejercicios <span style="font-size:.8rem;font-weight:400;color:#888">(selección aleatoria · 4 por nivel)</span></h2>
+  <div id="ejercicios-container"></div>
+  <button class="nueva-serie" onclick="nuevaSerie()">↻ Nueva serie de ejercicios</button>
+</div>
+<div class="completar-wrap" id="completar-wrap"><p>Cuando hayas trabajado todos los ejercicios, marca el módulo como completado.</p><button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button></div>
+<div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Buen trabajo!</div>
+<div class="nav-modulos">
+  <a href="bloque0-hub.html" class="btn-nav">← Bloque 0</a>
+  <a href="b0-enteros-jerarquia.html" class="btn-nav">Siguiente: Jerarquía →</a>
+</div>
+</main>
+<footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
+<script>
+const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4oi7OZhqVRL_gTfyAUMioUWvxlIvgtaMfRlYKjcn4h211dryw/exec';
+const MODULE_ID='b0-ent-op', SESSION_KEY='modulos_3eso_b0', BLOQUE='b0';
+const BANCO=[
+// BÁSICO
+{niv:1,tex:'Calcula: \\((-3)+(+(-5))\\)',ops:[{t:'\\(-8\\)',ok:1},{t:'\\(+2\\)',ok:0},{t:'\\(-2\\)',ok:0},{t:'\\(+8\\)',ok:0}],exp:'Mismo signo (ambos negativos): suma los valores absolutos y conserva el signo. \\(3+5=8\\), resultado \\(-8\\).'},
+{niv:1,tex:'Calcula: \\((-8)+(+3)\\)',ops:[{t:'\\(-11\\)',ok:0},{t:'\\(-5\\)',ok:1},{t:'\\(+5\\)',ok:0},{t:'\\(+11\\)',ok:0}],exp:'Signos distintos: resta \\(8-3=5\\) y toma el signo del mayor en valor absoluto (el \\(-8\\)). Resultado: \\(-5\\).'},
+{niv:1,tex:'Calcula: \\((-4)-(-6)\\)',ops:[{t:'\\(-10\\)',ok:0},{t:'\\(-2\\)',ok:0},{t:'\\(+2\\)',ok:1},{t:'\\(+10\\)',ok:0}],exp:'Restar un negativo = sumar su opuesto: \\((-4)-(-6)=(-4)+(+6)=+2\\).'},
+{niv:1,tex:'Calcula: \\((-5)\\times(-6)\\)',ops:[{t:'\\(-30\\)',ok:0},{t:'\\(-11\\)',ok:0},{t:'\\(+11\\)',ok:0},{t:'\\(+30\\)',ok:1}],exp:'Signos iguales (ambos negativos) → resultado positivo: \\(5\\times6=30\\), resultado \\(+30\\).'},
+{niv:1,tex:'Calcula: \\((-24)\\div(+6)\\)',ops:[{t:'\\(+4\\)',ok:0},{t:'\\(-4\\)',ok:1},{t:'\\(+18\\)',ok:0},{t:'\\(-18\\)',ok:0}],exp:'Signos distintos → resultado negativo: \\(24\\div6=4\\), resultado \\(-4\\).'},
+{niv:1,tex:'Calcula: \\((-3)^2\\)',ops:[{t:'\\(-9\\)',ok:0},{t:'\\(-6\\)',ok:0},{t:'\\(+9\\)',ok:1},{t:'\\(+6\\)',ok:0}],exp:'Exponente par con base negativa → resultado positivo: \\((-3)^2=(-3)\\times(-3)=+9\\).'},
+{niv:1,tex:'Calcula: \\((-2)^3\\)',ops:[{t:'\\(-8\\)',ok:1},{t:'\\(+8\\)',ok:0},{t:'\\(-6\\)',ok:0},{t:'\\(+6\\)',ok:0}],exp:'Exponente impar con base negativa → resultado negativo: \\((-2)^3=(-2)\\times(-2)\\times(-2)=-8\\).'},
+{niv:1,tex:'Calcula: \\((+5)-(-3)\\)',ops:[{t:'\\(+2\\)',ok:0},{t:'\\(-8\\)',ok:0},{t:'\\(+8\\)',ok:1},{t:'\\(-2\\)',ok:0}],exp:'\\((+5)-(-3)=(+5)+(+3)=+8\\). Restar un negativo equivale a sumar su opuesto.'},
+{niv:1,tex:'Calcula: \\((-36)\\div(-9)\\)',ops:[{t:'\\(-4\\)',ok:0},{t:'\\(-27\\)',ok:0},{t:'\\(+4\\)',ok:1},{t:'\\(+27\\)',ok:0}],exp:'Signos iguales (ambos negativos) → resultado positivo: \\(36\\div9=4\\), resultado \\(+4\\).'},
+{niv:1,tex:'¿Cuánto vale \\((-1)^{100}\\)?',ops:[{t:'\\(-1\\)',ok:0},{t:'\\(-100\\)',ok:0},{t:'\\(+1\\)',ok:1},{t:'\\(+100\\)',ok:0}],exp:'Exponente par → resultado positivo: \\((-1)^{\\text{par}}=+1\\) siempre.'},
+// MEDIO
+{niv:2,tex:'Calcula: \\((-2)\\times(+3)\\times(-4)\\)',ops:[{t:'\\(-24\\)',ok:0},{t:'\\(+24\\)',ok:1},{t:'\\(-9\\)',ok:0},{t:'\\(+9\\)',ok:0}],exp:'\\((-2)\\times(+3)=-6\\). Luego \\((-6)\\times(-4)=+24\\). Dos negativos = positivo.'},
+{niv:2,tex:'Calcula: \\((-5)\\times(-2)\\times(-3)\\)',ops:[{t:'\\(+30\\)',ok:0},{t:'\\(-30\\)',ok:1},{t:'\\(-10\\)',ok:0},{t:'\\(+10\\)',ok:0}],exp:'\\((-5)\\times(-2)=+10\\). Luego \\((+10)\\times(-3)=-30\\). Tres negativos → negativo.'},
+{niv:2,tex:'Calcula: \\((-2)^4 - (-3)^2\\)',ops:[{t:'\\(7\\)',ok:1},{t:'\\(-7\\)',ok:0},{t:'\\(25\\)',ok:0},{t:'\\(-25\\)',ok:0}],exp:'\\((-2)^4=+16\\), \\((-3)^2=+9\\). Resta: \\(16-9=7\\).'},
+{niv:2,tex:'Calcula: \\((-3)^2 + (-2)^3\\)',ops:[{t:'\\(1\\)',ok:1},{t:'\\(-1\\)',ok:0},{t:'\\(17\\)',ok:0},{t:'\\(-17\\)',ok:0}],exp:'\\((-3)^2=+9\\), \\((-2)^3=-8\\). Suma: \\(9+(-8)=1\\).'},
+{niv:2,tex:'Calcula: \\((-3)^3 + (-4)^2\\)',ops:[{t:'\\(-11\\)',ok:1},{t:'\\(+11\\)',ok:0},{t:'\\(-43\\)',ok:0},{t:'\\(+43\\)',ok:0}],exp:'\\((-3)^3=-27\\), \\((-4)^2=+16\\). Suma: \\(-27+16=-11\\).'},
+{niv:2,tex:'¿Cuántos negativos hay que multiplicar para obtener un resultado positivo?',ops:[{t:'Siempre un número impar',ok:0},{t:'Siempre un número par',ok:1},{t:'Depende de los valores',ok:0},{t:'Nunca se puede',ok:0}],exp:'Un número <strong>par</strong> de factores negativos da resultado positivo. Un número impar da negativo. No depende del valor absoluto, solo del conteo de signos negativos.'},
+{niv:2,tex:'Calcula: \\((-2)^5 + (-3)^2 \\times 2\\)',ops:[{t:'\\(-14\\)',ok:1},{t:'\\(+14\\)',ok:0},{t:'\\(-50\\)',ok:0},{t:'\\(+50\\)',ok:0}],exp:'Potencias primero: \\((-2)^5=-32\\), \\((-3)^2=9\\). Multiplicación: \\(9\\times2=18\\). Suma: \\(-32+18=-14\\).'},
+{niv:2,tex:'Calcula: \\((-4)^2 \\div (-2)^3\\)',ops:[{t:'\\(-2\\)',ok:1},{t:'\\(+2\\)',ok:0},{t:'\\(-8\\)',ok:0},{t:'\\(+8\\)',ok:0}],exp:'\\((-4)^2=+16\\), \\((-2)^3=-8\\). División: \\((+16)\\div(-8)=-2\\).'},
+// AVANZADO
+{niv:3,tex:'Calcula: \\((-2)\\times[3-(-4)^2]\\)',ops:[{t:'\\(+26\\)',ok:1},{t:'\\(-26\\)',ok:0},{t:'\\(+10\\)',ok:0},{t:'\\(-10\\)',ok:0}],exp:'Dentro del corchete: \\((-4)^2=16\\), \\(3-16=-13\\). Luego: \\((-2)\\times(-13)=+26\\).'},
+{niv:3,tex:'Calcula: \\([(-2)^2-(-3)]\\times(-4)\\)',ops:[{t:'\\(-28\\)',ok:1},{t:'\\(+28\\)',ok:0},{t:'\\(-4\\)',ok:0},{t:'\\(+4\\)',ok:0}],exp:'\\((-2)^2=4\\). Corchete: \\(4-(-3)=4+3=7\\). Multiplicación: \\(7\\times(-4)=-28\\).'},
+{niv:3,tex:'Calcula: \\((-3)^2+(-2)^3-(-1)\\times5\\)',ops:[{t:'\\(6\\)',ok:1},{t:'\\(-6\\)',ok:0},{t:'\\(2\\)',ok:0},{t:'\\(-2\\)',ok:0}],exp:'\\((-3)^2=9\\), \\((-2)^3=-8\\), \\((-1)\\times5=-5\\). Total: \\(9+(-8)-(-5)=9-8+5=6\\).'},
+{niv:3,tex:'Calcula: \\((-2)\\times(-3)+(-4)^2\\div(-8)\\)',ops:[{t:'\\(4\\)',ok:1},{t:'\\(-4\\)',ok:0},{t:'\\(8\\)',ok:0},{t:'\\(-8\\)',ok:0}],exp:'Potencia: \\((-4)^2=16\\). Mult. y div.: \\((-2)\\times(-3)=6\\), \\(16\\div(-8)=-2\\). Suma: \\(6+(-2)=4\\).'},
+{niv:3,tex:'Calcula: \\((-5)+3\\times(-2)^2-(-1)^3\\)',ops:[{t:'\\(8\\)',ok:1},{t:'\\(-8\\)',ok:0},{t:'\\(6\\)',ok:0},{t:'\\(-6\\)',ok:0}],exp:'Potencias: \\((-2)^2=4\\), \\((-1)^3=-1\\). Mult.: \\(3\\times4=12\\). Total: \\(-5+12-(-1)=-5+12+1=8\\).'},
+{niv:3,tex:'Si \\(a=-3\\) y \\(b=-2\\), calcula \\(a^2-2ab+b^2\\).',ops:[{t:'\\(1\\)',ok:1},{t:'\\(-1\\)',ok:0},{t:'\\(25\\)',ok:0},{t:'\\(-25\\)',ok:0}],exp:'\\(a^2=9\\), \\(2ab=2\\times(-3)\\times(-2)=12\\), \\(b^2=4\\). Total: \\(9-12+4=1\\). (Es \\((a-b)^2=(-3-(-2))^2=(-1)^2=1\\).)'},
+{niv:3,tex:'Si \\(a=-2\\) y \\(b=3\\), calcula \\(a^3-b^2+2ab\\).',ops:[{t:'\\(-29\\)',ok:1},{t:'\\(+29\\)',ok:0},{t:'\\(-1\\)',ok:0},{t:'\\(+1\\)',ok:0}],exp:'\\(a^3=(-2)^3=-8\\), \\(b^2=9\\), \\(2ab=2\\times(-2)\\times3=-12\\). Total: \\(-8-9+(-12)=-29\\).'},
+{niv:3,tex:'¿Para qué valor entero de \\(x\\) se cumple \\((-2)^x = -32\\)?',ops:[{t:'\\(x=4\\)',ok:0},{t:'\\(x=5\\)',ok:1},{t:'\\(x=6\\)',ok:0},{t:'\\(x=16\\)',ok:0}],exp:'\\((-2)^5=(-2)\\times(-2)\\times(-2)\\times(-2)\\times(-2)=-32\\). El exponente debe ser impar para dar resultado negativo.'},
+];
+function shuffle(a){return a.sort(()=>Math.random()-.5);}
+function nuevaSerie(){
+  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
+  const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
+  sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
+  window._sel=sel;if(window.MathJax)MathJax.typesetPromise([cont]);
+}
+function comprobar(i){const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}const ok=q.ops[parseInt(sel.value)].ok===1;fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;MathJax.typesetPromise([fb]);}
+function enviarASheets(){const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';if(!n||!a)return;fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});}
+function marcarCompletado(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(!c.includes(MODULE_ID))c.push(MODULE_ID);sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));enviarASheets();document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+(function(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}})();
+</script>
+</body>
+</html>
