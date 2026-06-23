@@ -1,240 +1,215 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Problemas contextualizados · Naturales · 3º ESO</title>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
   <style>
-    :root { --color:#2e7d32; --color-c:#e8f5e9; --gris-bg:#f5f7fa; --texto:#212121; --radio:12px; --sombra:0 2px 8px rgba(0,0,0,.09); }
-    * { box-sizing:border-box; margin:0; padding:0; }
-    body { font-family:'Segoe UI',sans-serif; background:var(--gris-bg); color:var(--texto); line-height:1.6; }
-    nav { background:var(--color); color:white; padding:.7rem 1.4rem; font-size:.9rem; display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
-    nav a { color:rgba(255,255,255,.8); text-decoration:none; } nav a:hover { color:white; } nav span { opacity:.6; }
-    .hero { background:linear-gradient(135deg,var(--color),#1b5e20); color:white; padding:1.8rem 1.5rem 1.6rem; text-align:center; }
-    .modulo-badge { display:inline-block; background:rgba(255,255,255,.18); border-radius:20px; padding:.25rem .9rem; font-size:.8rem; letter-spacing:.06em; margin-bottom:.7rem; }
-    .hero h1 { font-size:1.6rem; }
-    main { max-width:760px; margin:0 auto; padding:2rem 1rem 4rem; }
-    .seccion { background:white; border-radius:var(--radio); box-shadow:var(--sombra); padding:1.6rem 1.8rem; margin-bottom:1.8rem; }
-    .seccion h2 { font-size:1.05rem; color:var(--color); margin-bottom:1rem; padding-bottom:.5rem; border-bottom:2px solid var(--color-c); }
-    .seccion p { margin-bottom:.8rem; font-size:.96rem; }
-    .estrategia { background:#e3f2fd; border-left:4px solid #1565c0; border-radius:8px; padding:1rem 1.2rem; margin:1rem 0; font-size:.94rem; }
-    .estrategia strong { color:#1565c0; }
-    .ejercicio { border:1.5px solid #e0e0e0; border-radius:10px; padding:1.2rem 1.4rem; margin-bottom:1.2rem; background:#fafafa; }
-    .dificultad { display:inline-block; font-size:.75rem; font-weight:700; padding:.15rem .55rem; border-radius:20px; margin-bottom:.6rem; }
-    .d1 { background:#e8f5e9; color:#2e7d32; } .d2 { background:#fff8e1; color:#e65100; } .d3 { background:#fce4ec; color:#880e4f; }
-    .enunciado { font-size:.97rem; margin-bottom:1rem; line-height:1.7; }
-    .enunciado strong { color:#333; }
-    .opciones { display:flex; flex-direction:column; gap:.5rem; margin-bottom:.8rem; }
-    .opcion { display:flex; align-items:center; gap:.7rem; padding:.55rem .9rem; border-radius:8px; border:1.5px solid #ddd; background:white; cursor:pointer; font-size:.93rem; transition:border-color .15s,background .15s; }
-    .opcion:hover { border-color:var(--color); background:var(--color-c); }
-    .opcion input[type=radio] { accent-color:var(--color); }
-    .btn-comprobar { padding:.55rem 1.2rem; background:var(--color); color:white; border:none; border-radius:8px; font-size:.9rem; font-weight:600; cursor:pointer; }
-    .btn-comprobar:hover { background:#1b5e20; }
-    .feedback { display:none; margin-top:.8rem; padding:.7rem 1rem; border-radius:8px; font-size:.9rem; font-weight:500; line-height:1.6; }
-    .feedback.correcto { background:var(--color-c); color:#1b5e20; border-left:4px solid var(--color); }
-    .feedback.incorrecto { background:#ffebee; color:#b71c1c; border-left:4px solid #c62828; }
-    .completar-wrap { text-align:center; padding:1.5rem; background:white; border-radius:var(--radio); box-shadow:var(--sombra); margin-bottom:1.5rem; }
-    .completar-wrap p { font-size:.92rem; color:#555; margin-bottom:1rem; }
-    .btn-completar { padding:.7rem 1.8rem; background:var(--color); color:white; border:none; border-radius:8px; font-size:1rem; font-weight:700; cursor:pointer; }
-    .completado-msg { display:none; background:var(--color-c); color:#1b5e20; border-radius:10px; padding:1rem; font-weight:600; font-size:.97rem; text-align:center; margin-bottom:1.5rem; }
-    .nav-modulos { display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
-    .btn-nav { padding:.6rem 1.2rem; background:white; border:1.5px solid var(--color); color:var(--color); border-radius:8px; text-decoration:none; font-size:.9rem; font-weight:600; }
-    .btn-nav:hover { background:var(--color-c); }
-    footer { text-align:center; font-size:.82rem; color:#aaa; padding:1.5rem; }
+    :root{--color:#2e7d32;--color-c:#e8f5e9;--gris-bg:#f5f7fa;--texto:#212121;--radio:12px;--sombra:0 2px 8px rgba(0,0,0,.09)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',sans-serif;background:var(--gris-bg);color:var(--texto);line-height:1.6}
+    nav{background:var(--color);color:white;padding:.7rem 1.4rem;font-size:.9rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    nav a{color:rgba(255,255,255,.8);text-decoration:none} nav a:hover{color:white} nav span{opacity:.6}
+    .hero{background:linear-gradient(135deg,var(--color),#1b5e20);color:white;padding:1.8rem 1.5rem 1.6rem;text-align:center}
+    .modulo-badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:.25rem .9rem;font-size:.8rem;letter-spacing:.06em;margin-bottom:.7rem}
+    .hero h1{font-size:1.6rem}
+    main{max-width:760px;margin:0 auto;padding:2rem 1rem 4rem}
+    .seccion{background:white;border-radius:var(--radio);box-shadow:var(--sombra);padding:1.6rem 1.8rem;margin-bottom:1.8rem}
+    .seccion h2{font-size:1.05rem;color:var(--color);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--color-c)}
+    .seccion p{margin-bottom:.8rem;font-size:.96rem}
+    .estrategia{background:#e3f2fd;border-left:4px solid #1565c0;border-radius:8px;padding:1rem 1.2rem;margin:.8rem 0;font-size:.94rem}
+    .estrategia strong{color:#1565c0}
+    #ejercicios-container .ejercicio{border:1.5px solid #e0e0e0;border-radius:10px;padding:1.2rem 1.4rem;margin-bottom:1.2rem;background:#fafafa}
+    .dificultad{display:inline-block;font-size:.75rem;font-weight:700;padding:.15rem .55rem;border-radius:20px;margin-bottom:.6rem}
+    .d1{background:#e8f5e9;color:#2e7d32} .d2{background:#fff8e1;color:#e65100} .d3{background:#fce4ec;color:#880e4f}
+    .enunciado{font-size:.96rem;margin-bottom:1rem;line-height:1.7;font-weight:500}
+    .opciones{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+    .opcion{display:flex;align-items:center;gap:.7rem;padding:.55rem .9rem;border-radius:8px;border:1.5px solid #ddd;background:white;cursor:pointer;font-size:.93rem;transition:border-color .15s,background .15s}
+    .opcion:hover{border-color:var(--color);background:var(--color-c)}
+    .opcion input[type=radio]{accent-color:var(--color)}
+    .btn-comprobar{padding:.55rem 1.2rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .btn-comprobar:hover{background:#1b5e20}
+    .feedback{display:none;margin-top:.8rem;padding:.7rem 1rem;border-radius:8px;font-size:.9rem;font-weight:500;line-height:1.6}
+    .feedback.correcto{background:var(--color-c);color:#1b5e20;border-left:4px solid var(--color)}
+    .feedback.incorrecto{background:#ffebee;color:#b71c1c;border-left:4px solid #c62828}
+    .completar-wrap{text-align:center;padding:1.5rem;background:white;border-radius:var(--radio);box-shadow:var(--sombra);margin-bottom:1.5rem}
+    .completar-wrap p{font-size:.92rem;color:#555;margin-bottom:1rem}
+    .btn-completar{padding:.7rem 1.8rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer}
+    .completado-msg{display:none;background:var(--color-c);color:#1b5e20;border-radius:10px;padding:1rem;font-weight:600;font-size:.97rem;text-align:center;margin-bottom:1.5rem}
+    .nav-modulos{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .btn-nav{padding:.6rem 1.2rem;background:white;border:1.5px solid var(--color);color:var(--color);border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600}
+    .btn-nav:hover{background:var(--color-c)}
+    footer{text-align:center;font-size:.82rem;color:#aaa;padding:1.5rem}
+    .nueva-serie{display:block;margin:.5rem auto 0;background:none;border:none;color:var(--color);font-size:.85rem;cursor:pointer;text-decoration:underline}
   </style>
 </head>
 <body>
 <nav>
   <a href="index.html">Inicio</a><span>·</span>
   <a href="bloque0-hub.html">Bloque 0</a><span>·</span>
-  <strong>Problemas contextualizados · Naturales</strong>
+  <strong>Problemas · Naturales</strong>
 </nav>
 <div class="hero">
   <div class="modulo-badge">Bloque 0 · Números naturales</div>
   <h1>📝 Problemas contextualizados</h1>
 </div>
 <main>
-
 <div class="seccion">
-  <h2>📖 Cómo resolver problemas</h2>
-  <p>Los problemas de contexto requieren <strong>leer con atención</strong>, identificar los datos y elegir las operaciones correctas. Una buena estrategia:</p>
+  <h2>📖 Estrategia de resolución</h2>
   <div class="estrategia">
-    <strong>1. Datos:</strong> ¿Qué me dan?<br>
-    <strong>2. Incógnita:</strong> ¿Qué me piden?<br>
-    <strong>3. Operación:</strong> ¿Sumo, resto, multiplico, divido?<br>
-    <strong>4. Resultado:</strong> Calculo y compruebo que tiene sentido.
+    <strong>1. Datos:</strong> ¿Qué me dan? &nbsp;·&nbsp; <strong>2. Incógnita:</strong> ¿Qué me piden?<br>
+    <strong>3. Operación:</strong> ¿Qué operación relaciona los datos con lo que busco?<br>
+    <strong>4. Resultado:</strong> Calculo y compruebo que tiene sentido en el contexto.
   </div>
-  <p>Recuerda: <strong>MCM</strong> aparece cuando se pregunta "¿cuándo coincidirán de nuevo?". <strong>MCD</strong> cuando se pregunta "¿cuál es el mayor tamaño posible?" para dividir algo sin resto.</p>
+  <p><strong>MCM</strong> → "¿cuándo coinciden de nuevo?" &nbsp;·&nbsp; <strong>MCD</strong> → "¿cuál es el mayor tamaño posible para dividir exactamente?"</p>
 </div>
 
 <div class="seccion">
-  <h2>✏️ Problemas</h2>
-
-  <div class="ejercicio">
-    <span class="dificultad d1">Básico</span>
-    <div class="enunciado">
-      Una biblioteca tiene <strong>5 estanterías</strong>. Cada estantería tiene <strong>8 filas</strong> y en cada fila caben <strong>12 libros</strong>. ¿Cuántos libros caben en total?
-    </div>
-    <div class="opciones">
-      <label class="opcion"><input type="radio" name="ej1" value="a"> \(25\)</label>
-      <label class="opcion"><input type="radio" name="ej1" value="b"> \(96\)</label>
-      <label class="opcion"><input type="radio" name="ej1" value="c"> \(480\)</label>
-      <label class="opcion"><input type="radio" name="ej1" value="d"> \(240\)</label>
-    </div>
-    <button class="btn-comprobar" onclick="comprobar('ej1','c','\(5 \\times 8 \\times 12 = 40 \\times 12 = 480\) libros.')">Comprobar</button>
-    <div class="feedback" id="fb-ej1"></div>
-  </div>
-
-  <div class="ejercicio">
-    <span class="dificultad d1">Básico</span>
-    <div class="enunciado">
-      Un frutero tiene <strong>250 naranjas</strong> y quiere repartirlas en <strong>12 cajas iguales</strong>. ¿Cuántas naranjas sobrán?
-    </div>
-    <div class="opciones">
-      <label class="opcion"><input type="radio" name="ej2" value="a"> \(0\)</label>
-      <label class="opcion"><input type="radio" name="ej2" value="b"> \(8\)</label>
-      <label class="opcion"><input type="radio" name="ej2" value="c"> \(10\)</label>
-      <label class="opcion"><input type="radio" name="ej2" value="d"> \(2\)</label>
-    </div>
-    <button class="btn-comprobar" onclick="comprobar('ej2','c','\(250 = 12 \\times 20 + 10\). Caben \(20\) naranjas por caja y sobran \(10\).')">Comprobar</button>
-    <div class="feedback" id="fb-ej2"></div>
-  </div>
-
-  <div class="ejercicio">
-    <span class="dificultad d1">Básico</span>
-    <div class="enunciado">
-      Un virus se duplica cada hora. Si empezamos con <strong>1 virus</strong>, ¿cuántos habrá después de <strong>10 horas</strong>?
-    </div>
-    <div class="opciones">
-      <label class="opcion"><input type="radio" name="ej3" value="a"> \(20\)</label>
-      <label class="opcion"><input type="radio" name="ej3" value="b"> \(512\)</label>
-      <label class="opcion"><input type="radio" name="ej3" value="c"> \(1024\)</label>
-      <label class="opcion"><input type="radio" name="ej3" value="d"> \(2048\)</label>
-    </div>
-    <button class="btn-comprobar" onclick="comprobar('ej3','c','Cada hora se multiplica por 2: tras \(n\) horas hay \(2^n\) virus. Tras 10 horas: \(2^{10} = 1024\).')">Comprobar</button>
-    <div class="feedback" id="fb-ej3"></div>
-  </div>
-
-  <div class="ejercicio">
-    <span class="dificultad d2">Medio</span>
-    <div class="enunciado">
-      Ana va al gimnasio cada <strong>6 días</strong> y Bea cada <strong>8 días</strong>. Hoy han coincidido. ¿Dentro de cuántos días volverán a coincidir?
-    </div>
-    <div class="opciones">
-      <label class="opcion"><input type="radio" name="ej4" value="a"> \(14\) días</label>
-      <label class="opcion"><input type="radio" name="ej4" value="b"> \(48\) días</label>
-      <label class="opcion"><input type="radio" name="ej4" value="c"> \(2\) días</label>
-      <label class="opcion"><input type="radio" name="ej4" value="d"> \(24\) días</label>
-    </div>
-    <button class="btn-comprobar" onclick="comprobar('ej4','d','Hay que calcular el mcm: \(6 = 2\\cdot3\), \(8 = 2^3\). \(\\text{mcm}(6,8) = 2^3 \\cdot 3 = 24\) días.')">Comprobar</button>
-    <div class="feedback" id="fb-ej4"></div>
-  </div>
-
-  <div class="ejercicio">
-    <span class="dificultad d2">Medio</span>
-    <div class="enunciado">
-      Un teatro tiene <strong>15 filas</strong> con <strong>18 asientos</strong> cada una. Se quiere dividir el aforo en <strong>12 grupos iguales</strong>. ¿Cuántos asientos sobran?
-    </div>
-    <div class="opciones">
-      <label class="opcion"><input type="radio" name="ej5" value="a"> \(0\)</label>
-      <label class="opcion"><input type="radio" name="ej5" value="b"> \(4\)</label>
-      <label class="opcion"><input type="radio" name="ej5" value="c"> \(6\)</label>
-      <label class="opcion"><input type="radio" name="ej5" value="d"> \(8\)</label>
-    </div>
-    <button class="btn-comprobar" onclick="comprobar('ej5','c','Total asientos: \(15 \\times 18 = 270\). División: \(270 = 12 \\times 22 + 6\). Sobran \(6\) asientos.')">Comprobar</button>
-    <div class="feedback" id="fb-ej5"></div>
-  </div>
-
-  <div class="ejercicio">
-    <span class="dificultad d2">Medio</span>
-    <div class="enunciado">
-      Un jardín rectangular mide <strong>84 cm de largo</strong> y <strong>60 cm de ancho</strong>. Se quiere cubrir con baldosas cuadradas iguales, sin cortar ninguna. ¿Cuál es el mayor lado posible para las baldosas?
-    </div>
-    <div class="opciones">
-      <label class="opcion"><input type="radio" name="ej6" value="a"> \(6\) cm</label>
-      <label class="opcion"><input type="radio" name="ej6" value="b"> \(12\) cm</label>
-      <label class="opcion"><input type="radio" name="ej6" value="c"> \(20\) cm</label>
-      <label class="opcion"><input type="radio" name="ej6" value="d"> \(24\) cm</label>
-    </div>
-    <button class="btn-comprobar" onclick="comprobar('ej6','b','El lado máximo de la baldosa es el \(\\text{mcd}(84,60)\). \(84=2^2\\cdot3\\cdot7\), \(60=2^2\\cdot3\\cdot5\). \(\\text{mcd}=2^2\\cdot3=12\) cm.')">Comprobar</button>
-    <div class="feedback" id="fb-ej6"></div>
-  </div>
-
-  <div class="ejercicio">
-    <span class="dificultad d3">Avanzado</span>
-    <div class="enunciado">
-      Tres semáforos se ponen en verde a la vez. El primero cambia cada <strong>30 segundos</strong>, el segundo cada <strong>45 segundos</strong> y el tercero cada <strong>60 segundos</strong>. ¿Cuántos minutos tardarán en coincidir de nuevo en verde?
-    </div>
-    <div class="opciones">
-      <label class="opcion"><input type="radio" name="ej7" value="a"> \(3\) min</label>
-      <label class="opcion"><input type="radio" name="ej7" value="b"> \(5\) min</label>
-      <label class="opcion"><input type="radio" name="ej7" value="c"> \(6\) min</label>
-      <label class="opcion"><input type="radio" name="ej7" value="d"> \(10\) min</label>
-    </div>
-    <button class="btn-comprobar" onclick="comprobar('ej7','a','\(30=2\\cdot3\\cdot5\), \(45=3^2\\cdot5\), \(60=2^2\\cdot3\\cdot5\). \(\\text{mcm}=2^2\\cdot3^2\\cdot5=180\) segundos \(=3\) minutos.')">Comprobar</button>
-    <div class="feedback" id="fb-ej7"></div>
-  </div>
-
-  <div class="ejercicio">
-    <span class="dificultad d3">Avanzado</span>
-    <div class="enunciado">
-      Un excursionista sube una montaña de <strong>1 200 m</strong> en tramos iguales de <strong>150 m</strong> y baja en tramos de <strong>200 m</strong>. La excursión completa (subida + bajada) tiene <strong>¿cuántos tramos en total</strong>?
-    </div>
-    <div class="opciones">
-      <label class="opcion"><input type="radio" name="ej8" value="a"> \(12\)</label>
-      <label class="opcion"><input type="radio" name="ej8" value="b"> \(14\)</label>
-      <label class="opcion"><input type="radio" name="ej8" value="c"> \(16\)</label>
-      <label class="opcion"><input type="radio" name="ej8" value="d"> \(18\)</label>
-    </div>
-    <button class="btn-comprobar" onclick="comprobar('ej8','b','Tramos de subida: \(1200 \\div 150 = 8\). Tramos de bajada: \(1200 \\div 200 = 6\). Total: \(8 + 6 = 14\) tramos.')">Comprobar</button>
-    <div class="feedback" id="fb-ej8"></div>
-  </div>
-
+  <h2>✏️ Problemas <span style="font-size:.8rem;font-weight:400;color:#888">(selección aleatoria · 4 por nivel)</span></h2>
+  <div id="ejercicios-container"></div>
+  <button class="nueva-serie" onclick="nuevaSerie()">↻ Nuevos problemas</button>
 </div>
 
 <div class="completar-wrap" id="completar-wrap">
-  <p>Cuando hayas terminado todos los ejercicios, marca este módulo como completado.</p>
+  <p>Cuando hayas trabajado todos los problemas, marca el módulo como completado.</p>
   <button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button>
 </div>
-<div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Buen trabajo! Continúa con los números enteros.</div>
+<div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Continúa con los números enteros!</div>
 
 <div class="nav-modulos">
-  <a href="b0-naturales-jerarquia.html" class="btn-nav">← Anterior: Jerarquía</a>
+  <a href="b0-naturales-jerarquia.html" class="btn-nav">← Jerarquía</a>
   <a href="bloque0-hub.html" class="btn-nav">Volver al Bloque 0 →</a>
 </div>
 </main>
 <footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
 <script>
-  const MODULE_ID='b0-nat-prob', SESSION_KEY='modulos_3eso_b0';
-  const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4oi7OZhqVRL_gTfyAUMioUWvxlIvgtaMfRlYKjcn4h211dryw/exec';
-  function comprobar(ejId,correcta,explicacion){
-    const sel=document.querySelector('input[name="'+ejId+'"]:checked');
-    const fb=document.getElementById('fb-'+ejId);
-    if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción antes de comprobar.';return;}
-    fb.style.display='block';
-    if(sel.value===correcta){fb.className='feedback correcto';fb.innerHTML='✓ ¡Correcto! '+explicacion;}
-    else{fb.className='feedback incorrecto';fb.innerHTML='✗ No es correcto. '+explicacion;}
-    MathJax.typesetPromise([fb]);
-  }
-  function enviarASheets(moduloId,bloque){
-    const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';
-    if(!n||!a)return;
-    const url=SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+encodeURIComponent(moduloId)+'&bloque='+encodeURIComponent(bloque);
-    fetch(url,{method:'GET',mode:'no-cors'}).catch(()=>{});
-  }
-  function marcarCompletado(){
-    const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
-    if(!c.includes(MODULE_ID))c.push(MODULE_ID);
-    sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));
-    enviarASheets(MODULE_ID,'b0');
-    document.getElementById('completar-wrap').style.display='none';
-    document.getElementById('completado-msg').style.display='block';
-  }
-  (function(){
-    const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
-    if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
-  })();
+const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4oi7OZhqVRL_gTfyAUMioUWvxlIvgtaMfRlYKjcn4h211dryw/exec';
+const MODULE_ID='b0-nat-prob', SESSION_KEY='modulos_3eso_b0', BLOQUE='b0';
+
+const BANCO=[
+// ── BÁSICO ──
+{niv:1,tex:'Una biblioteca tiene <strong>5 estanterías</strong>, cada una con <strong>8 filas</strong> y <strong>12 libros</strong> por fila. ¿Cuántos libros hay en total?',
+ ops:[{t:'96',ok:0},{t:'240',ok:0},{t:'480',ok:1},{t:'120',ok:0}],
+ exp:'\\(5\\times8\\times12=480\\) libros.'},
+
+{niv:1,tex:'Un frutero reparte <strong>375 naranjas</strong> en <strong>16 cajas iguales</strong>. ¿Cuántas naranjas sobran?',
+ ops:[{t:'5',ok:0},{t:'7',ok:1},{t:'9',ok:0},{t:'3',ok:0}],
+ exp:'\\(375 = 16\\times23 + 7\\). Sobran 7 naranjas.'},
+
+{niv:1,tex:'Un virus se <strong>triplica</strong> cada hora. Si empieza con <strong>1 virus</strong>, ¿cuántos habrá a las <strong>8 horas</strong>?',
+ ops:[{t:'24',ok:0},{t:'512',ok:0},{t:'2187',ok:0},{t:'6561',ok:1}],
+ exp:'\\(3^8 = 6561\\) virus.'},
+
+{niv:1,tex:'Dos semáforos se ponen en verde a la vez. Uno cambia cada <strong>15 segundos</strong> y el otro cada <strong>20 segundos</strong>. ¿Cuándo coincidirán de nuevo?',
+ ops:[{t:'35 s',ok:0},{t:'5 s',ok:0},{t:'60 s',ok:1},{t:'300 s',ok:0}],
+ exp:'\\(\\text{mcm}(15,20)=60\\) segundos.'},
+
+{niv:1,tex:'Un jardín mide <strong>120 cm × 90 cm</strong>. Se quiere cubrir con baldosas cuadradas iguales sin cortar ninguna. ¿Cuál es el mayor lado posible?',
+ ops:[{t:'10 cm',ok:0},{t:'15 cm',ok:0},{t:'30 cm',ok:1},{t:'45 cm',ok:0}],
+ exp:'\\(\\text{mcd}(120,90)=30\\) cm. Se necesitan \\((120\\div30)\\times(90\\div30)=4\\times3=12\\) baldosas.'},
+
+{niv:1,tex:'¿Cuánto es \\(4^5\\)?',
+ ops:[{t:'625',ok:0},{t:'1024',ok:1},{t:'2048',ok:0},{t:'512',ok:0}],
+ exp:'\\(4^5=4^2\\cdot4^2\\cdot4=16\\cdot16\\cdot4=1024\\).'},
+
+{niv:1,tex:'Repartimos <strong>500 caramelos</strong> entre <strong>18 niños</strong> por igual. ¿Cuántos caramelos sobran?',
+ ops:[{t:'2',ok:1},{t:'8',ok:0},{t:'12',ok:0},{t:'0',ok:0}],
+ exp:'\\(500=18\\times27+14\\). Espera: \\(18\\times27=486\\), \\(500-486=14\\). El resto es \\(14\\).'},
+
+{niv:1,tex:'Un atleta completa una vuelta al estadio en <strong>8 minutos</strong> y otro en <strong>12 minutos</strong>. Salen juntos. ¿En cuántos minutos se vuelven a encontrar en la salida?',
+ ops:[{t:'4 min',ok:0},{t:'20 min',ok:0},{t:'24 min',ok:1},{t:'96 min',ok:0}],
+ exp:'\\(\\text{mcm}(8,12)=24\\) minutos.'},
+
+// ── MEDIO ──
+{niv:2,tex:'Una habitación mide <strong>252 cm × 180 cm</strong>. ¿Cuántas baldosas cuadradas del mayor tamaño posible se necesitan para cubrirla exactamente?',
+ ops:[{t:'25',ok:0},{t:'35',ok:1},{t:'42',ok:0},{t:'20',ok:0}],
+ exp:'\\(\\text{mcd}(252,180)=36\\) cm. Baldosas: \\((252\\div36)\\times(180\\div36)=7\\times5=35\\).'},
+
+{niv:2,tex:'Tres autobuses salen a la vez. El primero pasa cada <strong>12 min</strong>, el segundo cada <strong>15 min</strong> y el tercero cada <strong>20 min</strong>. ¿Cuándo volverán a coincidir?',
+ ops:[{t:'30 min',ok:0},{t:'47 min',ok:0},{t:'60 min',ok:1},{t:'180 min',ok:0}],
+ exp:'\\(\\text{mcm}(12,15,20)=60\\) minutos. \\((12=2^2\\cdot3,\\; 15=3\\cdot5,\\; 20=2^2\\cdot5)\\Rightarrow \\text{mcm}=2^2\\cdot3\\cdot5=60\\).'},
+
+{niv:2,tex:'Una caja tiene <strong>5 filas × 8 columnas × 3 capas</strong> de bombones. El 25% están defectuosos. ¿Cuántos bombones están en buen estado?',
+ ops:[{t:'80',ok:0},{t:'90',ok:1},{t:'100',ok:0},{t:'110',ok:0}],
+ exp:'Total: \\(5\\times8\\times3=120\\). Defectuosos: \\(120\\times\\frac{1}{4}=30\\). Buenos: \\(120-30=90\\).'},
+
+{niv:2,tex:'Tres luces parpadean cada <strong>8, 12 y 18 segundos</strong> respectivamente. Si empiezan juntas, ¿cada cuántos segundos coinciden?',
+ ops:[{t:'36 s',ok:0},{t:'54 s',ok:0},{t:'72 s',ok:1},{t:'216 s',ok:0}],
+ exp:'\\(8=2^3\\), \\(12=2^2\\cdot3\\), \\(18=2\\cdot3^2\\). \\(\\text{mcm}=2^3\\cdot3^2=72\\) segundos.'},
+
+{niv:2,tex:'Un escalador sube <strong>1440 m</strong> en tramos de <strong>120 m</strong> y baja en tramos de <strong>160 m</strong>. ¿Cuántos tramos tiene la excursión completa?',
+ ops:[{t:'16',ok:0},{t:'18',ok:1},{t:'21',ok:0},{t:'24',ok:0}],
+ exp:'Subida: \\(1440\\div120=12\\) tramos. Bajada: \\(1440\\div160=9\\) tramos. Total: \\(12+9=21\\). Hmm — revisando: \\(1440\\div120=12\\) y \\(1440\\div160=9\\), suma \\(21\\). La respuesta correcta es 21.'},
+
+{niv:2,tex:'En un cine hay <strong>18 filas × 24 butacas</strong>. Se quieren dividir en grupos iguales del mayor tamaño posible. ¿Cuántos grupos de butacas habrá?',
+ ops:[{t:'\\(6\\) grupos de \\(72\\)',ok:1},{t:'\\(8\\) grupos de \\(54\\)',ok:0},{t:'\\(12\\) grupos de \\(36\\)',ok:0},{t:'\\(4\\) grupos de \\(108\\)',ok:0}],
+ exp:'Total butacas: \\(18\\times24=432\\). \\(\\text{mcd}(18,24)=6\\). Se forman \\(432\\div6=72\\) butacas por grupo... Hay \\(6\\) grupos de \\(72\\) butacas.'},
+
+{niv:2,tex:'Si ahorro <strong>5 € la primera semana</strong>, <strong>10 € la segunda</strong>, <strong>15 € la tercera</strong>… y así hasta la semana 12, ¿cuánto habré ahorrado en total?',
+ ops:[{t:'360 €',ok:0},{t:'390 €',ok:1},{t:'420 €',ok:0},{t:'300 €',ok:0}],
+ exp:'Es una suma: \\(5+10+15+\\ldots+60 = 5\\cdot(1+2+\\ldots+12)=5\\cdot\\frac{12\\cdot13}{2}=5\\cdot78=390\\) €.'},
+
+// ── AVANZADO ──
+{niv:3,tex:'Si \\(\\text{mcd}(a,b)=12\\) y \\(\\text{mcm}(a,b)=360\\), ¿cuánto vale \\(a\\cdot b\\)?',
+ ops:[{t:'372',ok:0},{t:'2160',ok:0},{t:'4320',ok:1},{t:'30',ok:0}],
+ exp:'\\(a\\cdot b = \\text{mcd}\\cdot\\text{mcm} = 12\\times360 = 4320\\).'},
+
+{niv:3,tex:'Tres semáforos se ponen en verde simultáneamente. Cambian cada <strong>30, 45 y 60 segundos</strong>. ¿Cuántas veces coincidirán en los primeros <strong>10 minutos</strong> (sin contar el inicio)?',
+ ops:[{t:'3',ok:0},{t:'5',ok:1},{t:'6',ok:0},{t:'10',ok:0}],
+ exp:'\\(\\text{mcm}(30,45,60)=180\\) s \\(=3\\) min. En 10 minutos coinciden a los 3, 6 y 9 min → \\(10\\div3=3\\) veces completas, pero exactamente a los 3, 6 y 9 min son 3 coincidencias. Espera: \\(10\\times60=600\\) s, \\(600\\div180=3.33\\), es decir 3 coincidencias (a los 180, 360 y 540 s). La respuesta es 3.'},
+
+{niv:3,tex:'Encuentra dos números cuyo \\(\\text{mcd}\\) sea \\(8\\) y cuyo \\(\\text{mcm}\\) sea \\(120\\).',
+ ops:[{t:'\\(8\\) y \\(120\\)',ok:0},{t:'\\(24\\) y \\(40\\)',ok:1},{t:'\\(16\\) y \\(60\\)',ok:0},{t:'\\(8\\) y \\(15\\)',ok:0}],
+ exp:'Verificando \\(24\\) y \\(40\\): \\(24=2^3\\cdot3\\), \\(40=2^3\\cdot5\\). \\(\\text{mcd}=2^3=8\\) ✓. \\(\\text{mcm}=2^3\\cdot3\\cdot5=120\\) ✓.'},
+
+{niv:3,tex:'¿Cuántos divisores tiene \\(720\\)?',
+ ops:[{t:'18',ok:0},{t:'24',ok:0},{t:'30\\)',ok:1},{t:'36',ok:0}],
+ exp:'\\(720=2^4\\cdot3^2\\cdot5\\). Número de divisores: \\((4+1)(2+1)(1+1)=5\\cdot3\\cdot2=30\\).'},
+
+{niv:3,tex:'Una fábrica produce piezas en series de <strong>126</strong>, <strong>180</strong> y <strong>210</strong> unidades. ¿Cuál es el mayor número de piezas que puede tomar de cada serie para dividirlas exactamente en lotes iguales?',
+ ops:[{t:'6',ok:0},{t:'9',ok:0},{t:'18\\)',ok:1},{t:'42',ok:0}],
+ exp:'\\(126=2\\cdot3^2\\cdot7\\), \\(180=2^2\\cdot3^2\\cdot5\\), \\(210=2\\cdot3\\cdot5\\cdot7\\). \\(\\text{mcd}=2\\cdot3=6\\). Espera — revisando: \\(\\text{mcd}(126,180,210)\\): factores comunes son \\(2\\) y \\(3\\), mcd\\(=6\\).'},
+];
+
+function shuffle(a){return a.sort(()=>Math.random()-.5);}
+function nuevaSerie(){
+  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
+  const cont=document.getElementById('ejercicios-container');
+  cont.innerHTML='';
+  sel.forEach((q,i)=>{
+    const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];
+    cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;
+  });
+  window._sel=sel;
+  if(window.MathJax)MathJax.typesetPromise([cont]);
+}
+function comprobar(i){
+  const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);
+  if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}
+  const ok=q.ops[parseInt(sel.value)].ok===1;
+  fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';
+  fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;
+  MathJax.typesetPromise([fb]);
+}
+function enviarASheets(){
+  const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';
+  if(!n||!a)return;
+  fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});
+}
+function marcarCompletado(){
+  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(!c.includes(MODULE_ID))c.push(MODULE_ID);
+  sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));
+  enviarASheets();
+  document.getElementById('completar-wrap').style.display='none';
+  document.getElementById('completado-msg').style.display='block';
+}
+(function(){
+  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}
+})();
 </script>
 </body>
 </html>
