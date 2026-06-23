@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bicuadradas y Polinómicas · 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root{--color:#e65100;--color-c:#fff8e1;--gris-bg:#f5f7fa;--texto:#212121;--radio:12px;--sombra:0 2px 8px rgba(0,0,0,.09)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',sans-serif;background:var(--gris-bg);color:var(--texto);line-height:1.6}
+    nav{background:var(--color);color:white;padding:.7rem 1.4rem;font-size:.9rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    nav a{color:rgba(255,255,255,.8);text-decoration:none} nav a:hover{color:white} nav span{opacity:.6}
+    .hero{background:linear-gradient(135deg,var(--color),#b33c00);color:white;padding:1.8rem 1.5rem 1.6rem;text-align:center}
+    .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:.25rem .9rem;font-size:.8rem;letter-spacing:.06em;margin-bottom:.7rem}
+    .hero h1{font-size:1.6rem}
+    main{max-width:760px;margin:0 auto;padding:2rem 1rem 4rem}
+    .seccion{background:white;border-radius:var(--radio);box-shadow:var(--sombra);padding:1.6rem 1.8rem;margin-bottom:1.8rem}
+    .seccion h2{font-size:1.05rem;color:var(--color);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--color-c)}
+    .seccion p{margin-bottom:.8rem;font-size:.95rem}
+    .seccion ul{margin:.3rem 0 .8rem 1.2rem} .seccion li{margin-bottom:.4rem;font-size:.94rem}
+    #ejercicios-container .ejercicio{border:1.5px solid #e0e0e0;border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:1.2rem;background:#fafafa}
+    .dificultad{display:inline-block;font-size:.75rem;font-weight:700;padding:.15rem .55rem;border-radius:20px;margin-bottom:.5rem}
+    .d1{background:#e8f5e9;color:#2e7d32} .d2{background:#fff8e1;color:#e65100} .d3{background:#fce4ec;color:#880e4f}
+    .enunciado{font-size:.96rem;margin-bottom:.9rem;font-weight:500;line-height:1.7}
+    .opciones{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+    .opcion{display:flex;align-items:center;gap:.7rem;padding:.55rem .9rem;border-radius:8px;border:1.5px solid #ddd;background:white;cursor:pointer;font-size:.93rem;transition:border-color .15s,background .15s}
+    .opcion:hover{border-color:var(--color);background:var(--color-c)}
+    .opcion input[type=radio]{accent-color:var(--color)}
+    .btn-comprobar{padding:.55rem 1.2rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .btn-comprobar:hover{background:#b33c00}
+    .feedback{display:none;margin-top:.8rem;padding:.7rem 1rem;border-radius:8px;font-size:.9rem;font-weight:500;line-height:1.6}
+    .feedback.correcto{background:#e8f5e9;color:#1b5e20;border-left:4px solid #2e7d32}
+    .feedback.incorrecto{background:#ffebee;color:#b71c1c;border-left:4px solid #c62828}
+    .completar-wrap{text-align:center;padding:1.5rem;background:white;border-radius:var(--radio);box-shadow:var(--sombra);margin-bottom:1.5rem}
+    .completar-wrap p{font-size:.92rem;color:#555;margin-bottom:1rem}
+    .btn-completar{padding:.7rem 1.8rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer}
+    .btn-completar:hover{background:#b33c00}
+    .completado-msg{display:none;background:#e8f5e9;color:#1b5e20;border-radius:10px;padding:1rem;font-weight:600;font-size:.97rem;text-align:center;margin-bottom:1.5rem}
+    .nav-modulos{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .btn-nav{padding:.6rem 1.2rem;background:white;border:1.5px solid var(--color);color:var(--color);border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600}
+    .btn-nav:hover{background:var(--color-c)}
+    .nueva-serie{display:block;margin:.5rem auto 0;background:none;border:none;color:var(--color);font-size:.85rem;cursor:pointer;text-decoration:underline}
+    footer{text-align:center;font-size:.82rem;color:#aaa;padding:1.5rem}
+  </style>
+</head>
+<body>
+<nav><a href="index.html">Inicio</a><span>·</span><a href="bloque2-hub.html">Bloque 2</a><span>·</span><strong>Módulo 3</strong></nav>
+<div class="hero"><div class="badge">Bloque 2 · Módulo 3</div><h1>Ecuaciones de Grado Superior</h1></div>
+<main>
+
+<div class="seccion">
+  <h2>📖 Grados superiores a 2</h2>
+  <p>Estrategias algebraicas de resolución:</p>
+  <ul>
+    <li><strong>Bicuadradas:</strong> Usa el cambio de variable \(t = x^2\) para obtener una ecuación de segundo grado, luego calcula \(\pm\sqrt{t}\).</li>
+    <li><strong>Polinómicas generales:</strong> Factoriza buscando raíces enteras mediante la regla de <strong>Ruffini</strong> probando con los divisores del término independiente.</li>
+  </ul>
+</div>
+
+<div class="seccion">
+  <h2>✏️ Ejercicios</h2>
+  <div id="ejercicios-container"></div>
+  <button class="nueva-serie" onclick="nuevaSerie()">↻ Generar nuevos ejercicios</button>
+</div>
+
+<div class="completar-wrap" id="completar-wrap">
+  <p>¿Has terminado los ejercicios? Guarda tu progreso en tu ficha de seguimiento.</p>
+  <button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button>
+</div>
+<div class="completado-msg" id="completado-msg">✅ ¡Módulo completado con éxito! Tu progreso ha sido registrado.</div>
+
+<div class="nav-modulos">
+  <a href="bloque2-hub.html" class="btn-nav">← Volver al Bloque 2</a>
+</div>
+</main>
+<script>
+const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4oi7OZhqVRL_gTfyAUMioUWvxlIvgtaMfRlYKjcn4h211dryw/exec';
+const MODULE_ID='b2-ecpoli', SESSION_KEY='modulos_3eso_b2', BLOQUE='b2';
+
+const BANCO=[
+  {
+    "niv": 1, "tex": "Resuelve la ecuación bicuadrada: \\(x^4 - 5x^2 + 4 = 0\\)",
+    "ops": [{"t": "\\(x = \\pm 1, \\, x = \\pm 2\\)", "ok": 1}, {"t": "\\(x = 1, \\, x = 4\\)", "ok": 0}, {"t": "\\(x = \\pm 1, \\, x = \\pm 4\\)", "ok": 0}, {"t": "\\(x = 1, \\, x = 2\\)", "ok": 0}],
+    "exp": "Cambiando a \\(t=x^2\\) da \\(t^2-5t+4=0 \\rightarrow t=1, t=4\\). Extrayendo raíces obtenemos \\(x=\pm 1\\) y \\(x=\pm 2\\)."
+  },
+  {
+    "niv": 2, "tex": "Halla las raíces reales de la ecuación: \\(x^3 - 6x^2 + 11x - 6 = 0\\)",
+    "ops": [{"t": "\\(x = 1, \\, x = 2, \\, x = 3\\)", "ok": 1}, {"t": "\\(x = -1, \\, x = -2, \\, x = -3\\)", "ok": 0}, {"t": "\\(x = 1, \\, x = 6\\)", "ok": 0}, {"t": "\\(x = 0, \\, x = 1, \\, x = 2\\)", "ok": 0}],
+    "exp": "Aplicando Ruffini con los divisores de 6, encontramos de forma sucesiva las raíces enteras 1, 2 y 3."
+  },
+  {
+    "niv": 3, "tex": "Resuelve la bicuadrada: \\(x^4 - 13x^2 + 36 = 0\\)",
+    "ops": [{"t": "\\(x = \\pm 2, \\, x = \\pm 3\\)", "ok": 1}, {"t": "\\(x = 4, \\, x = 9\\)", "ok": 0}, {"t": "\\(x = \\pm 4, \\, x = \\pm 9\\)", "ok": 0}, {"t": "No tiene soluciones reales", "ok": 0}],
+    "exp": "El cambio \\(t=x^2\\) genera \\(t=4\\) y \\(t=9\\). Sus raíces correspondientes son \\(x=\pm 2\\) y \\(x=\pm 3\\)."
+  }
+];
+
+function shuffle(a){return a.sort(()=>Math.random()-.5);}
+function nuevaSerie(){
+  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,1),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,1),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,1)];
+  const cont=document.getElementById('ejercicios-container'); cont.innerHTML='';
+  sel.forEach((q,i)=>{
+    const lbl=['Básico','Medio','Avanzado'][q.niv-1], cls=['d1','d2','d3'][q.niv-1];
+    cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;
+  });
+  window._sel=sel; if(window.MathJax)MathJax.typesetPromise([cont]);
+}
+function comprobar(i){
+  const q=window._sel[i], sel=document.querySelector(`input[name="ej${i}"]:checked`), fb=document.getElementById('fb'+i);
+  if(!sel){fb.style.display='block'; fb.className='feedback incorrecto'; fb.textContent='Selecciona una opción.'; return;}
+  const ok=q.ops[parseInt(sel.value)].ok===1; fb.style.display='block';
+  fb.className=ok?'feedback correcto':'feedback incorrecto';
+  fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;
+  MathJax.typesetPromise([fb]);
+}
+function enviarASheets(){
+  const n=sessionStorage.getItem('alumno_nombre')||'', a=sessionStorage.getItem('alumno_apellidos')||'', g=sessionStorage.getItem('alumno_grupo')||'';
+  if(!n||!a)return;
+  fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});
+}
+function marcarCompletado(){
+  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(!c.includes(MODULE_ID))c.push(MODULE_ID); sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));
+  enviarASheets(); document.getElementById('completar-wrap').style.display='none'; document.getElementById('completado-msg').style.display='block';
+}
+(function(){
+  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none'; document.getElementById('completado-msg').style.display='block';}
+  nuevaSerie();
+})();
+</script>
+</body>
+</html>
