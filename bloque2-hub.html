@@ -174,6 +174,11 @@
         <div class="modulo-desc">Resolución y planteamiento de ecuaciones lineales con una incógnita.</div>
       </a>
 
+      <a href="b2-ec-bicuadradas.html" class="modulo-card" id="card-b2-ecbicuad">
+        <div class="modulo-icon">x⁴</div>
+        <div class="modulo-nombre">Ecuaciones bicuadradas</div>
+        <div class="modulo-desc">Cambio de variable (t=x^2). Hasta 4 soluciones reales.</div>
+      </a>
       <a href="b2-ec-segundo-grado.html" class="modulo-card" id="card-b2-ec2">
         <div class="modulo-icon">∪</div>
         <div class="modulo-nombre">Ecuaciones de 2º grado</div>
@@ -208,7 +213,7 @@
 <footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
 
 <script>
-  const MODULOS_B2 = ['b2-ec1','b2-ec2','b2-ecpoli','b2-ecrac','b2-ecirr'];
+  const MODULOS_B2 = ['b2-ec1','b2-ec2','b2-ecbicuad','b2-ecpoli','b2-ecrac','b2-ecirr'];
 
   function actualizarProgreso() {
     const completados = JSON.parse(sessionStorage.getItem('modulos_3eso_b2') || '[]');

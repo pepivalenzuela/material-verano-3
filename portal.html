@@ -138,7 +138,7 @@
     </div>
     <div class="bloque-prog">
       <div class="mini-barra-outer"><div class="mini-barra-inner" id="prog-b2" style="width:0%"></div></div>
-      <span class="prog-txt" id="txt-b2">0/5</span>
+      <span class="prog-txt" id="txt-b2">0/6</span>
     </div>
     <div class="modulos-tags">
       <span class="tag">1er grado</span><span class="tag">2º grado</span>
@@ -180,7 +180,7 @@
   if (!nombre) window.location.href = 'index.html';
 
   // Progreso por bloque
-  const TOTALES = {b0:12, b1:3, b2:5, b3:5};
+  const TOTALES = {b0:12, b1:3, b2:6, b3:5};
   const KEYS    = {
     b0: 'modulos_3eso_b0',
     b1: 'modulos_3eso_b1',
@@ -189,7 +189,7 @@
   };
 
   let totalComp = 0;
-  const totalMod = 25;
+  const totalMod = 26;
 
   ['b0','b1','b2','b3'].forEach(b => {
     const comp = JSON.parse(sessionStorage.getItem(KEYS[b]) || '[]').length;

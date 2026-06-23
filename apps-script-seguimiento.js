@@ -48,7 +48,7 @@ const MODULO_COLUMNA = {
   'b0-rac-op':11,'b0-rac-jer':12,'b0-rac-prob':13,
   'b0-rad-pot':14,'b0-rad-fac':15,'b0-rad-op':16,
   'b1-poli':5,'b1-pn':6,'b1-fact':7,
-  'b2-ec1':5,'b2-ec2':6,'b2-ecpoli':7,'b2-ecrac':8,'b2-ecirr':9,
+  'b2-ec1':5,'b2-ec2':6,'b2-ecpoli':7,'b2-ecrac':8,'b2-ecirr':9,'b2-ecbicuad':10,
   'geo1-formas':5,'geo2-angulos':6,'geo3-semejanza':7,'geo4-pitagoras':8,'geo5-trig':9
 };
 
@@ -59,7 +59,7 @@ const HOJA_POR_BLOQUE = {
   'geo':'Bloque 3 - Geometría'
 };
 
-const TOTAL_POR_BLOQUE = {'b0':12,'b1':3,'b2':5,'geo':5};
+const TOTAL_POR_BLOQUE = {'b0':12,'b1':3,'b2':6,'geo':5};
 
 function inicializarHojas() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
