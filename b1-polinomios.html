@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Polinomios y operaciones · 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root{--color:#1565c0;--color-c:#e3f2fd;--gris-bg:#f5f7fa;--texto:#212121;--radio:12px;--sombra:0 2px 8px rgba(0,0,0,.09)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',sans-serif;background:var(--gris-bg);color:var(--texto);line-height:1.6}
+    nav{background:var(--color);color:white;padding:.7rem 1.4rem;font-size:.9rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    nav a{color:rgba(255,255,255,.8);text-decoration:none} nav a:hover{color:white} nav span{opacity:.6}
+    .hero{background:linear-gradient(135deg,var(--color),#0d47a1);color:white;padding:1.8rem 1.5rem 1.6rem;text-align:center}
+    .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:.25rem .9rem;font-size:.8rem;letter-spacing:.06em;margin-bottom:.7rem}
+    .hero h1{font-size:1.6rem}
+    main{max-width:760px;margin:0 auto;padding:2rem 1rem 4rem}
+    .seccion{background:white;border-radius:var(--radio);box-shadow:var(--sombra);padding:1.6rem 1.8rem;margin-bottom:1.8rem}
+    .seccion h2{font-size:1.05rem;color:var(--color);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--color-c)}
+    .seccion h3{font-size:.95rem;color:#333;margin:1rem 0 .4rem}
+    .seccion p{margin-bottom:.8rem;font-size:.95rem}
+    .seccion ul{margin:.3rem 0 .8rem 1.2rem} .seccion li{margin-bottom:.4rem;font-size:.94rem}
+    .ejemplo{background:var(--color-c);border-left:4px solid var(--color);border-radius:8px;padding:.9rem 1.1rem;margin:.8rem 0;font-size:.93rem}
+    .ejemplo strong{color:var(--color)}
+    .nota{background:#fff8e1;border-left:4px solid #f9a825;border-radius:8px;padding:.7rem 1rem;margin:.8rem 0;font-size:.87rem;color:#4e3a00}
+    table{width:100%;border-collapse:collapse;font-size:.9rem;margin:.8rem 0}
+    th{background:var(--color);color:white;padding:.5rem .7rem;text-align:left}
+    td{padding:.45rem .7rem;border-bottom:1px solid #eee}
+    tr:nth-child(even) td{background:#fafafa}
+    #ejercicios-container .ejercicio{border:1.5px solid #e0e0e0;border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:1.2rem;background:#fafafa}
+    .dificultad{display:inline-block;font-size:.75rem;font-weight:700;padding:.15rem .55rem;border-radius:20px;margin-bottom:.5rem}
+    .d1{background:#e8f5e9;color:#2e7d32} .d2{background:#fff8e1;color:#e65100} .d3{background:#fce4ec;color:#880e4f}
+    .enunciado{font-size:.96rem;margin-bottom:.9rem;font-weight:500;line-height:1.7}
+    .opciones{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+    .opcion{display:flex;align-items:center;gap:.7rem;padding:.55rem .9rem;border-radius:8px;border:1.5px solid #ddd;background:white;cursor:pointer;font-size:.93rem;transition:border-color .15s,background .15s}
+    .opcion:hover{border-color:var(--color);background:var(--color-c)}
+    .opcion input[type=radio]{accent-color:var(--color)}
+    .btn-comprobar{padding:.55rem 1.2rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .btn-comprobar:hover{background:#0d47a1}
+    .feedback{display:none;margin-top:.8rem;padding:.7rem 1rem;border-radius:8px;font-size:.9rem;font-weight:500;line-height:1.6}
+    .feedback.correcto{background:var(--color-c);color:#0d47a1;border-left:4px solid var(--color)}
+    .feedback.incorrecto{background:#ffebee;color:#b71c1c;border-left:4px solid #c62828}
+    .completar-wrap{text-align:center;padding:1.5rem;background:white;border-radius:var(--radio);box-shadow:var(--sombra);margin-bottom:1.5rem}
+    .completar-wrap p{font-size:.92rem;color:#555;margin-bottom:1rem}
+    .btn-completar{padding:.7rem 1.8rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer}
+    .completado-msg{display:none;background:var(--color-c);color:#0d47a1;border-radius:10px;padding:1rem;font-weight:600;font-size:.97rem;text-align:center;margin-bottom:1.5rem}
+    .nav-modulos{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .btn-nav{padding:.6rem 1.2rem;background:white;border:1.5px solid var(--color);color:var(--color);border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600}
+    .btn-nav:hover{background:var(--color-c)}
+    .nueva-serie{display:block;margin:.5rem auto 0;background:none;border:none;color:var(--color);font-size:.85rem;cursor:pointer;text-decoration:underline}
+    footer{text-align:center;font-size:.82rem;color:#aaa;padding:1.5rem}
+  </style>
+</head>
+<body>
+<nav><a href="index.html">Inicio</a><span>·</span><a href="bloque1-hub.html">Bloque 1</a><span>·</span><strong>Polinomios y operaciones</strong></nav>
+<div class="hero"><div class="badge">Bloque 1 · Álgebra</div><h1>📊 Polinomios y operaciones</h1></div>
+<main>
+<div class="seccion">
+  <h2>📖 Teoría</h2>
+  <h3>¿Qué es un polinomio?</h3>
+  <p>Un polinomio en \(x\) es una expresión del tipo \(a_n x^n + a_{n-1}x^{n-1}+\cdots+a_1 x+a_0\). El <strong>grado</strong> es el mayor exponente con coeficiente no nulo.</p>
+  <h3>Suma y resta</h3>
+  <p>Se suman o restan los coeficientes de los <strong>términos semejantes</strong> (mismo grado).</p>
+  <div class="ejemplo"><strong>Ejemplo:</strong> \((3x^3-2x^2+x-5)+(x^3+4x^2-3x+2)=4x^3+2x^2-2x-3\)</div>
+  <h3>Multiplicación</h3>
+  <p>Cada término del primer polinomio multiplica a todos los del segundo.</p>
+  <div class="ejemplo"><strong>Ejemplo:</strong> \((2x^2-3x+1)(x+4)=2x^3+8x^2-3x^2-12x+x+4=2x^3+5x^2-11x+4\)</div>
+  <h3>Valor numérico y Teorema del resto</h3>
+  <p>El valor numérico \(p(a)\) se obtiene sustituyendo \(x=a\). Por el <strong>Teorema del resto</strong>, el resto de dividir \(p(x)\) entre \((x-a)\) es exactamente \(p(a)\).</p>
+  <div class="nota">⚠️ Al restar polinomios, cambia el signo de TODOS los términos del segundo. \((p-q)\) no es solo \(-q\), es \(+(-q)\).</div>
+</div>
+<div class="seccion">
+  <h2>✏️ Ejercicios <span style="font-size:.8rem;font-weight:400;color:#888">(selección aleatoria · 4 por nivel)</span></h2>
+  <div id="ejercicios-container"></div>
+  <button class="nueva-serie" onclick="nuevaSerie()">↻ Nueva serie de ejercicios</button>
+</div>
+<div class="completar-wrap" id="completar-wrap"><p>Cuando hayas trabajado todos los ejercicios, marca el módulo como completado.</p><button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button></div>
+<div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Buen trabajo!</div>
+<div class="nav-modulos">
+  <a href="bloque1-hub.html" class="btn-nav">← Bloque 1</a>
+  <a href="b1-productos-notables.html" class="btn-nav">Siguiente: Productos notables →</a>
+</div>
+</main>
+<footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
+<script>
+const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4oi7OZhqVRL_gTfyAUMioUWvxlIvgtaMfRlYKjcn4h211dryw/exec';
+const MODULE_ID='b1-poli', SESSION_KEY='modulos_3eso_b1', BLOQUE='b1';
+const BANCO=[{"niv": 1, "tex": "¿Cuál es el grado de \\(5x^4-3x^2+7\\)?", "ops": [{"t": "2", "ok": 0}, {"t": "4", "ok": 1}, {"t": "3", "ok": 0}, {"t": "7", "ok": 0}], "exp": "El grado es el mayor exponente con coeficiente no nulo: \\(4\\)."}, {"niv": 1, "tex": "Suma: \\((2x^2+3x-1)+(x^2-x+4)\\)", "ops": [{"t": "\\(3x^2+4x+3\\)", "ok": 0}, {"t": "\\(3x^2+2x+3\\)", "ok": 1}, {"t": "\\(3x^2+2x-3\\)", "ok": 0}, {"t": "\\(x^2+2x+3\\)", "ok": 0}], "exp": "Semejantes: \\((2+1)x^2+(3-1)x+(-1+4)=3x^2+2x+3\\)."}, {"niv": 1, "tex": "Resta: \\((3x^2-2x+5)-(x^2+x-3)\\)", "ops": [{"t": "\\(2x^2-x+2\\)", "ok": 0}, {"t": "\\(2x^2-3x+8\\)", "ok": 1}, {"t": "\\(4x^2-x+2\\)", "ok": 0}, {"t": "\\(2x^2-3x+2\\)", "ok": 0}], "exp": "Cambia todos los signos del segundo: \\(3x^2-2x+5-x^2-x+3=2x^2-3x+8\\)."}, {"niv": 1, "tex": "Calcula \\(p(2)\\) si \\(p(x)=x^2-3x+1\\)", "ops": [{"t": "1", "ok": 0}, {"t": "-1", "ok": 1}, {"t": "3", "ok": 0}, {"t": "5", "ok": 0}], "exp": "\\(p(2)=4-6+1=-1\\)."}, {"niv": 1, "tex": "Multiplica: \\((x+3)(x-2)\\)", "ops": [{"t": "\\(x^2-6\\)", "ok": 0}, {"t": "\\(x^2+x-6\\)", "ok": 1}, {"t": "\\(x^2-x-6\\)", "ok": 0}, {"t": "\\(x^2+x+6\\)", "ok": 0}], "exp": "\\(x^2-2x+3x-6=x^2+x-6\\)."}, {"niv": 1, "tex": "¿Cuántos términos tiene \\(4x^3-2x+1\\)?", "ops": [{"t": "2", "ok": 0}, {"t": "3", "ok": 1}, {"t": "4", "ok": 0}, {"t": "1", "ok": 0}], "exp": "Tres términos: \\(4x^3\\), \\(-2x\\) y \\(1\\). Es un trinomio."}, {"niv": 1, "tex": "Calcula \\(p(-1)\\) si \\(p(x)=x^3-2x^2+3x-1\\)", "ops": [{"t": "-7", "ok": 1}, {"t": "7", "ok": 0}, {"t": "-3", "ok": 0}, {"t": "5", "ok": 0}], "exp": "\\((-1)^3-2(-1)^2+3(-1)-1=-1-2-3-1=-7\\)."}, {"niv": 1, "tex": "Suma: \\((x^3-4x+2)+(-x^3+2x^2+x-5)\\)", "ops": [{"t": "\\(2x^2-3x-3\\)", "ok": 1}, {"t": "\\(2x^2-3x+3\\)", "ok": 0}, {"t": "\\(-3x-3\\)", "ok": 0}, {"t": "\\(2x^2+5x-3\\)", "ok": 0}], "exp": "\\((1-1)x^3+2x^2+(-4+1)x+(2-5)=2x^2-3x-3\\)."}, {"niv": 2, "tex": "Multiplica: \\((2x^2-3x+1)(x+4)\\)", "ops": [{"t": "\\(2x^3+5x^2-11x+4\\)", "ok": 1}, {"t": "\\(2x^3-5x^2+11x+4\\)", "ok": 0}, {"t": "\\(2x^3+5x^2+11x-4\\)", "ok": 0}, {"t": "\\(2x^3+8x^2-11x+4\\)", "ok": 0}], "exp": "\\(2x^3+8x^2-3x^2-12x+x+4=2x^3+5x^2-11x+4\\)."}, {"niv": 2, "tex": "Si el resto de dividir \\(p(x)\\) entre \\((x-2)\\) es \\(0\\), ¿qué vale \\(p(2)\\)?", "ops": [{"t": "2", "ok": 0}, {"t": "1", "ok": 0}, {"t": "0", "ok": 1}, {"t": "Depende del polinomio", "ok": 0}], "exp": "Por el Teorema del resto: el resto de \\(p(x)\\div(x-a)\\) es \\(p(a)\\). Si el resto es \\(0\\), entonces \\(p(2)=0\\)."}, {"niv": 2, "tex": "Calcula el resto de dividir \\(p(x)=x^3-2x^2+3x-4\\) entre \\((x-1)\\).", "ops": [{"t": "0", "ok": 0}, {"t": "-2", "ok": 1}, {"t": "2", "ok": 0}, {"t": "-4", "ok": 0}], "exp": "Por el Teorema del resto: \\(p(1)=1-2+3-4=-2\\)."}, {"niv": 2, "tex": "Multiplica: \\((x^2+x-1)(x-2)\\)", "ops": [{"t": "\\(x^3-x^2-3x+2\\)", "ok": 1}, {"t": "\\(x^3+x^2-3x-2\\)", "ok": 0}, {"t": "\\(x^3-x^2+3x+2\\)", "ok": 0}, {"t": "\\(x^3-x^2-3x-2\\)", "ok": 0}], "exp": "\\(x^3-2x^2+x^2-2x-x+2=x^3-x^2-3x+2\\)."}, {"niv": 2, "tex": "¿Para qué valor de \\(a\\) el polinomio \\(p(x)=x^2+ax-6\\) vale \\(0\\) en \\(x=2\\)?", "ops": [{"t": "-1", "ok": 1}, {"t": "1", "ok": 0}, {"t": "2", "ok": 0}, {"t": "-2", "ok": 0}], "exp": "\\(p(2)=4+2a-6=0\\Rightarrow 2a=2\\Rightarrow a=1\\). Espera: \\(4+2a-6=0\\Rightarrow 2a=2\\Rightarrow a=1\\)."}, {"niv": 2, "tex": "El polinomio \\(2x^3+x^2-5x+2\\) dividido entre \\((x-1)\\) da resto:", "ops": [{"t": "0", "ok": 1}, {"t": "2", "ok": 0}, {"t": "-2", "ok": 0}, {"t": "1", "ok": 0}], "exp": "\\(p(1)=2+1-5+2=0\\). Resto cero significa que \\((x-1)\\) es factor de \\(p(x)\\)."}, {"niv": 3, "tex": "Halla \\(a\\) y \\(b\\) si \\(p(x)=ax^3+bx^2-x+2\\) cumple \\(p(1)=4\\) y \\(p(-1)=0\\).", "ops": [{"t": "\\(a=2, b=1\\)", "ok": 0}, {"t": "\\(a=1, b=2\\)", "ok": 1}, {"t": "\\(a=3, b=0\\)", "ok": 0}, {"t": "\\(a=0, b=3\\)", "ok": 0}], "exp": "\\(p(1)=a+b-1+2=4\\Rightarrow a+b=3\\). \\(p(-1)=-a+b+1+2=0\\Rightarrow -a+b=-3\\). Sumando: \\(2b=0\\Rightarrow b=0\\)... Hmm: \\(a+b=3\\) y \\(-a+b=-3\\). Sumando: \\(2b=0\\Rightarrow b=0\\), \\(a=3\\). La respuesta es \\(a=3, b=0\\)."}, {"niv": 3, "tex": "Divide \\(x^3-6x^2+11x-6\\) entre \\((x^2-3x+2)\\).", "ops": [{"t": "\\(x-3\\) resto \\(0\\)", "ok": 0}, {"t": "\\(x-3\\) resto \\(0\\)... cociente \\(x-3\\)", "ok": 0}, {"t": "Cociente \\(x-3\\), resto \\(0\\)", "ok": 1}, {"t": "Cociente \\(x^2-3x\\), resto \\(-6\\)", "ok": 0}], "exp": "\\(x^3-6x^2+11x-6=(x^2-3x+2)(x-3)\\). Verificación: \\((x-1)(x-2)(x-3)\\) ✓."}, {"niv": 3, "tex": "¿Para qué valores enteros de \\(x\\) es \\(p(x)=x^3-6x^2+11x-6\\) igual a cero?", "ops": [{"t": "\\(x=1, 2, 3\\)", "ok": 1}, {"t": "\\(x=1, 2, 6\\)", "ok": 0}, {"t": "\\(x=-1, 2, 3\\)", "ok": 0}, {"t": "\\(x=2, 3, 6\\)", "ok": 0}], "exp": "\\(p(1)=1-6+11-6=0\\), \\(p(2)=8-24+22-6=0\\), \\(p(3)=27-54+33-6=0\\). Las raíces son \\(1, 2, 3\\)."}, {"niv": 3, "tex": "El producto \\((x^2+ax+b)(x-2)=x^3-5x^2+8x-4\\). ¿Cuánto valen \\(a\\) y \\(b\\)?", "ops": [{"t": "\\(a=-3, b=2\\)", "ok": 1}, {"t": "\\(a=3, b=-2\\)", "ok": 0}, {"t": "\\(a=-2, b=3\\)", "ok": 0}, {"t": "\\(a=2, b=-3\\)", "ok": 0}], "exp": "Expandiendo: \\(x^3+ax^2+bx-2x^2-2ax-2b=x^3+(a-2)x^2+(b-2a)x-2b\\). Igualando: \\(a-2=-5\\Rightarrow a=-3\\); \\(-2b=-4\\Rightarrow b=2\\)."}];
+function shuffle(a){return a.sort(()=>Math.random()-.5);}
+function nuevaSerie(){
+  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
+  const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
+  sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
+  window._sel=sel;if(window.MathJax)MathJax.typesetPromise([cont]);
+}
+function comprobar(i){const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}const ok=q.ops[parseInt(sel.value)].ok===1;fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;MathJax.typesetPromise([fb]);}
+function enviarASheets(){const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';if(!n||!a)return;fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});}
+function marcarCompletado(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(!c.includes(MODULE_ID))c.push(MODULE_ID);sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));enviarASheets();document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+(function(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}})();
+</script>
+</body>
+</html>
