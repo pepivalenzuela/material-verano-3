@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ángulos y rectas · Geometría · 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root{--color:#6a1b9a;--color-c:#f3e5f5;--gris-bg:#f5f7fa;--texto:#212121;--radio:12px;--sombra:0 2px 8px rgba(0,0,0,.09)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',sans-serif;background:var(--gris-bg);color:var(--texto);line-height:1.6}
+    nav{background:var(--color);color:white;padding:.7rem 1.4rem;font-size:.9rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    nav a{color:rgba(255,255,255,.8);text-decoration:none} nav a:hover{color:white} nav span{opacity:.6}
+    .hero{background:linear-gradient(135deg,var(--color),#4a148c);color:white;padding:1.8rem 1.5rem 1.6rem;text-align:center}
+    .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:.25rem .9rem;font-size:.8rem;letter-spacing:.06em;margin-bottom:.7rem}
+    .hero h1{font-size:1.6rem}
+    main{max-width:760px;margin:0 auto;padding:2rem 1rem 4rem}
+    .seccion{background:white;border-radius:var(--radio);box-shadow:var(--sombra);padding:1.6rem 1.8rem;margin-bottom:1.8rem}
+    .seccion h2{font-size:1.05rem;color:var(--color);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--color-c)}
+    .seccion h3{font-size:.95rem;color:#333;margin:1rem 0 .4rem}
+    .seccion p{margin-bottom:.8rem;font-size:.95rem}
+    .seccion ul{margin:.3rem 0 .8rem 1.2rem} .seccion li{margin-bottom:.35rem;font-size:.94rem}
+    .ejemplo{background:var(--color-c);border-left:4px solid var(--color);border-radius:8px;padding:.9rem 1.1rem;margin:.8rem 0;font-size:.93rem}
+    .nota{background:#fff8e1;border-left:4px solid #f9a825;border-radius:8px;padding:.7rem 1rem;margin:.8rem 0;font-size:.87rem;color:#4e3a00}
+    .svg-wrap{text-align:center;margin:.8rem 0}
+    table{width:100%;border-collapse:collapse;font-size:.88rem;margin:.8rem 0}
+    th{background:var(--color);color:white;padding:.5rem .7rem;text-align:left}
+    td{padding:.45rem .7rem;border-bottom:1px solid #eee}
+    tr:nth-child(even) td{background:#fafafa}
+    #ejercicios-container .ejercicio{border:1.5px solid #e0e0e0;border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:1.2rem;background:#fafafa}
+    .dificultad{display:inline-block;font-size:.75rem;font-weight:700;padding:.15rem .55rem;border-radius:20px;margin-bottom:.5rem}
+    .d1{background:#e8f5e9;color:#2e7d32} .d2{background:#fff8e1;color:#e65100} .d3{background:#fce4ec;color:#880e4f}
+    .enunciado{font-size:.96rem;margin-bottom:.9rem;font-weight:500}
+    .opciones{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+    .opcion{display:flex;align-items:center;gap:.7rem;padding:.55rem .9rem;border-radius:8px;border:1.5px solid #ddd;background:white;cursor:pointer;font-size:.93rem;transition:border-color .15s,background .15s}
+    .opcion:hover{border-color:var(--color);background:var(--color-c)}
+    .opcion input[type=radio]{accent-color:var(--color)}
+    .btn-comprobar{padding:.55rem 1.2rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .feedback{display:none;margin-top:.8rem;padding:.7rem 1rem;border-radius:8px;font-size:.9rem;font-weight:500;line-height:1.6}
+    .feedback.correcto{background:var(--color-c);color:#4a148c;border-left:4px solid var(--color)}
+    .feedback.incorrecto{background:#ffebee;color:#b71c1c;border-left:4px solid #c62828}
+    .completar-wrap{text-align:center;padding:1.5rem;background:white;border-radius:var(--radio);box-shadow:var(--sombra);margin-bottom:1.5rem}
+    .completar-wrap p{font-size:.92rem;color:#555;margin-bottom:1rem}
+    .btn-completar{padding:.7rem 1.8rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer}
+    .completado-msg{display:none;background:var(--color-c);color:#4a148c;border-radius:10px;padding:1rem;font-weight:600;font-size:.97rem;text-align:center;margin-bottom:1.5rem}
+    .nav-modulos{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .btn-nav{padding:.6rem 1.2rem;background:white;border:1.5px solid var(--color);color:var(--color);border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600}
+    .btn-nav:hover{background:var(--color-c)}
+    .nueva-serie{display:block;margin:.5rem auto 0;background:none;border:none;color:var(--color);font-size:.85rem;cursor:pointer;text-decoration:underline}
+    footer{text-align:center;font-size:.82rem;color:#aaa;padding:1.5rem}
+  </style>
+</head>
+<body>
+<nav><a href="index.html">Inicio</a><span>·</span><a href="geo-hub.html">Geometría</a><span>·</span><strong>Ángulos y rectas</strong></nav>
+<div class="hero"><div class="badge">Geometría · Módulo 2</div><h1>📏 Ángulos y rectas en el plano</h1></div>
+<main>
+<div class="seccion">
+  <h2>📖 Teoría</h2>
+  <h3>Clasificación de ángulos</h3>
+  <table>
+    <tr><th>Tipo</th><th>Medida</th><th>Tipo</th><th>Medida</th></tr>
+    <tr><td>Agudo</td><td>\(0° < \alpha < 90°\)</td><td>Llano</td><td>\(\alpha = 180°\)</td></tr>
+    <tr><td>Recto</td><td>\(\alpha = 90°\)</td><td>Completo</td><td>\(\alpha = 360°\)</td></tr>
+    <tr><td>Obtuso</td><td>\(90° < \alpha < 180°\)</td><td>Cóncavo</td><td>\(180° < \alpha < 360°\)</td></tr>
+  </table>
+  <h3>Ángulos complementarios y suplementarios</h3>
+  <ul>
+    <li><strong>Complementarios:</strong> suman \(90°\)</li>
+    <li><strong>Suplementarios:</strong> suman \(180°\)</li>
+    <li><strong>Ángulos opuestos por el vértice:</strong> son iguales</li>
+  </ul>
+  <h3>Rectas en el plano</h3>
+  <ul>
+    <li><strong>Paralelas:</strong> no se cortan nunca (misma dirección)</li>
+    <li><strong>Secantes:</strong> se cortan en un punto</li>
+    <li><strong>Perpendiculares:</strong> secantes que forman ángulos de \(90°\)</li>
+  </ul>
+  <h3>Paralelas cortadas por una secante</h3>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 400 200" width="100%" style="max-width:420px">
+      <line x1="40" y1="60" x2="360" y2="60" stroke="#6a1b9a" stroke-width="2"/>
+      <line x1="40" y1="140" x2="360" y2="140" stroke="#6a1b9a" stroke-width="2"/>
+      <line x1="100" y1="20" x2="280" y2="180" stroke="#e65100" stroke-width="2"/>
+      <text x="20" y="63" font-size="11" fill="#6a1b9a">r</text>
+      <text x="20" y="143" font-size="11" fill="#6a1b9a">s</text>
+      <!-- ángulo α en r -->
+      <path d="M 155,60 A 20,20 0 0,1 173,47" fill="none" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="172" y="58" font-size="11" fill="#2e7d32">α</text>
+      <!-- ángulo correspondiente en s -->
+      <path d="M 215,140 A 20,20 0 0,1 233,127" fill="none" stroke="#2e7d32" stroke-width="1.5"/>
+      <text x="232" y="138" font-size="11" fill="#2e7d32">α</text>
+      <!-- alterno interno -->
+      <path d="M 155,60 A 20,20 0 0,0 140,72" fill="none" stroke="#1565c0" stroke-width="1.5"/>
+      <text x="122" y="80" font-size="11" fill="#1565c0">β</text>
+      <path d="M 233,140 A 20,20 0 0,1 215,128" fill="none" stroke="#1565c0" stroke-width="1.5"/>
+      <text x="198" y="132" font-size="11" fill="#1565c0">β</text>
+      <text x="10" y="195" font-size="10" fill="#555">α = correspondientes (iguales) · β = alternos internos (iguales) · α+β = 180° (co-internos)</text>
+    </svg>
+  </div>
+  <h3>Mediatriz y bisectriz</h3>
+  <ul>
+    <li><strong>Mediatriz</strong> de un segmento: recta perpendicular al segmento por su punto medio. Todos sus puntos equidistan de los extremos.</li>
+    <li><strong>Bisectriz</strong> de un ángulo: semirrecta que divide el ángulo en dos partes iguales. Todos sus puntos equidistan de los lados del ángulo.</li>
+  </ul>
+</div>
+
+<div class="seccion">
+  <h2>✏️ Ejercicios <span style="font-size:.8rem;font-weight:400;color:#888">(selección aleatoria · 4 por nivel)</span></h2>
+  <div id="ejercicios-container"></div>
+  <button class="nueva-serie" onclick="nuevaSerie()">↻ Nueva serie de ejercicios</button>
+</div>
+<div class="completar-wrap" id="completar-wrap"><p>Cuando hayas trabajado todos los ejercicios, marca el módulo como completado.</p><button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button></div>
+<div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Buen trabajo!</div>
+<div class="nav-modulos">
+  <a href="geo1-formas.html" class="btn-nav">← Formas geométricas</a>
+  <a href="geo3-semejanza.html" class="btn-nav">Siguiente: Semejanza →</a>
+</div>
+</main>
+<footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
+<script>
+const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4oi7OZhqVRL_gTfyAUMioUWvxlIvgtaMfRlYKjcn4h211dryw/exec';
+const MODULE_ID='geo2-angulos', SESSION_KEY='modulos_3eso_geo', BLOQUE='geo';
+const BANCO=[
+// BÁSICO
+{niv:1,tex:'¿Cómo se llaman dos ángulos que suman \\(90°\\)?',ops:[{t:'Suplementarios',ok:0},{t:'Complementarios',ok:1},{t:'Opuestos',ok:0},{t:'Conjugados',ok:0}],exp:'Complementarios: suman exactamente \\(90°\\). Suplementarios suman \\(180°\\).'},
+{niv:1,tex:'Un ángulo mide \\(38°\\). ¿Cuánto mide su suplementario?',ops:[{t:'52°',ok:0},{t:'142°',ok:1},{t:'128°',ok:0},{t:'62°',ok:0}],exp:'\\(180°-38°=142°\\). Los suplementarios suman \\(180°\\).'},
+{niv:1,tex:'Un ángulo mide \\(54°\\). ¿Cuánto mide su complementario?',ops:[{t:'126°',ok:0},{t:'44°',ok:0},{t:'36°',ok:1},{t:'46°',ok:0}],exp:'\\(90°-54°=36°\\). Los complementarios suman \\(90°\\).'},
+{niv:1,tex:'¿Qué tipo de ángulo mide exactamente \\(90°\\)?',ops:[{t:'Agudo',ok:0},{t:'Obtuso',ok:0},{t:'Recto',ok:1},{t:'Llano',ok:0}],exp:'El ángulo recto mide exactamente \\(90°\\). Es el ángulo de las perpendiculares.'},
+{niv:1,tex:'Dos rectas son perpendiculares. ¿Qué ángulo forman?',ops:[{t:'\\(45°\\)',ok:0},{t:'\\(60°\\)',ok:0},{t:'\\(90°\\)',ok:1},{t:'\\(180°\\)',ok:0}],exp:'Las rectas perpendiculares forman ángulos de \\(90°\\) en su intersección.'},
+{niv:1,tex:'Un ángulo mide \\(76°\\). ¿Cuánto mide su complementario?',ops:[{t:'14°',ok:1},{t:'24°',ok:0},{t:'104°',ok:0},{t:'34°',ok:0}],exp:'\\(90°-76°=14°\\).'},
+{niv:1,tex:'¿Qué son los ángulos opuestos por el vértice?',ops:[{t:'Dos ángulos que suman \\(180°\\)',ok:0},{t:'Dos ángulos iguales formados por dos rectas que se cortan',ok:1},{t:'Dos ángulos que suman \\(90°\\)',ok:0},{t:'Dos ángulos adyacentes',ok:0}],exp:'Los ángulos opuestos por el vértice se forman al cruzarse dos rectas y son siempre iguales.'},
+{niv:1,tex:'Un ángulo mide \\(67°\\). ¿Es agudo, recto u obtuso?',ops:[{t:'Recto',ok:0},{t:'Obtuso',ok:0},{t:'Agudo',ok:1},{t:'Llano',ok:0}],exp:'Agudo: \\(0°<67°<90°\\). Es menor de \\(90°\\).'},
+{niv:1,tex:'¿Qué es la bisectriz de un ángulo?',ops:[{t:'La recta perpendicular al ángulo',ok:0},{t:'La semirrecta que divide el ángulo en dos partes iguales',ok:1},{t:'El punto medio del ángulo',ok:0},{t:'La recta que pasa por el vértice',ok:0}],exp:'La bisectriz divide el ángulo en dos ángulos iguales. Sus puntos equidistan de los dos lados del ángulo.'},
+{niv:1,tex:'Dos rectas paralelas son cortadas por una secante. ¿Cómo son los ángulos correspondientes?',ops:[{t:'Suplementarios',ok:0},{t:'Iguales',ok:1},{t:'Complementarios',ok:0},{t:'No tienen relación',ok:0}],exp:'Los ángulos correspondientes (en la misma posición respecto a cada paralela) son siempre iguales.'},
+// MEDIO
+{niv:2,tex:'Dos rectas paralelas son cortadas por una secante. Un ángulo mide \\(55°\\). ¿Cuánto mide el ángulo co-interno?',ops:[{t:'55°',ok:0},{t:'35°',ok:0},{t:'125°',ok:1},{t:'145°',ok:0}],exp:'Los ángulos co-internos (entre las paralelas, del mismo lado de la secante) son suplementarios: \\(180°-55°=125°\\).'},
+{niv:2,tex:'Un ángulo y su suplementario están en proporción \\(2:3\\). ¿Cuánto mide el ángulo menor?',ops:[{t:'60°',ok:0},{t:'72°',ok:1},{t:'108°',ok:0},{t:'54°',ok:0}],exp:'\\(2x+3x=180°\\Rightarrow x=36°\\). El menor es \\(2\\times36°=72°\\), el mayor \\(108°\\).'},
+{niv:2,tex:'Un ángulo y su complementario están en proporción \\(1:4\\). ¿Cuánto mide el ángulo mayor?',ops:[{t:'18°',ok:0},{t:'54°',ok:0},{t:'72°',ok:1},{t:'80°',ok:0}],exp:'\\(x+4x=90°\\Rightarrow x=18°\\). El mayor mide \\(4\\times18°=72°\\).'},
+{niv:2,tex:'Dos rectas paralelas cortadas por una secante forman un ángulo de \\(70°\\). ¿Cuánto mide el ángulo alterno interno?',ops:[{t:'110°',ok:0},{t:'20°',ok:0},{t:'70°',ok:1},{t:'35°',ok:0}],exp:'Los ángulos alternos internos son iguales cuando las rectas son paralelas: \\(70°\\).'},
+{niv:2,tex:'¿Qué es la mediatriz de un segmento \\(AB\\)?',ops:[{t:'La recta que une \\(A\\) y \\(B\\)',ok:0},{t:'La recta perpendicular a \\(AB\\) que pasa por su punto medio',ok:1},{t:'La bisectriz del ángulo \\(\\angle AOB\\)',ok:0},{t:'Una paralela a \\(AB\\)',ok:0}],exp:'La mediatriz es perpendicular al segmento y pasa por su punto medio. Todo punto de la mediatriz equidista de \\(A\\) y \\(B\\).'},
+{niv:2,tex:'Dos rectas se cortan. Uno de los cuatro ángulos mide \\(42°\\). ¿Cuánto miden los otros tres?',ops:[{t:'42°, 42°, 42°',ok:0},{t:'42°, 138°, 138°',ok:1},{t:'138°, 138°, 90°',ok:0},{t:'42°, 42°, 138°',ok:0}],exp:'Opuesto por el vértice al de \\(42°\\): otro de \\(42°\\). Los dos restantes son suplementarios: \\(180°-42°=138°\\) cada uno. Hay dos de \\(42°\\) y dos de \\(138°\\).'},
+{niv:2,tex:'Una recta forma con la horizontal un ángulo de \\(118°\\). ¿Cuánto mide el ángulo alterno interno con una paralela inferior?',ops:[{t:'62°',ok:0},{t:'118°',ok:1},{t:'72°',ok:0},{t:'42°',ok:0}],exp:'Los alternos internos son iguales: \\(118°\\). El co-interno sería \\(180°-118°=62°\\).'},
+{niv:2,tex:'Un ángulo obtuso y su suplementario forman un ángulo recto entre sus bisectrices. ¿Es esto siempre cierto?',ops:[{t:'Sí, siempre',ok:1},{t:'Solo si el ángulo mide 90°',ok:0},{t:'Nunca',ok:0},{t:'Solo con ángulos obtusos',ok:0}],exp:'Las bisectrices de dos ángulos suplementarios siempre son perpendiculares entre sí, formando \\(90°\\).'},
+// AVANZADO
+{niv:3,tex:'Tres rectas se cortan en un punto formando 6 ángulos. Tres ángulos alternos valen \\(40°\\), \\(70°\\) y \\(x\\). Sabiendo que los 6 ángulos suman \\(360°\\), ¿cuánto vale \\(x\\)?',ops:[{t:'50°',ok:0},{t:'70°',ok:1},{t:'80°',ok:0},{t:'40°',ok:0}],exp:'Los 6 ángulos forman pares de opuestos por el vértice, así que los 3 distintos suman \\(180°\\): \\(40°+70°+x=180°\\Rightarrow x=70°\\).'},
+{niv:3,tex:'Dos rectas paralelas \\(r\\) y \\(s\\) son cortadas por dos secantes. Los ángulos co-internos con la primera secante suman \\(180°\\). ¿Qué implica esto sobre las dos secantes?',ops:[{t:'Son perpendiculares',ok:0},{t:'Son paralelas entre sí',ok:0},{t:'No implica nada especial',ok:1},{t:'Son la misma recta',ok:0}],exp:'Que los co-internos sumen \\(180°\\) con la primera secante solo confirma que \\(r\\parallel s\\). No dice nada sobre la relación entre las dos secantes.'},
+{niv:3,tex:'La bisectriz de un ángulo de \\(\\alpha°\\) y la bisectriz de su suplementario forman entre sí un ángulo de...',ops:[{t:'\\(\\frac{\\alpha}{2}°\\)',ok:0},{t:'\\(90°\\) siempre',ok:1},{t:'\\(180°-\\frac{\\alpha}{2}°\\)',ok:0},{t:'Depende de \\(\\alpha\\)',ok:0}],exp:'La bisectriz de \\(\\alpha\\) forma \\(\\frac{\\alpha}{2}\\) con el lado común. La del suplementario \\((180°-\\alpha)\\) forma \\(\\frac{180°-\\alpha}{2}\\). La suma: \\(\\frac{\\alpha}{2}+\\frac{180°-\\alpha}{2}=\\frac{180°}{2}=90°\\) siempre.'},
+{niv:3,tex:'Tres rectas paralelas son cortadas por una secante. Los ángulos entre la primera y segunda paralela miden \\(63°\\). ¿Cuánto miden los ángulos entre la segunda y tercera?',ops:[{t:'63° y 117°',ok:1},{t:'Solo 63°',ok:0},{t:'Solo 117°',ok:0},{t:'No puede determinarse',ok:0}],exp:'Una secante cortando paralelas forma los mismos ángulos en cada intersección: \\(63°\\) y su suplementario \\(117°\\), en las mismas posiciones relativas.'},
+{niv:3,tex:'Dos rectas se cortan. Uno de sus ángulos vale \\(3x+15°\\) y el opuesto por el vértice \\(5x-25°\\). ¿Cuánto miden?',ops:[{t:'\\(55°\\)',ok:0},{t:'\\(75°\\)',ok:1},{t:'\\(65°\\)',ok:0},{t:'\\(85°\\)',ok:0}],exp:'Opuestos por el vértice son iguales: \\(3x+15=5x-25\\Rightarrow 40=2x\\Rightarrow x=20\\). El ángulo mide \\(3(20)+15=75°\\).'},
+{niv:3,tex:'En un triángulo, el ángulo exterior de un vértice mide \\(130°\\). Los otros dos ángulos interiores son iguales. ¿Cuánto miden?',ops:[{t:'50°',ok:0},{t:'65°',ok:1},{t:'25°',ok:0},{t:'40°',ok:0}],exp:'El ángulo exterior es suplementario al interior de ese vértice: interior \\(=180°-130°=50°\\). Los otros dos suman \\(180°-50°=130°\\), y son iguales: \\(65°\\) cada uno. El ángulo exterior también es igual a la suma de los dos ángulos interiores no adyacentes: \\(65°+65°=130°\\) ✓.'},
+{niv:3,tex:'Cuatro rectas concurrentes forman \\(8\\) ángulos. Si son todos iguales, ¿cuánto mide cada uno?',ops:[{t:'30°',ok:0},{t:'40°',ok:0},{t:'45°',ok:1},{t:'60°',ok:0}],exp:'Los \\(8\\) ángulos iguales deben sumar \\(360°\\): \\(360°\\div8=45°\\). Es decir, las cuatro rectas están equiángularmente distribuidas.'},
+];
+function shuffle(a){return a.sort(()=>Math.random()-.5);}
+function nuevaSerie(){
+  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
+  const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
+  sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
+  window._sel=sel;if(window.MathJax)MathJax.typesetPromise([cont]);
+}
+function comprobar(i){const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}const ok=q.ops[parseInt(sel.value)].ok===1;fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;MathJax.typesetPromise([fb]);}
+function enviarASheets(){const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';if(!n||!a)return;fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});}
+function marcarCompletado(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(!c.includes(MODULE_ID))c.push(MODULE_ID);sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));enviarASheets();document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+(function(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}})();
+</script>
+</body>
+</html>

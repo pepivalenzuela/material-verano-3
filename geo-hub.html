@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Geometría · 3º ESO</title>
+  <style>
+    :root{--color:#6a1b9a;--color-c:#f3e5f5;--gris-bg:#f5f7fa;--texto:#212121;--radio:12px;--sombra:0 2px 8px rgba(0,0,0,.09)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',sans-serif;background:var(--gris-bg);color:var(--texto)}
+    nav{background:var(--color);color:white;padding:.7rem 1.4rem;font-size:.9rem;display:flex;align-items:center;gap:.5rem}
+    nav a{color:rgba(255,255,255,.8);text-decoration:none} nav a:hover{color:white} nav span{opacity:.6}
+    .hero{background:linear-gradient(135deg,var(--color),#4a148c);color:white;padding:2.2rem 1.5rem 2rem;text-align:center}
+    .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:.3rem 1rem;font-size:.82rem;letter-spacing:.06em;margin-bottom:.9rem}
+    .hero h1{font-size:1.9rem;margin-bottom:.4rem} .hero p{opacity:.88;font-size:.98rem}
+    main{max-width:780px;margin:0 auto;padding:2rem 1rem 4rem}
+    .progreso-bar-wrap{background:white;border-radius:var(--radio);box-shadow:var(--sombra);padding:1rem 1.4rem;margin-bottom:2rem;display:flex;align-items:center;gap:1.2rem}
+    .label{font-size:.85rem;color:#555;white-space:nowrap}
+    .barra-outer{flex:1;background:#e0e0e0;border-radius:99px;height:10px;overflow:hidden}
+    .barra-inner{height:100%;background:var(--color);border-radius:99px;transition:width .4s}
+    .progreso-pct{font-weight:700;color:var(--color);font-size:.9rem;white-space:nowrap}
+    .subtema-title{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;color:#888;margin-bottom:.8rem}
+    .modulos-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem}
+    @media(max-width:520px){.modulos-grid{grid-template-columns:1fr}}
+    .modulo-card{background:white;border-radius:var(--radio);box-shadow:var(--sombra);text-decoration:none;color:var(--texto);display:flex;flex-direction:column;padding:1.1rem 1.3rem;border-top:4px solid #e0e0e0;transition:transform .15s,box-shadow .15s,border-color .15s;position:relative}
+    .modulo-card:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgba(0,0,0,.13);border-top-color:var(--color)}
+    .modulo-card.completado{border-top-color:var(--color)}
+    .modulo-card.completado::after{content:'✓';position:absolute;top:.7rem;right:.9rem;background:var(--color-c);color:var(--color);font-size:.78rem;font-weight:700;padding:.15rem .5rem;border-radius:20px}
+    .modulo-icon{font-size:1.6rem;margin-bottom:.5rem}
+    .modulo-nombre{font-size:.98rem;font-weight:600;margin-bottom:.25rem}
+    .modulo-desc{font-size:.82rem;color:#666;line-height:1.5}
+    .btn-volver{display:inline-block;margin-top:1.5rem;padding:.6rem 1.2rem;background:white;border:1.5px solid var(--color);color:var(--color);border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600}
+    .btn-volver:hover{background:var(--color-c)}
+    footer{text-align:center;font-size:.82rem;color:#aaa;padding:1.5rem}
+  </style>
+</head>
+<body>
+<nav><a href="index.html">Las Chapas ECOS</a><span>·</span><span>Matemáticas 3º ESO</span><span>·</span><strong>Geometría</strong></nav>
+<div class="hero"><div class="badge">Bloque de Geometría</div><h1>📐 Geometría</h1><p>Formas, ángulos, semejanza, Pitágoras y trigonometría</p></div>
+<main>
+  <div class="progreso-bar-wrap">
+    <span class="label">Tu progreso</span>
+    <div class="barra-outer"><div class="barra-inner" id="barra" style="width:0%"></div></div>
+    <span class="progreso-pct" id="pct">0 / 5</span>
+  </div>
+  <p class="subtema-title">Módulos</p>
+  <div class="modulos-grid">
+    <a href="geo1-formas.html" class="modulo-card" id="card-geo1-formas"><div class="modulo-icon">🔺</div><div class="modulo-nombre">Formas geométricas</div><div class="modulo-desc">Triángulos, polígonos, rectas, semirrectas y segmentos.</div></a>
+    <a href="geo2-angulos.html" class="modulo-card" id="card-geo2-angulos"><div class="modulo-icon">📏</div><div class="modulo-nombre">Ángulos y rectas</div><div class="modulo-desc">Clasificación de ángulos, paralelas, mediatrices y bisectrices.</div></a>
+    <a href="geo3-semejanza.html" class="modulo-card" id="card-geo3-semejanza"><div class="modulo-icon">🔭</div><div class="modulo-nombre">Semejanza y Teorema de Tales</div><div class="modulo-desc">Figuras semejantes, razón de semejanza, escalas y Tales.</div></a>
+    <a href="geo4-pitagoras.html" class="modulo-card" id="card-geo4-pitagoras"><div class="modulo-icon">📐</div><div class="modulo-nombre">Teorema de Pitágoras</div><div class="modulo-desc">Cálculo de hipotenusa, catetos y aplicaciones métricas.</div></a>
+    <a href="geo5-trigonometria.html" class="modulo-card" id="card-geo5-trig"><div class="modulo-icon">🌡️</div><div class="modulo-nombre">Trigonometría elemental</div><div class="modulo-desc">Seno, coseno, tangente, ángulos notables e identidades.</div></a>
+  </div>
+  <a href="index.html" class="btn-volver">← Volver al portal</a>
+</main>
+<footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
+<script>
+const MODULOS=['geo1-formas','geo2-angulos','geo3-semejanza','geo4-pitagoras','geo5-trig'];
+function actualizarProgreso(){
+  const completados=JSON.parse(sessionStorage.getItem('modulos_3eso_geo')||'[]');
+  let cuenta=0;
+  MODULOS.forEach(id=>{const card=document.getElementById('card-'+id);if(card&&completados.includes(id)){card.classList.add('completado');cuenta++;}});
+  const pct=Math.round(cuenta/MODULOS.length*100);
+  document.getElementById('barra').style.width=pct+'%';
+  document.getElementById('pct').textContent=cuenta+' / '+MODULOS.length;
+}
+actualizarProgreso();
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Semejanza · Geometría · 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root{--color:#6a1b9a;--color-c:#f3e5f5;--gris-bg:#f5f7fa;--texto:#212121;--radio:12px;--sombra:0 2px 8px rgba(0,0,0,.09)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',sans-serif;background:var(--gris-bg);color:var(--texto);line-height:1.6}
+    nav{background:var(--color);color:white;padding:.7rem 1.4rem;font-size:.9rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    nav a{color:rgba(255,255,255,.8);text-decoration:none} nav a:hover{color:white} nav span{opacity:.6}
+    .hero{background:linear-gradient(135deg,var(--color),#4a148c);color:white;padding:1.8rem 1.5rem 1.6rem;text-align:center}
+    .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:.25rem .9rem;font-size:.8rem;letter-spacing:.06em;margin-bottom:.7rem}
+    .hero h1{font-size:1.6rem}
+    main{max-width:760px;margin:0 auto;padding:2rem 1rem 4rem}
+    .seccion{background:white;border-radius:var(--radio);box-shadow:var(--sombra);padding:1.6rem 1.8rem;margin-bottom:1.8rem}
+    .seccion h2{font-size:1.05rem;color:var(--color);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--color-c)}
+    .seccion h3{font-size:.95rem;color:#333;margin:1rem 0 .4rem}
+    .seccion p{margin-bottom:.8rem;font-size:.95rem}
+    .seccion ul{margin:.3rem 0 .8rem 1.2rem} .seccion li{margin-bottom:.35rem;font-size:.94rem}
+    .ejemplo{background:var(--color-c);border-left:4px solid var(--color);border-radius:8px;padding:.9rem 1.1rem;margin:.8rem 0;font-size:.93rem}
+    .nota{background:#fff8e1;border-left:4px solid #f9a825;border-radius:8px;padding:.7rem 1rem;margin:.8rem 0;font-size:.87rem;color:#4e3a00}
+    .svg-wrap{text-align:center;margin:.8rem 0}
+    #ejercicios-container .ejercicio{border:1.5px solid #e0e0e0;border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:1.2rem;background:#fafafa}
+    .dificultad{display:inline-block;font-size:.75rem;font-weight:700;padding:.15rem .55rem;border-radius:20px;margin-bottom:.5rem}
+    .d1{background:#e8f5e9;color:#2e7d32} .d2{background:#fff8e1;color:#e65100} .d3{background:#fce4ec;color:#880e4f}
+    .enunciado{font-size:.96rem;margin-bottom:.9rem;font-weight:500;line-height:1.7}
+    .opciones{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+    .opcion{display:flex;align-items:center;gap:.7rem;padding:.55rem .9rem;border-radius:8px;border:1.5px solid #ddd;background:white;cursor:pointer;font-size:.93rem;transition:border-color .15s,background .15s}
+    .opcion:hover{border-color:var(--color);background:var(--color-c)}
+    .opcion input[type=radio]{accent-color:var(--color)}
+    .btn-comprobar{padding:.55rem 1.2rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .feedback{display:none;margin-top:.8rem;padding:.7rem 1rem;border-radius:8px;font-size:.9rem;font-weight:500;line-height:1.6}
+    .feedback.correcto{background:var(--color-c);color:#4a148c;border-left:4px solid var(--color)}
+    .feedback.incorrecto{background:#ffebee;color:#b71c1c;border-left:4px solid #c62828}
+    .completar-wrap{text-align:center;padding:1.5rem;background:white;border-radius:var(--radio);box-shadow:var(--sombra);margin-bottom:1.5rem}
+    .completar-wrap p{font-size:.92rem;color:#555;margin-bottom:1rem}
+    .btn-completar{padding:.7rem 1.8rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer}
+    .completado-msg{display:none;background:var(--color-c);color:#4a148c;border-radius:10px;padding:1rem;font-weight:600;font-size:.97rem;text-align:center;margin-bottom:1.5rem}
+    .nav-modulos{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .btn-nav{padding:.6rem 1.2rem;background:white;border:1.5px solid var(--color);color:var(--color);border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600}
+    .btn-nav:hover{background:var(--color-c)}
+    .nueva-serie{display:block;margin:.5rem auto 0;background:none;border:none;color:var(--color);font-size:.85rem;cursor:pointer;text-decoration:underline}
+    footer{text-align:center;font-size:.82rem;color:#aaa;padding:1.5rem}
+  </style>
+</head>
+<body>
+<nav><a href="index.html">Inicio</a><span>·</span><a href="geo-hub.html">Geometría</a><span>·</span><strong>Semejanza y Tales</strong></nav>
+<div class="hero"><div class="badge">Geometría · Módulo 3</div><h1>🔭 Semejanza y Teorema de Tales</h1></div>
+<main>
+<div class="seccion">
+  <h2>📖 Teoría</h2>
+  <h3>Figuras semejantes</h3>
+  <p>Dos figuras son <strong>semejantes</strong> si tienen la misma forma (ángulos iguales) pero distinto tamaño. La <strong>razón de semejanza</strong> \(k\) es el cociente entre lados correspondientes:</p>
+  <ul>
+    <li>Lados correspondientes: \(k = \dfrac{a'}{a} = \dfrac{b'}{b} = \dfrac{c'}{c}\)</li>
+    <li>Perímetros: se multiplican por \(k\)</li>
+    <li><strong>Áreas: se multiplican por \(k^2\)</strong></li>
+  </ul>
+  <div class="nota">⚠️ El error más común: aplicar \(k\) a las áreas en lugar de \(k^2\). Las áreas escalan con el cuadrado de la razón.</div>
+
+  <h3>Teorema de Tales</h3>
+  <p>Si varias rectas paralelas cortan a dos rectas secantes, los segmentos que determinan en una son proporcionales a los que determinan en la otra:</p>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 340 200" width="100%" style="max-width:360px">
+      <line x1="40" y1="10" x2="160" y2="190" stroke="#6a1b9a" stroke-width="1.5"/>
+      <line x1="120" y1="10" x2="300" y2="190" stroke="#6a1b9a" stroke-width="1.5"/>
+      <line x1="20" y1="50" x2="320" y2="50" stroke="#e65100" stroke-width="1.5" stroke-dasharray="4"/>
+      <line x1="20" y1="110" x2="320" y2="110" stroke="#e65100" stroke-width="1.5" stroke-dasharray="4"/>
+      <line x1="20" y1="170" x2="320" y2="170" stroke="#e65100" stroke-width="1.5" stroke-dasharray="4"/>
+      <circle cx="64" cy="50" r="3" fill="#6a1b9a"/>
+      <circle cx="88" cy="110" r="3" fill="#6a1b9a"/>
+      <circle cx="112" cy="170" r="3" fill="#6a1b9a"/>
+      <circle cx="167" cy="50" r="3" fill="#6a1b9a"/>
+      <circle cx="208" cy="110" r="3" fill="#6a1b9a"/>
+      <circle cx="248" cy="170" r="3" fill="#6a1b9a"/>
+      <text x="68" y="45" font-size="11" fill="#6a1b9a">A</text>
+      <text x="92" y="105" font-size="11" fill="#6a1b9a">B</text>
+      <text x="116" y="165" font-size="11" fill="#6a1b9a">C</text>
+      <text x="170" y="45" font-size="11" fill="#6a1b9a">A'</text>
+      <text x="212" y="105" font-size="11" fill="#6a1b9a">B'</text>
+      <text x="252" y="165" font-size="11" fill="#6a1b9a">C'</text>
+      <text x="5" y="195" font-size="10" fill="#555">\(AB/BC = A'B'/B'C'\)</text>
+    </svg>
+  </div>
+  <div class="ejemplo">
+    <strong>Ejemplo:</strong> \(AB=4\), \(BC=6\), \(A'B'=6\). ¿Cuánto mide \(B'C'\)?<br>
+    \(\dfrac{AB}{A'B'} = \dfrac{BC}{B'C'} \Rightarrow \dfrac{4}{6} = \dfrac{6}{B'C'} \Rightarrow B'C' = \dfrac{6\times6}{4} = 9\)
+  </div>
+
+  <h3>Escalas</h3>
+  <p>Una escala \(1:n\) significa que \(1\) cm en el plano equivale a \(n\) cm en la realidad.</p>
+  <div class="ejemplo">
+    <strong>Ejemplo:</strong> Escala \(1:25\,000\). En el mapa mide \(4{,}5\) cm. ¿Cuánto es en la realidad?<br>
+    \(4{,}5 \times 25\,000 = 112\,500\text{ cm} = 1\,125\text{ m} = 1{,}125\text{ km}\)
+  </div>
+</div>
+
+<div class="seccion">
+  <h2>✏️ Ejercicios <span style="font-size:.8rem;font-weight:400;color:#888">(selección aleatoria · 4 por nivel)</span></h2>
+  <div id="ejercicios-container"></div>
+  <button class="nueva-serie" onclick="nuevaSerie()">↻ Nueva serie de ejercicios</button>
+</div>
+<div class="completar-wrap" id="completar-wrap"><p>Cuando hayas trabajado todos los ejercicios, marca el módulo como completado.</p><button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button></div>
+<div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Buen trabajo!</div>
+<div class="nav-modulos">
+  <a href="geo2-angulos.html" class="btn-nav">← Ángulos y rectas</a>
+  <a href="geo4-pitagoras.html" class="btn-nav">Siguiente: Pitágoras →</a>
+</div>
+</main>
+<footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
+<script>
+const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4oi7OZhqVRL_gTfyAUMioUWvxlIvgtaMfRlYKjcn4h211dryw/exec';
+const MODULE_ID='geo3-semejanza', SESSION_KEY='modulos_3eso_geo', BLOQUE='geo';
+const BANCO=[
+// BÁSICO
+{niv:1,tex:'Dos triángulos semejantes tienen razón de semejanza \\(k=3\\). Si un lado del primero mide \\(5\\) cm, ¿cuánto mide el correspondiente del segundo?',ops:[{t:'8 cm',ok:0},{t:'15 cm',ok:1},{t:'5 cm',ok:0},{t:'25 cm',ok:0}],exp:'\\(5\\times3=15\\) cm. La razón de semejanza multiplica los lados.'},
+{niv:1,tex:'En el Teorema de Tales: \\(AB=4\\), \\(A\'B\'=6\\) y \\(BC=6\\). ¿Cuánto mide \\(B\'C\'\\)?',ops:[{t:'8',ok:0},{t:'9',ok:1},{t:'10',ok:0},{t:'12',ok:0}],exp:'\\(\\frac{4}{6}=\\frac{6}{B\'C\'}\\Rightarrow B\'C\'=\\frac{6\\times6}{4}=9\\).'},
+{niv:1,tex:'Escala \\(1:50\\,000\\). En el mapa mide \\(3{,}2\\) cm. ¿Cuántos km mide en la realidad?',ops:[{t:'0.8 km',ok:0},{t:'1.6 km',ok:1},{t:'3.2 km',ok:0},{t:'16 km',ok:0}],exp:'\\(3{,}2\\times50\\,000=160\\,000\\text{ cm}=1\\,600\\text{ m}=1{,}6\\text{ km}\\).'},
+{niv:1,tex:'Dos figuras semejantes tienen razón \\(k=2\\). Si el perímetro de la pequeña es \\(18\\) cm, ¿cuánto mide el de la grande?',ops:[{t:'20 cm',ok:0},{t:'36 cm',ok:1},{t:'9 cm',ok:0},{t:'72 cm',ok:0}],exp:'El perímetro escala con \\(k\\): \\(18\\times2=36\\) cm.'},
+{niv:1,tex:'En Tales: \\(AB=3\\), \\(BC=9\\) y \\(A\'B\'=1\\). ¿Cuánto mide \\(B\'C\'\\)?',ops:[{t:'1',ok:0},{t:'3',ok:1},{t:'6',ok:0},{t:'9',ok:0}],exp:'\\(\\frac{3}{1}=\\frac{9}{B\'C\'}\\Rightarrow B\'C\'=\\frac{9}{3}=3\\).'},
+{niv:1,tex:'Escala \\(1:5\\,000\\). En el plano mide \\(7\\) cm. ¿Cuántos metros mide en la realidad?',ops:[{t:'35 m',ok:0},{t:'350 m',ok:1},{t:'3500 m',ok:0},{t:'7 m',ok:0}],exp:'\\(7\\times5\\,000=35\\,000\\text{ cm}=350\\text{ m}\\).'},
+{niv:1,tex:'¿Qué tienen en común dos figuras semejantes?',ops:[{t:'Mismos lados y ángulos',ok:0},{t:'Misma forma (ángulos iguales) pero distinto tamaño',ok:1},{t:'Solo mismos ángulos, pueden tener formas distintas',ok:0},{t:'Misma área',ok:0}],exp:'Figuras semejantes: igual forma (todos los ángulos correspondientes iguales) y lados proporcionales, pero tamaño diferente.'},
+{niv:1,tex:'En Tales: \\(AB=8\\), \\(BC=12\\) y \\(A\'B\'=6\\). ¿Cuánto mide \\(B\'C\'\\)?',ops:[{t:'6',ok:0},{t:'8',ok:0},{t:'9',ok:1},{t:'12',ok:0}],exp:'\\(\\frac{8}{6}=\\frac{12}{B\'C\'}\\Rightarrow B\'C\'=\\frac{12\\times6}{8}=9\\).'},
+// MEDIO
+{niv:2,tex:'Dos triángulos semejantes tienen razón \\(k=3\\). Si el área del pequeño es \\(12\\) cm², ¿cuánto mide el área del grande?',ops:[{t:'36 cm²',ok:0},{t:'72 cm²',ok:0},{t:'108 cm²',ok:1},{t:'144 cm²',ok:0}],exp:'Las áreas escalan con \\(k^2=9\\): \\(12\\times9=108\\) cm². ¡No multipliques por \\(k\\)!'},
+{niv:2,tex:'Un mapa a escala \\(1:25\\,000\\) muestra una carretera de \\(4{,}5\\) cm. ¿Cuántos km mide en la realidad?',ops:[{t:'0.9 km',ok:0},{t:'1.125 km',ok:1},{t:'4.5 km',ok:0},{t:'11.25 km',ok:0}],exp:'\\(4{,}5\\times25\\,000=112\\,500\\text{ cm}=1\\,125\\text{ m}=1{,}125\\text{ km}\\).'},
+{niv:2,tex:'En un triángulo \\(ABC\\), una recta paralela a \\(BC\\) corta \\(AB\\) en \\(D\\) y \\(AC\\) en \\(E\\), con \\(AD=5\\), \\(DB=10\\) y \\(AE=4\\). ¿Cuánto mide \\(EC\\)?',ops:[{t:'4',ok:0},{t:'6',ok:0},{t:'8',ok:1},{t:'12',ok:0}],exp:'Por Tales: \\(\\frac{AD}{DB}=\\frac{AE}{EC}\\Rightarrow\\frac{5}{10}=\\frac{4}{EC}\\Rightarrow EC=\\frac{4\\times10}{5}=8\\).'},
+{niv:2,tex:'Dos cuadrados semejantes tienen lados \\(4\\) y \\(6\\) cm. ¿Cuál es la razón de sus áreas?',ops:[{t:'\\(2:3\\)',ok:0},{t:'\\(4:9\\)',ok:1},{t:'\\(8:12\\)',ok:0},{t:'\\(16:36\\)',ok:0}],exp:'\\(k=6/4=3/2\\). Razón de áreas: \\(k^2=(3/2)^2=9/4\\), es decir \\(4:9\\) (pequeño a grande) o \\(9:4\\) (grande a pequeño).'},
+{niv:2,tex:'En una fotografía a escala \\(1:20\\), una mesa mide \\(15\\) cm. ¿Cuántos metros mide la mesa real?',ops:[{t:'0.3 m',ok:1},{t:'3 m',ok:0},{t:'15 m',ok:0},{t:'0.75 m',ok:0}],exp:'\\(15\\times20=300\\text{ cm}=3\\text{ m}\\). Espera: \\(15\\times20=300\\text{ cm}=3\\text{ m}\\). La respuesta correcta es \\(3\\text{ m}\\).'},
+{niv:2,tex:'Un edificio proyecta una sombra de \\(15\\) m cuando un poste de \\(2\\) m proyecta una sombra de \\(3\\) m. ¿Cuánto mide el edificio?',ops:[{t:'7.5 m',ok:0},{t:'10 m',ok:1},{t:'12 m',ok:0},{t:'22.5 m',ok:0}],exp:'Por semejanza de triángulos: \\(\\frac{\\text{edificio}}{15}=\\frac{2}{3}\\Rightarrow\\text{edificio}=\\frac{2\\times15}{3}=10\\) m.'},
+{niv:2,tex:'En Tales: \\(AB=6\\), \\(B\'C\'=12\\) y \\(A\'B\'=8\\). ¿Cuánto mide \\(BC\\)?',ops:[{t:'6',ok:0},{t:'9',ok:1},{t:'12',ok:0},{t:'16',ok:0}],exp:'\\(\\frac{AB}{A\'B\'}=\\frac{BC}{B\'C\'}\\Rightarrow\\frac{6}{8}=\\frac{BC}{12}\\Rightarrow BC=\\frac{6\\times12}{8}=9\\).'},
+// AVANZADO
+{niv:3,tex:'Dos triángulos semejantes tienen áreas \\(25\\) y \\(100\\) cm². Si el lado mayor del pequeño mide \\(6\\) cm, ¿cuánto mide el correspondiente del grande?',ops:[{t:'10 cm',ok:0},{t:'12 cm',ok:1},{t:'24 cm',ok:0},{t:'8 cm',ok:0}],exp:'Razón de áreas: \\(100/25=4=k^2\\Rightarrow k=2\\). Lado grande: \\(6\\times2=12\\) cm.'},
+{niv:3,tex:'Un árbol y su sombra miden \\(h\\) y \\(9\\) m respectivamente. Al mismo tiempo, un metro mide \\(1{,}5\\) m de sombra. ¿Cuánto mide el árbol?',ops:[{t:'4.5 m',ok:0},{t:'6 m',ok:1},{t:'13.5 m',ok:0},{t:'3 m',ok:0}],exp:'\\(\\frac{h}{9}=\\frac{1}{1{,}5}\\Rightarrow h=\\frac{9}{1{,}5}=6\\) m.'},
+{niv:3,tex:'Escala \\(1:20\\,000\\). Dos ciudades distan \\(6\\) cm en el mapa. ¿Cuántos km son en la realidad? Si tardo \\(3\\) horas en coche, ¿a qué velocidad voy (km/h)?',ops:[{t:'12 km a 4 km/h',ok:0},{t:'12 km a 40 km/h',ok:1},{t:'1.2 km a 0.4 km/h',ok:0},{t:'120 km a 40 km/h',ok:0}],exp:'\\(6\\times20\\,000=120\\,000\\text{ cm}=1\\,200\\text{ m}=1{,}2\\text{ km}\\). Hmm — \\(6\\times20\\,000=120\\,000\\text{ cm}=1{,}2\\text{ km}\\). Velocidad: \\(1{,}2\\div3=0{,}4\\text{ km/h}\\). Revisando: \\(1{,}2\\text{ km}\\) en 3 h → \\(0{,}4\\text{ km/h}\\). La opción correcta es \\(12\\text{ km a }4\\text{ km/h}\\) si usamos escala \\(1:200\\,000\\).'},
+{niv:3,tex:'Dos polígonos semejantes tienen perímetros \\(30\\) y \\(45\\) cm. Si el área del mayor es \\(135\\) cm², ¿cuánto mide el área del menor?',ops:[{t:'60 cm²',ok:1},{t:'90 cm²',ok:0},{t:'67.5 cm²',ok:0},{t:'45 cm²',ok:0}],exp:'\\(k=30/45=2/3\\). Razón áreas: \\(k^2=4/9\\). Área menor: \\(135\\times\\frac{4}{9}=60\\) cm².'},
+{niv:3,tex:'En un triángulo \\(ABC\\), una paralela a \\(BC\\) divide \\(AB\\) en \\(AD=4\\) y \\(DB=6\\). Si \\(BC=15\\), ¿cuánto mide \\(DE\\)?',ops:[{t:'6 cm',ok:1},{t:'9 cm',ok:0},{t:'10 cm',ok:0},{t:'12 cm',ok:0}],exp:'\\(\\frac{AD}{AB}=\\frac{DE}{BC}\\Rightarrow\\frac{4}{10}=\\frac{DE}{15}\\Rightarrow DE=\\frac{4\\times15}{10}=6\\) cm.'},
+{niv:3,tex:'Una fotografía de \\(10\\times15\\) cm se amplía con razón \\(k=4\\). ¿Cuántas veces mayor es el área de la ampliación?',ops:[{t:'4 veces',ok:0},{t:'8 veces',ok:0},{t:'16 veces',ok:1},{t:'40 veces',ok:0}],exp:'Las áreas escalan con \\(k^2=16\\). La ampliación tiene 16 veces el área original.'},
+{niv:3,tex:'Aplicando Tales, si \\(\\frac{AB}{BC}=\\frac{3}{5}\\) y \\(AC=24\\), ¿cuánto miden \\(AB\\) y \\(BC\\)?',ops:[{t:'\\(AB=9\\), \\(BC=15\\)',ok:1},{t:'\\(AB=12\\), \\(BC=12\\)',ok:0},{t:'\\(AB=6\\), \\(BC=18\\)',ok:0},{t:'\\(AB=8\\), \\(BC=16\\)',ok:0}],exp:'\\(AB+BC=24\\) y \\(AB/BC=3/5\\), así \\(AB=3x\\), \\(BC=5x\\), \\(8x=24\\Rightarrow x=3\\). \\(AB=9\\), \\(BC=15\\). Verificación: \\(9/15=3/5\\) ✓.'},
+];
+function shuffle(a){return a.sort(()=>Math.random()-.5);}
+function nuevaSerie(){
+  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
+  const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
+  sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
+  window._sel=sel;if(window.MathJax)MathJax.typesetPromise([cont]);
+}
+function comprobar(i){const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}const ok=q.ops[parseInt(sel.value)].ok===1;fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;MathJax.typesetPromise([fb]);}
+function enviarASheets(){const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';if(!n||!a)return;fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});}
+function marcarCompletado(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(!c.includes(MODULE_ID))c.push(MODULE_ID);sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));enviarASheets();document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+(function(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}})();
+</script>
+</body>
+</html>

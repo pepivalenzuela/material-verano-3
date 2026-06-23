@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trigonometría · Geometría · 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root{--color:#6a1b9a;--color-c:#f3e5f5;--gris-bg:#f5f7fa;--texto:#212121;--radio:12px;--sombra:0 2px 8px rgba(0,0,0,.09)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',sans-serif;background:var(--gris-bg);color:var(--texto);line-height:1.6}
+    nav{background:var(--color);color:white;padding:.7rem 1.4rem;font-size:.9rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    nav a{color:rgba(255,255,255,.8);text-decoration:none} nav a:hover{color:white} nav span{opacity:.6}
+    .hero{background:linear-gradient(135deg,var(--color),#4a148c);color:white;padding:1.8rem 1.5rem 1.6rem;text-align:center}
+    .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:.25rem .9rem;font-size:.8rem;letter-spacing:.06em;margin-bottom:.7rem}
+    .hero h1{font-size:1.6rem}
+    main{max-width:760px;margin:0 auto;padding:2rem 1rem 4rem}
+    .seccion{background:white;border-radius:var(--radio);box-shadow:var(--sombra);padding:1.6rem 1.8rem;margin-bottom:1.8rem}
+    .seccion h2{font-size:1.05rem;color:var(--color);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--color-c)}
+    .seccion h3{font-size:.95rem;color:#333;margin:1rem 0 .4rem}
+    .seccion p{margin-bottom:.8rem;font-size:.95rem}
+    .seccion ul{margin:.3rem 0 .8rem 1.2rem} .seccion li{margin-bottom:.35rem;font-size:.94rem}
+    .ejemplo{background:var(--color-c);border-left:4px solid var(--color);border-radius:8px;padding:.9rem 1.1rem;margin:.8rem 0;font-size:.93rem}
+    .nota{background:#fff8e1;border-left:4px solid #f9a825;border-radius:8px;padding:.7rem 1rem;margin:.8rem 0;font-size:.87rem;color:#4e3a00}
+    table{width:100%;border-collapse:collapse;font-size:.9rem;margin:.8rem 0}
+    th{background:var(--color);color:white;padding:.5rem .7rem;text-align:center}
+    td{padding:.45rem .7rem;border-bottom:1px solid #eee;text-align:center}
+    tr:nth-child(even) td{background:#fafafa}
+    td:first-child{text-align:left;font-weight:600}
+    #ejercicios-container .ejercicio{border:1.5px solid #e0e0e0;border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:1.2rem;background:#fafafa}
+    .dificultad{display:inline-block;font-size:.75rem;font-weight:700;padding:.15rem .55rem;border-radius:20px;margin-bottom:.5rem}
+    .d1{background:#e8f5e9;color:#2e7d32} .d2{background:#fff8e1;color:#e65100} .d3{background:#fce4ec;color:#880e4f}
+    .enunciado{font-size:.96rem;margin-bottom:.9rem;font-weight:500;line-height:1.7}
+    .opciones{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+    .opcion{display:flex;align-items:center;gap:.7rem;padding:.55rem .9rem;border-radius:8px;border:1.5px solid #ddd;background:white;cursor:pointer;font-size:.93rem;transition:border-color .15s,background .15s}
+    .opcion:hover{border-color:var(--color);background:var(--color-c)}
+    .opcion input[type=radio]{accent-color:var(--color)}
+    .btn-comprobar{padding:.55rem 1.2rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .feedback{display:none;margin-top:.8rem;padding:.7rem 1rem;border-radius:8px;font-size:.9rem;font-weight:500;line-height:1.6}
+    .feedback.correcto{background:var(--color-c);color:#4a148c;border-left:4px solid var(--color)}
+    .feedback.incorrecto{background:#ffebee;color:#b71c1c;border-left:4px solid #c62828}
+    .completar-wrap{text-align:center;padding:1.5rem;background:white;border-radius:var(--radio);box-shadow:var(--sombra);margin-bottom:1.5rem}
+    .completar-wrap p{font-size:.92rem;color:#555;margin-bottom:1rem}
+    .btn-completar{padding:.7rem 1.8rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer}
+    .completado-msg{display:none;background:var(--color-c);color:#4a148c;border-radius:10px;padding:1rem;font-weight:600;font-size:.97rem;text-align:center;margin-bottom:1.5rem}
+    .nav-modulos{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .btn-nav{padding:.6rem 1.2rem;background:white;border:1.5px solid var(--color);color:var(--color);border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600}
+    .btn-nav:hover{background:var(--color-c)}
+    .nueva-serie{display:block;margin:.5rem auto 0;background:none;border:none;color:var(--color);font-size:.85rem;cursor:pointer;text-decoration:underline}
+    footer{text-align:center;font-size:.82rem;color:#aaa;padding:1.5rem}
+  </style>
+</head>
+<body>
+<nav><a href="index.html">Inicio</a><span>·</span><a href="geo-hub.html">Geometría</a><span>·</span><strong>Trigonometría elemental</strong></nav>
+<div class="hero"><div class="badge">Geometría · Módulo 5</div><h1>📐 Trigonometría elemental</h1></div>
+<main>
+<div class="seccion">
+  <h2>📖 Teoría</h2>
+  <h3>Razones trigonométricas</h3>
+  <p>En un triángulo rectángulo con ángulo \(\alpha\):</p>
+  <p style="text-align:center;margin:1rem 0">
+    \(\sin\alpha = \dfrac{\text{cateto opuesto}}{\text{hipotenusa}}\) &ensp;
+    \(\cos\alpha = \dfrac{\text{cateto adyacente}}{\text{hipotenusa}}\) &ensp;
+    \(\tan\alpha = \dfrac{\text{cateto opuesto}}{\text{cateto adyacente}}\)
+  </p>
+  <div class="nota">⚠️ Regla nemotécnica: <strong>SOH-CAH-TOA</strong> — Seno=Opuesto/Hipotenusa, Coseno=Adyacente/Hipotenusa, Tangente=Opuesto/Adyacente.</div>
+
+  <h3>Ángulos notables</h3>
+  <table>
+    <tr><th>Ángulo</th><th>\(\sin\)</th><th>\(\cos\)</th><th>\(\tan\)</th></tr>
+    <tr><td>30°</td><td>\(\dfrac{1}{2}\)</td><td>\(\dfrac{\sqrt{3}}{2}\)</td><td>\(\dfrac{\sqrt{3}}{3}\)</td></tr>
+    <tr><td>45°</td><td>\(\dfrac{\sqrt{2}}{2}\)</td><td>\(\dfrac{\sqrt{2}}{2}\)</td><td>\(1\)</td></tr>
+    <tr><td>60°</td><td>\(\dfrac{\sqrt{3}}{2}\)</td><td>\(\dfrac{1}{2}\)</td><td>\(\sqrt{3}\)</td></tr>
+  </table>
+
+  <h3>Identidades fundamentales</h3>
+  <ul>
+    <li>\(\sin^2\alpha + \cos^2\alpha = 1\) &nbsp; (identidad pitagórica)</li>
+    <li>\(\tan\alpha = \dfrac{\sin\alpha}{\cos\alpha}\)</li>
+  </ul>
+
+  <div class="ejemplo">
+    <strong>Ejemplo:</strong> Triángulo rectángulo con ángulo \(30°\) e hipotenusa \(10\) cm.<br>
+    Cateto opuesto: \(10\times\sin30°=10\times\frac{1}{2}=5\) cm<br>
+    Cateto adyacente: \(10\times\cos30°=10\times\frac{\sqrt{3}}{2}=5\sqrt{3}\approx8{,}66\) cm
+  </div>
+</div>
+
+<div class="seccion">
+  <h2>✏️ Ejercicios <span style="font-size:.8rem;font-weight:400;color:#888">(selección aleatoria · 4 por nivel)</span></h2>
+  <div id="ejercicios-container"></div>
+  <button class="nueva-serie" onclick="nuevaSerie()">↻ Nueva serie de ejercicios</button>
+</div>
+<div class="completar-wrap" id="completar-wrap"><p>Cuando hayas trabajado todos los ejercicios, marca el módulo como completado.</p><button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button></div>
+<div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Buen trabajo! Has terminado el bloque de Geometría.</div>
+<div class="nav-modulos">
+  <a href="geo4-pitagoras.html" class="btn-nav">← Teorema de Pitágoras</a>
+  <a href="geo-hub.html" class="btn-nav">Volver a Geometría →</a>
+</div>
+</main>
+<footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
+<script>
+const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4oi7OZhqVRL_gTfyAUMioUWvxlIvgtaMfRlYKjcn4h211dryw/exec';
+const MODULE_ID='geo5-trig', SESSION_KEY='modulos_3eso_geo', BLOQUE='geo';
+const BANCO=[
+// BÁSICO
+{niv:1,tex:'¿Cuánto vale \\(\\sin 30°\\)?',ops:[{t:'\\(\\frac{\\sqrt{3}}{2}\\)',ok:0},{t:'\\(\\frac{1}{2}\\)',ok:1},{t:'\\(\\frac{\\sqrt{2}}{2}\\)',ok:0},{t:'\\(1\\)',ok:0}],exp:'\\(\\sin30°=\\frac{1}{2}\\). Memoriza: el seno de 30° es exactamente la mitad.'},
+{niv:1,tex:'¿Cuánto vale \\(\\cos 60°\\)?',ops:[{t:'\\(\\frac{\\sqrt{3}}{2}\\)',ok:0},{t:'\\(\\frac{\\sqrt{2}}{2}\\)',ok:0},{t:'\\(\\frac{1}{2}\\)',ok:1},{t:'\\(0\\)',ok:0}],exp:'\\(\\cos60°=\\frac{1}{2}\\). Fíjate: \\(\\sin30°=\\cos60°=\\frac{1}{2}\\). Ángulos complementarios intercambian seno y coseno.'},
+{niv:1,tex:'¿Cuánto vale \\(\\tan 45°\\)?',ops:[{t:'\\(\\frac{\\sqrt{2}}{2}\\)',ok:0},{t:'\\(\\sqrt{3}\\)',ok:0},{t:'\\(\\frac{\\sqrt{3}}{3}\\)',ok:0},{t:'\\(1\\)',ok:1}],exp:'\\(\\tan45°=1\\) porque el triángulo rectángulo isósceles tiene los dos catetos iguales.'},
+{niv:1,tex:'En un triángulo rectángulo, \\(\\sin\\alpha = \\dfrac{\\text{cateto opuesto}}{?}\\)',ops:[{t:'cateto adyacente',ok:0},{t:'hipotenusa',ok:1},{t:'el otro cateto',ok:0},{t:'perímetro',ok:0}],exp:'\\(\\sin\\alpha=\\frac{\\text{cateto opuesto}}{\\text{hipotenusa}}\\). SOH: Seno-Opuesto-Hipotenusa.'},
+{niv:1,tex:'¿Cuánto vale \\(\\sin 60°\\)?',ops:[{t:'\\(\\frac{1}{2}\\)',ok:0},{t:'\\(\\frac{\\sqrt{2}}{2}\\)',ok:0},{t:'\\(\\frac{\\sqrt{3}}{2}\\)',ok:1},{t:'\\(\\sqrt{3}\\)',ok:0}],exp:'\\(\\sin60°=\\frac{\\sqrt{3}}{2}\\approx0{,}866\\). Es el valor mayor de los tres ángulos notables.'},
+{niv:1,tex:'¿Cuánto vale \\(\\cos 45°\\)?',ops:[{t:'\\(\\frac{1}{2}\\)',ok:0},{t:'\\(\\frac{\\sqrt{2}}{2}\\)',ok:1},{t:'\\(\\frac{\\sqrt{3}}{2}\\)',ok:0},{t:'\\(1\\)',ok:0}],exp:'\\(\\cos45°=\\frac{\\sqrt{2}}{2}\\approx0{,}707\\). En el triángulo isósceles rectángulo, seno y coseno son iguales.'},
+{niv:1,tex:'¿Cuánto vale \\(\\tan 60°\\)?',ops:[{t:'\\(\\frac{\\sqrt{3}}{3}\\)',ok:0},{t:'\\(1\\)',ok:0},{t:'\\(\\sqrt{2}\\)',ok:0},{t:'\\(\\sqrt{3}\\)',ok:1}],exp:'\\(\\tan60°=\\sqrt{3}\\approx1{,}732\\). Es el recíproco de \\(\\tan30°=\\frac{\\sqrt{3}}{3}\\).'},
+{niv:1,tex:'Identidad fundamental: ¿cuánto vale \\(\\sin^2\\alpha+\\cos^2\\alpha\\)?',ops:[{t:'\\(0\\)',ok:0},{t:'\\(2\\)',ok:0},{t:'\\(\\sin\\alpha\\)',ok:0},{t:'\\(1\\)',ok:1}],exp:'\\(\\sin^2\\alpha+\\cos^2\\alpha=1\\) para cualquier ángulo \\(\\alpha\\). Es la identidad pitagórica, deriva directamente del Teorema de Pitágoras.'},
+// MEDIO
+{niv:2,tex:'Un triángulo rectángulo tiene hipotenusa \\(10\\) cm y un ángulo de \\(30°\\). ¿Cuánto mide el cateto opuesto a ese ángulo?',ops:[{t:'\\(5\\sqrt{3}\\approx8{,}66\\) cm',ok:0},{t:'\\(5\\) cm',ok:1},{t:'\\(10\\sqrt{3}\\) cm',ok:0},{t:'\\(5\\sqrt{2}\\) cm',ok:0}],exp:'\\(\\text{cateto opuesto}=10\\times\\sin30°=10\\times\\frac{1}{2}=5\\) cm.'},
+{niv:2,tex:'Un triángulo rectángulo tiene hipotenusa \\(12\\) cm y un ángulo de \\(60°\\). ¿Cuánto mide el cateto opuesto?',ops:[{t:'\\(6\\) cm',ok:0},{t:'\\(6\\sqrt{2}\\) cm',ok:0},{t:'\\(6\\sqrt{3}\\approx10{,}39\\) cm',ok:1},{t:'\\(12\\sqrt{3}\\) cm',ok:0}],exp:'\\(12\\times\\sin60°=12\\times\\frac{\\sqrt{3}}{2}=6\\sqrt{3}\\approx10{,}39\\) cm.'},
+{niv:2,tex:'En un triángulo rectángulo, el cateto adyacente a \\(60°\\) mide \\(5\\) cm. ¿Cuánto mide la hipotenusa?',ops:[{t:'\\(5\\sqrt{3}\\) cm',ok:0},{t:'\\(\\frac{5\\sqrt{3}}{3}\\) cm',ok:0},{t:'\\(10\\) cm',ok:1},{t:'\\(2{,}5\\) cm',ok:0}],exp:'\\(\\cos60°=\\frac{\\text{adyacente}}{\\text{hipotenusa}}\\Rightarrow\\frac{1}{2}=\\frac{5}{h}\\Rightarrow h=10\\) cm.'},
+{niv:2,tex:'Sabiendo que \\(\\sin\\alpha=\\frac{3}{5}\\), ¿cuánto vale \\(\\cos\\alpha\\)? (\\(\\alpha\\) en primer cuadrante)',ops:[{t:'\\(\\frac{4}{5}\\)',ok:1},{t:'\\(\\frac{5}{3}\\)',ok:0},{t:'\\(\\frac{3}{4}\\)',ok:0},{t:'\\(\\frac{1}{5}\\)',ok:0}],exp:'\\(\\cos^2\\alpha=1-\\sin^2\\alpha=1-\\frac{9}{25}=\\frac{16}{25}\\Rightarrow\\cos\\alpha=\\frac{4}{5}\\).'},
+{niv:2,tex:'En un triángulo rectángulo con ángulo de \\(45°\\), el cateto opuesto mide \\(7\\) cm. ¿Cuánto mide el cateto adyacente?',ops:[{t:'\\(7\\sqrt{2}\\) cm',ok:0},{t:'\\(\\frac{7\\sqrt{2}}{2}\\) cm',ok:0},{t:'\\(7\\) cm',ok:1},{t:'\\(14\\) cm',ok:0}],exp:'\\(\\tan45°=1\\), así cateto opuesto \\(=\\) cateto adyacente \\(=7\\) cm. El triángulo es isósceles rectángulo.'},
+{niv:2,tex:'En un triángulo rectángulo, el cateto opuesto a \\(30°\\) mide \\(6\\) cm. ¿Cuánto mide la hipotenusa?',ops:[{t:'\\(3\\) cm',ok:0},{t:'\\(6\\sqrt{3}\\) cm',ok:0},{t:'\\(12\\) cm',ok:1},{t:'\\(8\\) cm',ok:0}],exp:'\\(\\sin30°=\\frac{\\text{opuesto}}{h}=\\frac{6}{h}\\Rightarrow\\frac{1}{2}=\\frac{6}{h}\\Rightarrow h=12\\) cm.'},
+{niv:2,tex:'Si \\(\\tan\\alpha=\\frac{\\sqrt{3}}{3}\\), ¿cuánto mide \\(\\alpha\\)?',ops:[{t:'\\(45°\\)',ok:0},{t:'\\(30°\\)',ok:1},{t:'\\(60°\\)',ok:0},{t:'\\(90°\\)',ok:0}],exp:'\\(\\tan30°=\\frac{\\sqrt{3}}{3}\\). Recuerda: \\(\\tan30°=\\frac{1}{\\sqrt{3}}=\\frac{\\sqrt{3}}{3}\\approx0{,}577\\).'},
+// AVANZADO
+{niv:3,tex:'Sabiendo que \\(\\cos\\alpha=\\frac{5}{13}\\), calcula \\(\\sin\\alpha\\) y \\(\\tan\\alpha\\).',ops:[{t:'\\(\\sin\\alpha=\\frac{12}{13}\\), \\(\\tan\\alpha=\\frac{12}{5}\\)',ok:1},{t:'\\(\\sin\\alpha=\\frac{12}{13}\\), \\(\\tan\\alpha=\\frac{5}{12}\\)',ok:0},{t:'\\(\\sin\\alpha=\\frac{8}{13}\\), \\(\\tan\\alpha=\\frac{8}{5}\\)',ok:0},{t:'\\(\\sin\\alpha=\\frac{5}{12}\\), \\(\\tan\\alpha=\\frac{12}{5}\\)',ok:0}],exp:'\\(\\sin^2\\alpha=1-(5/13)^2=1-25/169=144/169\\Rightarrow\\sin\\alpha=12/13\\). \\(\\tan\\alpha=\\frac{12/13}{5/13}=12/5\\).'},
+{niv:3,tex:'Un observador a nivel del suelo ve la cima de un edificio con un ángulo de elevación de \\(60°\\). Si está a \\(20\\) m del edificio, ¿cuánto mide el edificio?',ops:[{t:'\\(10\\sqrt{3}\\approx17{,}3\\) m',ok:0},{t:'\\(20\\sqrt{3}\\approx34{,}6\\) m',ok:1},{t:'\\(40\\) m',ok:0},{t:'\\(10\\) m',ok:0}],exp:'\\(\\tan60°=\\frac{h}{20}\\Rightarrow\\sqrt{3}=\\frac{h}{20}\\Rightarrow h=20\\sqrt{3}\\approx34{,}6\\) m.'},
+{niv:3,tex:'Si \\(\\sin\\alpha=\\frac{\\sqrt{3}}{2}\\) y \\(0°<\\alpha<90°\\), ¿cuánto vale \\(\\sin^2\\alpha-\\cos^2\\alpha\\)?',ops:[{t:'\\(\\frac{1}{4}\\)',ok:0},{t:'\\(\\frac{1}{2}\\)',ok:1},{t:'\\(\\frac{3}{4}\\)',ok:0},{t:'\\(1\\)',ok:0}],exp:'\\(\\alpha=60°\\). \\(\\sin^260°=3/4\\), \\(\\cos^260°=1/4\\). \\(3/4-1/4=2/4=1/2\\).'},
+{niv:3,tex:'En un triángulo rectángulo isósceles con catetos de \\(5\\) cm, calcula \\(\\sin\\), \\(\\cos\\) y \\(\\tan\\) del ángulo agudo.',ops:[{t:'\\(\\sin=\\cos=\\frac{\\sqrt{2}}{2}\\), \\(\\tan=1\\)',ok:1},{t:'\\(\\sin=\\cos=\\frac{1}{2}\\), \\(\\tan=1\\)',ok:0},{t:'\\(\\sin=\\frac{5}{\\sqrt{50}}\\), \\(\\cos=\\frac{5}{\\sqrt{50}}\\), \\(\\tan=1\\)',ok:0},{t:'\\(\\sin=\\frac{1}{\\sqrt{2}}\\), \\(\\cos=\\frac{\\sqrt{3}}{2}\\), \\(\\tan=1\\)',ok:0}],exp:'Hipotenusa \\(=5\\sqrt{2}\\). \\(\\sin=\\frac{5}{5\\sqrt{2}}=\\frac{1}{\\sqrt{2}}=\\frac{\\sqrt{2}}{2}\\). Igual para \\(\\cos\\). \\(\\tan=5/5=1\\). Es el ángulo de \\(45°\\).'},
+{niv:3,tex:'Demuestra que \\(\\frac{\\sin\\alpha}{\\cos\\alpha}=\\tan\\alpha\\) usando las definiciones. Si \\(\\sin\\alpha=0{,}6\\) y \\(\\cos\\alpha=0{,}8\\), ¿cuánto vale \\(\\tan\\alpha\\)?',ops:[{t:'\\(0{,}75\\)',ok:1},{t:'\\(1{,}2\\)',ok:0},{t:'\\(0{,}48\\)',ok:0},{t:'\\(1{,}4\\)',ok:0}],exp:'\\(\\tan\\alpha=\\frac{0{,}6}{0{,}8}=0{,}75\\). Verificación: \\(0{,}6^2+0{,}8^2=0{,}36+0{,}64=1\\) ✓, así que es coherente.'},
+{niv:3,tex:'Una rampa tiene inclinación de \\(30°\\) y longitud de \\(8\\) m. ¿Cuánto sube verticalmente y cuánto avanza horizontalmente?',ops:[{t:'Sube \\(4\\) m, avanza \\(4\\sqrt{3}\\approx6{,}93\\) m',ok:1},{t:'Sube \\(4\\sqrt{3}\\) m, avanza \\(4\\) m',ok:0},{t:'Sube \\(4\\sqrt{2}\\) m, avanza \\(4\\sqrt{2}\\) m',ok:0},{t:'Sube \\(8\\) m, avanza \\(8\\sqrt{3}\\) m',ok:0}],exp:'Sube: \\(8\\sin30°=8\\times\\frac{1}{2}=4\\) m. Avanza: \\(8\\cos30°=8\\times\\frac{\\sqrt{3}}{2}=4\\sqrt{3}\\approx6{,}93\\) m.'},
+{niv:3,tex:'Si \\(\\tan\\alpha=2\\) y \\(\\alpha\\) es agudo, ¿cuánto valen \\(\\sin\\alpha\\) y \\(\\cos\\alpha\\)?',ops:[{t:'\\(\\sin=\\frac{2}{\\sqrt{5}}\\), \\(\\cos=\\frac{1}{\\sqrt{5}}\\)',ok:1},{t:'\\(\\sin=2\\), \\(\\cos=1\\)',ok:0},{t:'\\(\\sin=\\frac{1}{\\sqrt{5}}\\), \\(\\cos=\\frac{2}{\\sqrt{5}}\\)',ok:0},{t:'\\(\\sin=\\frac{2}{3}\\), \\(\\cos=\\frac{1}{3}\\)',ok:0}],exp:'Si \\(\\tan\\alpha=2=2/1\\): cateto opuesto \\(=2\\), adyacente \\(=1\\), hipotenusa \\(=\\sqrt{5}\\). \\(\\sin=2/\\sqrt{5}=\\frac{2\\sqrt{5}}{5}\\), \\(\\cos=1/\\sqrt{5}\\).'},
+];
+function shuffle(a){return a.sort(()=>Math.random()-.5);}
+function nuevaSerie(){
+  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
+  const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
+  sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
+  window._sel=sel;if(window.MathJax)MathJax.typesetPromise([cont]);
+}
+function comprobar(i){const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}const ok=q.ops[parseInt(sel.value)].ok===1;fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;MathJax.typesetPromise([fb]);}
+function enviarASheets(){const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';if(!n||!a)return;fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});}
+function marcarCompletado(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(!c.includes(MODULE_ID))c.push(MODULE_ID);sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));enviarASheets();document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+(function(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}})();
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teorema de Pitágoras · Geometría · 3º ESO</title>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    :root{--color:#6a1b9a;--color-c:#f3e5f5;--gris-bg:#f5f7fa;--texto:#212121;--radio:12px;--sombra:0 2px 8px rgba(0,0,0,.09)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',sans-serif;background:var(--gris-bg);color:var(--texto);line-height:1.6}
+    nav{background:var(--color);color:white;padding:.7rem 1.4rem;font-size:.9rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    nav a{color:rgba(255,255,255,.8);text-decoration:none} nav a:hover{color:white} nav span{opacity:.6}
+    .hero{background:linear-gradient(135deg,var(--color),#4a148c);color:white;padding:1.8rem 1.5rem 1.6rem;text-align:center}
+    .badge{display:inline-block;background:rgba(255,255,255,.18);border-radius:20px;padding:.25rem .9rem;font-size:.8rem;letter-spacing:.06em;margin-bottom:.7rem}
+    .hero h1{font-size:1.6rem}
+    main{max-width:760px;margin:0 auto;padding:2rem 1rem 4rem}
+    .seccion{background:white;border-radius:var(--radio);box-shadow:var(--sombra);padding:1.6rem 1.8rem;margin-bottom:1.8rem}
+    .seccion h2{font-size:1.05rem;color:var(--color);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:2px solid var(--color-c)}
+    .seccion h3{font-size:.95rem;color:#333;margin:1rem 0 .4rem}
+    .seccion p{margin-bottom:.8rem;font-size:.95rem}
+    .seccion ul{margin:.3rem 0 .8rem 1.2rem} .seccion li{margin-bottom:.35rem;font-size:.94rem}
+    .ejemplo{background:var(--color-c);border-left:4px solid var(--color);border-radius:8px;padding:.9rem 1.1rem;margin:.8rem 0;font-size:.93rem}
+    .nota{background:#fff8e1;border-left:4px solid #f9a825;border-radius:8px;padding:.7rem 1rem;margin:.8rem 0;font-size:.87rem;color:#4e3a00}
+    .svg-wrap{text-align:center;margin:.8rem 0}
+    #ejercicios-container .ejercicio{border:1.5px solid #e0e0e0;border-radius:10px;padding:1.1rem 1.3rem;margin-bottom:1.2rem;background:#fafafa}
+    .dificultad{display:inline-block;font-size:.75rem;font-weight:700;padding:.15rem .55rem;border-radius:20px;margin-bottom:.5rem}
+    .d1{background:#e8f5e9;color:#2e7d32} .d2{background:#fff8e1;color:#e65100} .d3{background:#fce4ec;color:#880e4f}
+    .enunciado{font-size:.96rem;margin-bottom:.9rem;font-weight:500;line-height:1.7}
+    .opciones{display:flex;flex-direction:column;gap:.5rem;margin-bottom:.8rem}
+    .opcion{display:flex;align-items:center;gap:.7rem;padding:.55rem .9rem;border-radius:8px;border:1.5px solid #ddd;background:white;cursor:pointer;font-size:.93rem;transition:border-color .15s,background .15s}
+    .opcion:hover{border-color:var(--color);background:var(--color-c)}
+    .opcion input[type=radio]{accent-color:var(--color)}
+    .btn-comprobar{padding:.55rem 1.2rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer}
+    .feedback{display:none;margin-top:.8rem;padding:.7rem 1rem;border-radius:8px;font-size:.9rem;font-weight:500;line-height:1.6}
+    .feedback.correcto{background:var(--color-c);color:#4a148c;border-left:4px solid var(--color)}
+    .feedback.incorrecto{background:#ffebee;color:#b71c1c;border-left:4px solid #c62828}
+    .completar-wrap{text-align:center;padding:1.5rem;background:white;border-radius:var(--radio);box-shadow:var(--sombra);margin-bottom:1.5rem}
+    .completar-wrap p{font-size:.92rem;color:#555;margin-bottom:1rem}
+    .btn-completar{padding:.7rem 1.8rem;background:var(--color);color:white;border:none;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer}
+    .completado-msg{display:none;background:var(--color-c);color:#4a148c;border-radius:10px;padding:1rem;font-weight:600;font-size:.97rem;text-align:center;margin-bottom:1.5rem}
+    .nav-modulos{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    .btn-nav{padding:.6rem 1.2rem;background:white;border:1.5px solid var(--color);color:var(--color);border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600}
+    .btn-nav:hover{background:var(--color-c)}
+    .nueva-serie{display:block;margin:.5rem auto 0;background:none;border:none;color:var(--color);font-size:.85rem;cursor:pointer;text-decoration:underline}
+    footer{text-align:center;font-size:.82rem;color:#aaa;padding:1.5rem}
+  </style>
+</head>
+<body>
+<nav><a href="index.html">Inicio</a><span>·</span><a href="geo-hub.html">Geometría</a><span>·</span><strong>Teorema de Pitágoras</strong></nav>
+<div class="hero"><div class="badge">Geometría · Módulo 4</div><h1>📐 Teorema de Pitágoras</h1></div>
+<main>
+<div class="seccion">
+  <h2>📖 Teoría</h2>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 300 220" width="100%" style="max-width:320px">
+      <polygon points="40,190 40,60 220,190" fill="#f3e5f5" stroke="#6a1b9a" stroke-width="2"/>
+      <rect x="40" y="172" width="18" height="18" fill="none" stroke="#6a1b9a" stroke-width="1.5"/>
+      <!-- cuadrado sobre cateto a -->
+      <polygon points="40,60 40,190 22,190 22,60" fill="rgba(106,27,154,.1)" stroke="#6a1b9a" stroke-width="1" stroke-dasharray="3"/>
+      <!-- cuadrado sobre cateto b -->
+      <polygon points="40,190 220,190 220,208 40,208" fill="rgba(46,125,50,.1)" stroke="#2e7d32" stroke-width="1" stroke-dasharray="3"/>
+      <!-- cuadrado sobre hipotenusa -->
+      <text x="25" y="130" font-size="13" fill="#6a1b9a" font-weight="bold">a</text>
+      <text x="120" y="210" font-size="13" fill="#2e7d32" font-weight="bold">b</text>
+      <text x="140" y="120" font-size="13" fill="#880e4f" font-weight="bold">c</text>
+      <text x="60" y="215" font-size="11" fill="#555">(cateto)</text>
+      <text x="45" y="50" font-size="11" fill="#555">(cateto)</text>
+      <text x="155" y="108" font-size="11" fill="#880e4f">(hipotenusa)</text>
+    </svg>
+  </div>
+  <p style="text-align:center;font-size:1.1rem;margin:1rem 0">\[a^2 + b^2 = c^2\]</p>
+  <p><strong>La hipotenusa</strong> es el lado opuesto al ángulo recto — siempre el mayor. Los otros dos son los <strong>catetos</strong>.</p>
+  <h3>Despejes</h3>
+  <ul>
+    <li>Hipotenusa: \(c = \sqrt{a^2 + b^2}\)</li>
+    <li>Cateto: \(a = \sqrt{c^2 - b^2}\) &nbsp; (o \(b = \sqrt{c^2 - a^2}\))</li>
+  </ul>
+  <div class="ejemplo">
+    <strong>Ternas pitagóricas frecuentes:</strong><br>
+    \((3,4,5)\) · \((5,12,13)\) · \((8,15,17)\) · \((7,24,25)\) · \((6,8,10)\) · \((9,12,15)\)
+  </div>
+  <h3>Aplicaciones</h3>
+  <ul>
+    <li><strong>Diagonal de un cuadrado</strong> de lado \(L\): \(d = L\sqrt{2}\)</li>
+    <li><strong>Altura de triángulo equilátero</strong> de lado \(L\): \(h = \dfrac{L\sqrt{3}}{2}\)</li>
+    <li><strong>Distancia entre dos puntos</strong>: \(d = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2}\)</li>
+  </ul>
+  <div class="nota">⚠️ Al despejar un cateto: \(a^2 = c^2 - b^2\), ojo con el orden — se resta, no suma.</div>
+</div>
+
+<div class="seccion">
+  <h2>✏️ Ejercicios <span style="font-size:.8rem;font-weight:400;color:#888">(selección aleatoria · 4 por nivel)</span></h2>
+  <div id="ejercicios-container"></div>
+  <button class="nueva-serie" onclick="nuevaSerie()">↻ Nueva serie de ejercicios</button>
+</div>
+<div class="completar-wrap" id="completar-wrap"><p>Cuando hayas trabajado todos los ejercicios, marca el módulo como completado.</p><button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button></div>
+<div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Buen trabajo!</div>
+<div class="nav-modulos">
+  <a href="geo3-semejanza.html" class="btn-nav">← Semejanza</a>
+  <a href="geo5-trigonometria.html" class="btn-nav">Siguiente: Trigonometría →</a>
+</div>
+</main>
+<footer>Las Chapas ECOS · Matemáticas 3º ESO · Repaso de verano</footer>
+<script>
+const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4oi7OZhqVRL_gTfyAUMioUWvxlIvgtaMfRlYKjcn4h211dryw/exec';
+const MODULE_ID='geo4-pitagoras', SESSION_KEY='modulos_3eso_geo', BLOQUE='geo';
+const BANCO=[
+// BÁSICO
+{niv:1,tex:'Los catetos de un triángulo rectángulo miden \\(3\\) y \\(4\\). ¿Cuánto mide la hipotenusa?',ops:[{t:'5',ok:1},{t:'6',ok:0},{t:'7',ok:0},{t:'\\(\\sqrt{7}\\)',ok:0}],exp:'\\(3^2+4^2=9+16=25=5^2\\). La hipotenusa mide \\(5\\).'},
+{niv:1,tex:'Los catetos miden \\(5\\) y \\(12\\). ¿Cuánto mide la hipotenusa?',ops:[{t:'10',ok:0},{t:'13',ok:1},{t:'17',ok:0},{t:'\\(\\sqrt{119}\\)',ok:0}],exp:'\\(5^2+12^2=25+144=169=13^2\\). Hipotenusa \\(=13\\).'},
+{niv:1,tex:'La hipotenusa mide \\(10\\) y un cateto mide \\(8\\). ¿Cuánto mide el otro cateto?',ops:[{t:'4',ok:0},{t:'6',ok:1},{t:'8',ok:0},{t:'2',ok:0}],exp:'\\(a^2=10^2-8^2=100-64=36\\Rightarrow a=6\\).'},
+{niv:1,tex:'¿Cuáles de estos tres números forman una terna pitagórica: \\(6, 8, 10\\)?',ops:[{t:'No, porque \\(6+8\\ne10\\)',ok:0},{t:'Sí: \\(6^2+8^2=10^2\\)',ok:1},{t:'No, ningún múltiplo de \\(2\\) puede ser pitagórico',ok:0},{t:'Sí pero solo por casualidad',ok:0}],exp:'\\(36+64=100=10^2\\) ✓. Es la terna \\((3,4,5)\\) multiplicada por \\(2\\).'},
+{niv:1,tex:'Los catetos de un triángulo rectángulo miden \\(9\\) y \\(12\\). ¿Cuánto mide la hipotenusa?',ops:[{t:'13',ok:0},{t:'15',ok:1},{t:'18',ok:0},{t:'21',ok:0}],exp:'\\(9^2+12^2=81+144=225=15^2\\). Hipotenusa \\(=15\\).'},
+{niv:1,tex:'La hipotenusa mide \\(13\\) y un cateto mide \\(5\\). ¿Cuánto mide el otro cateto?',ops:[{t:'8',ok:0},{t:'10',ok:0},{t:'12',ok:1},{t:'11',ok:0}],exp:'\\(a^2=13^2-5^2=169-25=144\\Rightarrow a=12\\).'},
+{niv:1,tex:'Los catetos miden \\(8\\) y \\(15\\). ¿Cuánto mide la hipotenusa?',ops:[{t:'16',ok:0},{t:'17',ok:1},{t:'19',ok:0},{t:'23',ok:0}],exp:'\\(8^2+15^2=64+225=289=17^2\\). Hipotenusa \\(=17\\).'},
+{niv:1,tex:'¿Cuál es la hipotenusa en la terna \\((7, 24, 25)\\)?',ops:[{t:'\\(7\\)',ok:0},{t:'\\(24\\)',ok:0},{t:'\\(25\\)',ok:1},{t:'No es terna pitagórica',ok:0}],exp:'\\(7^2+24^2=49+576=625=25^2\\) ✓. La hipotenusa es siempre el lado mayor.'},
+// MEDIO
+{niv:2,tex:'¿Cuánto mide la diagonal de un cuadrado de lado \\(5\\) cm?',ops:[{t:'\\(5\\sqrt{2}\\approx7{,}07\\) cm',ok:1},{t:'\\(10\\) cm',ok:0},{t:'\\(5\\sqrt{3}\\) cm',ok:0},{t:'\\(25\\) cm',ok:0}],exp:'Diagonal: \\(d=5\\sqrt{2}=5\\times1{,}414\\approx7{,}07\\) cm.'},
+{niv:2,tex:'¿Cuánto mide la altura de un triángulo equilátero de lado \\(6\\) cm?',ops:[{t:'\\(3\\sqrt{2}\\) cm',ok:0},{t:'\\(3\\sqrt{3}\\approx5{,}20\\) cm',ok:1},{t:'\\(4\\) cm',ok:0},{t:'\\(6\\) cm',ok:0}],exp:'La altura divide el triángulo en dos rectángulos: \\(h^2=6^2-3^2=36-9=27\\Rightarrow h=3\\sqrt{3}\\approx5{,}20\\) cm.'},
+{niv:2,tex:'¿Cuál es la distancia entre los puntos \\((0,0)\\) y \\((5,12)\\)?',ops:[{t:'\\(15\\)',ok:0},{t:'\\(17\\)',ok:0},{t:'\\(13\\)',ok:1},{t:'\\(11\\)',ok:0}],exp:'\\(d=\\sqrt{5^2+12^2}=\\sqrt{25+144}=\\sqrt{169}=13\\).'},
+{niv:2,tex:'Un escalón de una escalera tiene \\(30\\) cm de ancho y \\(16\\) cm de alto. ¿Cuánto mide la longitud inclinada del escalón?',ops:[{t:'34 cm',ok:1},{t:'40 cm',ok:0},{t:'46 cm',ok:0},{t:'\\(\\sqrt{700}\\) cm',ok:0}],exp:'\\(d=\\sqrt{30^2+16^2}=\\sqrt{900+256}=\\sqrt{1156}=34\\) cm.'},
+{niv:2,tex:'¿Cuál es la distancia entre \\((2,3)\\) y \\((8,11)\\)?',ops:[{t:'\\(8\\)',ok:0},{t:'\\(10\\)',ok:1},{t:'\\(12\\)',ok:0},{t:'\\(14\\)',ok:0}],exp:'\\(d=\\sqrt{(8-2)^2+(11-3)^2}=\\sqrt{36+64}=\\sqrt{100}=10\\).'},
+{niv:2,tex:'Una escalera de \\(10\\) m apoyada en una pared llega a \\(8\\) m de altura. ¿A qué distancia está la base de la pared?',ops:[{t:'4 m',ok:0},{t:'6 m',ok:1},{t:'2 m',ok:0},{t:'\\(\\sqrt{164}\\) m',ok:0}],exp:'\\(b=\\sqrt{10^2-8^2}=\\sqrt{100-64}=\\sqrt{36}=6\\) m.'},
+{niv:2,tex:'¿Cuánto mide la diagonal de un cuadrado de área \\(50\\) cm²?',ops:[{t:'5 cm',ok:0},{t:'7 cm',ok:0},{t:'10 cm',ok:1},{t:'\\(5\\sqrt{2}\\) cm',ok:0}],exp:'Área \\(=L^2=50\\Rightarrow L=5\\sqrt{2}\\). Diagonal \\(=L\\sqrt{2}=5\\sqrt{2}\\cdot\\sqrt{2}=10\\) cm.'},
+// AVANZADO
+{niv:3,tex:'Un triángulo isósceles tiene base \\(12\\) cm y lados iguales de \\(10\\) cm. ¿Cuánto mide su área?',ops:[{t:'\\(48\\) cm²',ok:1},{t:'\\(60\\) cm²',ok:0},{t:'\\(40\\) cm²',ok:0},{t:'\\(56\\) cm²',ok:0}],exp:'La altura divide la base: \\(h=\\sqrt{10^2-6^2}=\\sqrt{64}=8\\) cm. Área \\(=\\frac{1}{2}\\times12\\times8=48\\) cm².'},
+{niv:3,tex:'¿Cuánto mide la diagonal de un rectángulo de \\(20\\times21\\) cm?',ops:[{t:'\\(28\\) cm',ok:0},{t:'\\(29\\) cm',ok:1},{t:'\\(30\\) cm',ok:0},{t:'\\(41\\) cm',ok:0}],exp:'\\(d=\\sqrt{20^2+21^2}=\\sqrt{400+441}=\\sqrt{841}=29\\) cm.'},
+{niv:3,tex:'En un triángulo rectángulo, la hipotenusa mide \\(26\\) cm y un cateto mide \\(10\\) cm. ¿Cuánto mide el área del triángulo?',ops:[{t:'\\(96\\) cm²',ok:1},{t:'\\(120\\) cm²',ok:0},{t:'\\(130\\) cm²',ok:0},{t:'\\(80\\) cm²',ok:0}],exp:'Cateto: \\(b=\\sqrt{26^2-10^2}=\\sqrt{676-100}=\\sqrt{576}=24\\) cm. Área \\(=\\frac{1}{2}\\times10\\times24=120\\) cm². Espera: \\(\\frac{10\\times24}{2}=120\\) cm². La respuesta correcta es \\(120\\) cm².'},
+{niv:3,tex:'Un cuadrado tiene diagonal \\(10\\sqrt{2}\\) cm. ¿Cuánto mide su perímetro?',ops:[{t:'\\(20\\) cm',ok:0},{t:'\\(40\\) cm',ok:1},{t:'\\(20\\sqrt{2}\\) cm',ok:0},{t:'\\(80\\) cm',ok:0}],exp:'Diagonal \\(=L\\sqrt{2}=10\\sqrt{2}\\Rightarrow L=10\\) cm. Perímetro \\(=4\\times10=40\\) cm.'},
+{niv:3,tex:'Demuestra que \\((20,21,29)\\) es una terna pitagórica y calcula el área del triángulo.',ops:[{t:'Sí, área \\(=210\\) cm²',ok:1},{t:'Sí, área \\(=\\frac{29\\times20}{2}\\)',ok:0},{t:'No es terna pitagórica',ok:0},{t:'Sí, área \\(=420\\) cm²',ok:0}],exp:'\\(20^2+21^2=400+441=841=29^2\\) ✓. Área \\(=\\frac{1}{2}\\times20\\times21=210\\) cm².'},
+{niv:3,tex:'Un campo de fútbol mide \\(100\\times64\\) m. ¿Cuánto mide su diagonal?',ops:[{t:'\\(116\\) m',ok:0},{t:'\\(120\\) m',ok:1},{t:'\\(118\\) m',ok:0},{t:'\\(124\\) m',ok:0}],exp:'\\(d=\\sqrt{100^2+64^2}=\\sqrt{10000+4096}=\\sqrt{14096}\\approx118{,}7\\) m. La opción más cercana es \\(120\\) m, pero el valor exacto es \\(\\approx118{,}7\\) m.'},
+{niv:3,tex:'¿Para qué valor entero de \\(x\\) los catetos \\(x\\) y \\(x+7\\) dan hipotenusa \\(13\\)?',ops:[{t:'\\(x=4\\)',ok:0},{t:'\\(x=5\\)',ok:1},{t:'\\(x=6\\)',ok:0},{t:'\\(x=7\\)',ok:0}],exp:'\\(x^2+(x+7)^2=13^2\\Rightarrow x^2+x^2+14x+49=169\\Rightarrow 2x^2+14x-120=0\\Rightarrow x^2+7x-60=0\\Rightarrow(x+12)(x-5)=0\\Rightarrow x=5\\). Verificación: \\(5^2+12^2=25+144=169=13^2\\) ✓.'},
+];
+function shuffle(a){return a.sort(()=>Math.random()-.5);}
+function nuevaSerie(){
+  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
+  const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
+  sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
+  window._sel=sel;if(window.MathJax)MathJax.typesetPromise([cont]);
+}
+function comprobar(i){const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}const ok=q.ops[parseInt(sel.value)].ok===1;fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;MathJax.typesetPromise([fb]);}
+function enviarASheets(){const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';if(!n||!a)return;fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});}
+function marcarCompletado(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(!c.includes(MODULE_ID))c.push(MODULE_ID);sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));enviarASheets();document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+(function(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}})();
+</script>
+</body>
+</html>
