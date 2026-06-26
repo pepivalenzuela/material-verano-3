@@ -76,15 +76,69 @@ const MODULE_ID='b2-ecrac', SESSION_KEY='modulos_3eso_b2', BLOQUE='b2';
 const BANCO=[{"niv": 1, "tex": "Resuelve: \\(\\dfrac{x+1}{x-2}=3\\) \\((x\\neq2)\\)", "ops": [{"t": "\\(x=\\dfrac{5}{2}\\)", "ok": 0}, {"t": "\\(x=\\dfrac{7}{2}\\)", "ok": 1}, {"t": "\\(x=5\\)", "ok": 0}, {"t": "\\(x=7\\)", "ok": 0}], "exp": "\\(x+1=3(x-2)\\Rightarrow x+1=3x-6\\Rightarrow-2x=-7\\Rightarrow x=\\frac{7}{2}\\). No anula \\(x-2\\). ✓"}, {"niv": 1, "tex": "Resuelve: \\(\\dfrac{2x-1}{x+3}=1\\) \\((x\\neq-3)\\)", "ops": [{"t": "2", "ok": 0}, {"t": "4", "ok": 1}, {"t": "-4", "ok": 0}, {"t": "-2", "ok": 0}], "exp": "\\(2x-1=x+3\\Rightarrow x=4\\). Verificación: \\(x=4\\neq-3\\). ✓"}, {"niv": 1, "tex": "¿Por qué hay que comprobar las soluciones en ecuaciones racionales?", "ops": [{"t": "Para simplificar", "ok": 0}, {"t": "Para descartar soluciones que anulan denominadores", "ok": 1}, {"t": "Solo si hay fracciones complejas", "ok": 0}, {"t": "No hace falta comprobación", "ok": 0}], "exp": "Al multiplicar por el mcm podemos introducir soluciones que anulan denominadores (hacen la fracción original indefinida). Estas se llaman soluciones extrañas y se descartan."}, {"niv": 1, "tex": "Resuelve: \\(\\dfrac{3}{x}=2\\) \\((x\\neq0)\\)", "ops": [{"t": "6", "ok": 0}, {"t": "\\(\\dfrac{3}{2}\\)", "ok": 1}, {"t": "2", "ok": 0}, {"t": "\\(\\dfrac{2}{3}\\)", "ok": 0}], "exp": "\\(3=2x\\Rightarrow x=\\frac{3}{2}\\). Verificación: \\(x=\\frac{3}{2}\\neq0\\). ✓"}, {"niv": 1, "tex": "Resuelve: \\(\\dfrac{5}{x+2}=\\dfrac{3}{x-1}\\) \\((x\\neq-2, 1)\\)", "ops": [{"t": "11", "ok": 1}, {"t": "-11", "ok": 0}, {"t": "7", "ok": 0}, {"t": "-7", "ok": 0}], "exp": "Productos cruzados: \\(5(x-1)=3(x+2)\\Rightarrow5x-5=3x+6\\Rightarrow2x=11\\Rightarrow x=\\frac{11}{2}\\). Revisando: \\(5x-5=3x+6\\Rightarrow2x=11\\Rightarrow x=11/2\\)."}, {"niv": 1, "tex": "Resuelve: \\(\\dfrac{2}{x-1}=\\dfrac{4}{x+1}\\) \\((x\\neq\\pm1)\\)", "ops": [{"t": "3", "ok": 1}, {"t": "-3", "ok": 0}, {"t": "1", "ok": 0}, {"t": "2", "ok": 0}], "exp": "Productos cruzados: \\(2(x+1)=4(x-1)\\Rightarrow2x+2=4x-4\\Rightarrow-2x=-6\\Rightarrow x=3\\). ✓"}, {"niv": 1, "tex": "Resuelve: \\(\\dfrac{x}{2}+\\dfrac{1}{x}=\\dfrac{3}{2}\\) \\((x\\neq0)\\)", "ops": [{"t": "\\(x=1, x=2\\)", "ok": 1}, {"t": "\\(x=-1, x=2\\)", "ok": 0}, {"t": "\\(x=1, x=-2\\)", "ok": 0}, {"t": "\\(x=3\\)", "ok": 0}], "exp": "mcm=\\(2x\\): \\(x^2+2=3x\\Rightarrow x^2-3x+2=0\\Rightarrow(x-1)(x-2)=0\\). \\(x=1\\) o \\(x=2\\). Ambas válidas."}, {"niv": 1, "tex": "¿Qué ocurre si al resolver \\(\\dfrac{1}{x-3}=2\\) obtenemos \\(x=3\\)?", "ops": [{"t": "Es la solución", "ok": 0}, {"t": "Es solución extraña, se descarta", "ok": 1}, {"t": "Debemos multiplicar por 2", "ok": 0}, {"t": "La ecuación es incorrecta", "ok": 0}], "exp": "\\(x=3\\) anularía el denominador \\(x-3=0\\), haciendo la fracción indefinida. Se descarta como solución extraña."}, {"niv": 2, "tex": "Resuelve: \\(\\dfrac{x}{x+1}+\\dfrac{2}{x-1}=2\\) \\((x\\neq\\pm1)\\)", "ops": [{"t": "\\(x=\\dfrac{1\\pm\\sqrt{17}}{2}\\)", "ok": 1}, {"t": "\\(x=2, x=-1\\)", "ok": 0}, {"t": "\\(x=3\\)", "ok": 0}, {"t": "\\(x=1, x=2\\)", "ok": 0}], "exp": "mcm=\\((x+1)(x-1)\\): \\(x(x-1)+2(x+1)=2(x^2-1)\\Rightarrow x^2+x+2=2x^2-2\\Rightarrow x^2-x-4=0\\Rightarrow x=\\frac{1\\pm\\sqrt{17}}{2}\\)."}, {"niv": 2, "tex": "Resuelve: \\(\\dfrac{3}{x}+\\dfrac{2}{x+1}=1\\) \\((x\\neq0,-1)\\)", "ops": [{"t": "\\(x=2\\pm\\sqrt{7}\\)", "ok": 1}, {"t": "\\(x=5, x=-1\\)", "ok": 0}, {"t": "\\(x=3, x=2\\)", "ok": 0}, {"t": "\\(x=1\\)", "ok": 0}], "exp": "mcm=\\(x(x+1)\\): \\(3(x+1)+2x=x(x+1)\\Rightarrow5x+3=x^2+x\\Rightarrow x^2-4x-3=0\\Rightarrow x=\\frac{4\\pm\\sqrt{28}}{2}=2\\pm\\sqrt{7}\\)."}, {"niv": 2, "tex": "Resuelve: \\(\\dfrac{x+2}{x-1}-\\dfrac{x-1}{x+2}=\\dfrac{15}{4}\\) \\((x\\neq1,-2)\\)", "ops": [{"t": "\\(x=2, x=-\\frac{7}{5}\\)", "ok": 1}, {"t": "\\(x=3, x=-1\\)", "ok": 0}, {"t": "\\(x=2, x=3\\)", "ok": 0}, {"t": "\\(x=-2, x=1\\)", "ok": 0}], "exp": "Sea \\(u=\\frac{x+2}{x-1}\\). \\(u-\\frac{1}{u}=\\frac{15}{4}\\Rightarrow4u^2-15u-4=0\\Rightarrow u=4\\) o \\(u=-\\frac{1}{4}\\). De \\(u=4\\): \\(x+2=4(x-1)\\Rightarrow x=2\\). De \\(u=-\\frac{1}{4}\\): \\(4(x+2)=-(x-1)\\Rightarrow x=-\\frac{7}{5}\\)."}, {"niv": 2, "tex": "Entre dos ciudades A y B, un tren tarda 2 h y un autobús 3 h. ¿En cuánto tiempo llegarían juntos si el tren va a \\(v\\) km/h y el autobús a \\(v-30\\) km/h, sabiendo que la distancia es 180 km?", "ops": [{"t": "v=90 km/h", "ok": 1}, {"t": "v=60 km/h", "ok": 0}, {"t": "v=120 km/h", "ok": 0}, {"t": "v=45 km/h", "ok": 0}], "exp": "Tren: \\(\\frac{180}{v}=2\\Rightarrow v=90\\) km/h. Autobús: \\(90-30=60\\) km/h, tiempo=\\(180/60=3\\) h. ✓"}, {"niv": 2, "tex": "Resuelve: \\(\\dfrac{1}{x-1}+\\dfrac{1}{x+1}=\\dfrac{2}{x^2-1}\\) \\((x\\neq\\pm1)\\)", "ops": [{"t": "No tiene solución", "ok": 1}, {"t": "\\(x=0\\)", "ok": 0}, {"t": "\\(x=\\pm1\\)", "ok": 0}, {"t": "\\(x=2\\)", "ok": 0}], "exp": "mcm=\\((x-1)(x+1)\\): \\((x+1)+(x-1)=2\\Rightarrow2x=2\\Rightarrow x=1\\). Pero \\(x=1\\) anula denominadores. Solución extraña → sin solución."}, {"niv": 3, "tex": "Un grifo A llena un depósito en 3 h y el B en 5 h. ¿En cuánto tiempo lo llenan juntos?", "ops": [{"t": "\\(\\dfrac{15}{8}\\) h", "ok": 1}, {"t": "\\(4\\) h", "ok": 0}, {"t": "\\(\\dfrac{8}{15}\\) h", "ok": 0}, {"t": "\\(2\\) h", "ok": 0}], "exp": "Fracción por hora: \\(\\frac{1}{3}+\\frac{1}{5}=\\frac{8}{15}\\). Tiempo: \\(\\frac{15}{8}\\) h \\(\\approx1{,}875\\) h."}, {"niv": 3, "tex": "Resuelve: \\(\\dfrac{2}{x^2-1}+\\dfrac{1}{x-1}=\\dfrac{3}{x+1}\\) \\((x\\neq\\pm1)\\)", "ops": [{"t": "\\(x=2\\)", "ok": 1}, {"t": "\\(x=-2\\)", "ok": 0}, {"t": "No tiene solución", "ok": 0}, {"t": "\\(x=\\pm2\\)", "ok": 0}], "exp": "mcm=\\((x-1)(x+1)\\): \\(2+(x+1)=3(x-1)\\Rightarrow x+3=3x-3\\Rightarrow-2x=-6\\Rightarrow x=3\\). Revisando: \\(2+(x+1)=3(x-1)\\Rightarrow x+3=3x-3\\Rightarrow x=3\\). Verificar: \\(x=3\\neq\\pm1\\). ✓"}, {"niv": 3, "tex": "Un ciclista sube una montaña a 12 km/h y baja a 36 km/h. La distancia total (ida y vuelta) es 48 km. ¿Cuánto tarda en total?", "ops": [{"t": "2 h", "ok": 1}, {"t": "1,5 h", "ok": 0}, {"t": "3 h", "ok": 0}, {"t": "2,5 h", "ok": 0}], "exp": "Distancia subida=24 km. Tiempo subida: \\(\\frac{24}{12}=2\\) h. Tiempo bajada: \\(\\frac{24}{36}=\\frac{2}{3}\\) h. Total: \\(2+\\frac{2}{3}=\\frac{8}{3}\\approx2{,}67\\) h. La respuesta exacta es \\(\\frac{8}{3}\\) h."}];
 function shuffle(a){return a.sort(()=>Math.random()-.5);}
 function nuevaSerie(){
+  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
   const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
   const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
   sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
-  window._sel=sel;if(window.MathJax)MathJax.typesetPromise([cont]);
+  window._sel=sel;
+  document.getElementById('completar-wrap').style.display='none';
+  document.getElementById('completado-msg').style.display='none';
+  document.getElementById('progreso-serie').textContent='';
+  document.getElementById('aviso-repetir').style.display='none';
+  document.getElementById('aviso-repetir').innerHTML='';
+  if(window.MathJax)MathJax.typesetPromise([cont]);
 }
-function comprobar(i){const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}const ok=q.ops[parseInt(sel.value)].ok===1;fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;MathJax.typesetPromise([fb]);}
-function enviarASheets(){const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';if(!n||!a)return;fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});}
-function marcarCompletado(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(!c.includes(MODULE_ID))c.push(MODULE_ID);sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));enviarASheets();document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
-(function(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}})();
+function comprobar(i){
+  if(window._respondidas.has(i))return;
+  const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);
+  if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}
+  window._respondidas.add(i);
+  window._comprobados++;
+  const ok=q.ops[parseInt(sel.value)].ok===1;
+  if(ok)window._aciertos++;
+  fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';
+  fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;
+  MathJax.typesetPromise([fb]);
+  actualizarProgresoCuestionario();
+}
+function actualizarProgresoCuestionario(){
+  const total=window._sel?window._sel.length:12;
+  const respondidas=window._respondidas.size;
+  const pct=Math.round(window._aciertos/total*100);
+  document.getElementById('progreso-serie').textContent='Respondidas: '+respondidas+'/'+total+' · Aciertos: '+window._aciertos+' ('+pct+'%)';
+  if(respondidas===total && !window._serieEnviada){
+    window._serieEnviada=true;
+    const aprobado=window._aciertos>=Math.ceil(total*0.8);
+    enviarIntento(window._aciertos,total,aprobado);
+    if(aprobado){
+      document.getElementById('completar-wrap').style.display='block';
+      document.getElementById('aviso-repetir').style.display='none';
+    } else {
+      document.getElementById('completar-wrap').style.display='none';
+      document.getElementById('aviso-repetir').style.display='block';
+      document.getElementById('aviso-repetir').innerHTML='⚠️ Has acertado '+window._aciertos+' de '+total+' ('+pct+'%). Necesitas al menos el 80% para completar el módulo. Pulsa <strong>↻ Nueva serie</strong> e inténtalo de nuevo.';
+    }
+  }
+}
+function enviarIntento(aciertos,total,aprobado){
+  const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';
+  if(!n||!a)return;
+  const params='?accion=intento&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE+'&aciertos='+aciertos+'&total='+total+'&aprobado='+(aprobado?'1':'0');
+  fetch(SHEETS_URL+params,{method:'GET',mode:'no-cors'}).catch(()=>{});
+}
+function marcarCompletado(){
+  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(!c.includes(MODULE_ID))c.push(MODULE_ID);
+  sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));
+  document.getElementById('completar-wrap').style.display='none';
+  document.getElementById('completado-msg').style.display='block';
+}
+(function(){
+  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}
+})();
 </script>
 </body>
 </html>

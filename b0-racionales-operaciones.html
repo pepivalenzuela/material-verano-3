@@ -84,15 +84,69 @@ const MODULE_ID='b0-rac-op', SESSION_KEY='modulos_3eso_b0', BLOQUE='b0';
 const BANCO=[{"niv": 1, "tex": "Calcula: \\(\\dfrac{1}{3}+\\dfrac{1}{4}\\)", "ops": [{"t": "\\(\\dfrac{2}{7}\\)", "ok": 0}, {"t": "\\(\\dfrac{7}{12}\\)", "ok": 1}, {"t": "\\(\\dfrac{5}{12}\\)", "ok": 0}, {"t": "\\(\\dfrac{1}{6}\\)", "ok": 0}], "exp": "mcm(3,4)=12. \\(\\frac{4}{12}+\\frac{3}{12}=\\frac{7}{12}\\)."}, {"niv": 1, "tex": "Simplifica: \\(\\dfrac{12}{18}\\)", "ops": [{"t": "\\(\\dfrac{3}{4}\\)", "ok": 0}, {"t": "\\(\\dfrac{2}{3}\\)", "ok": 1}, {"t": "\\(\\dfrac{4}{6}\\)", "ok": 0}, {"t": "\\(\\dfrac{1}{2}\\)", "ok": 0}], "exp": "mcd(12,18)=6. \\(\\frac{12\\div6}{18\\div6}=\\frac{2}{3}\\)."}, {"niv": 1, "tex": "Calcula: \\(\\dfrac{3}{4}\\times\\dfrac{8}{9}\\)", "ops": [{"t": "\\(\\dfrac{24}{36}\\)", "ok": 0}, {"t": "\\(\\dfrac{2}{3}\\)", "ok": 1}, {"t": "\\(\\dfrac{1}{2}\\)", "ok": 0}, {"t": "\\(\\dfrac{3}{8}\\)", "ok": 0}], "exp": "\\(\\frac{3\\times8}{4\\times9}=\\frac{24}{36}=\\frac{2}{3}\\)."}, {"niv": 1, "tex": "Calcula: \\(\\dfrac{3}{4}-\\dfrac{1}{6}\\)", "ops": [{"t": "\\(\\dfrac{2}{10}\\)", "ok": 0}, {"t": "\\(\\dfrac{7}{12}\\)", "ok": 1}, {"t": "\\(\\dfrac{1}{4}\\)", "ok": 0}, {"t": "\\(\\dfrac{5}{12}\\)", "ok": 0}], "exp": "mcm(4,6)=12. \\(\\frac{9}{12}-\\frac{2}{12}=\\frac{7}{12}\\)."}, {"niv": 1, "tex": "Calcula: \\(\\dfrac{2}{3}\\div\\dfrac{4}{9}\\)", "ops": [{"t": "\\(\\dfrac{8}{27}\\)", "ok": 0}, {"t": "\\(\\dfrac{3}{2}\\)", "ok": 1}, {"t": "\\(\\dfrac{2}{9}\\)", "ok": 0}, {"t": "\\(\\dfrac{6}{9}\\)", "ok": 0}], "exp": "Dividir = multiplicar por el inverso: \\(\\frac{2}{3}\\times\\frac{9}{4}=\\frac{18}{12}=\\frac{3}{2}\\)."}, {"niv": 1, "tex": "Simplifica: \\(\\dfrac{21}{28}\\)", "ops": [{"t": "\\(\\dfrac{2}{3}\\)", "ok": 0}, {"t": "\\(\\dfrac{3}{4}\\)", "ok": 1}, {"t": "\\(\\dfrac{7}{9}\\)", "ok": 0}, {"t": "\\(\\dfrac{4}{5}\\)", "ok": 0}], "exp": "mcd(21,28)=7. \\(\\frac{21\\div7}{28\\div7}=\\frac{3}{4}\\)."}, {"niv": 1, "tex": "Calcula: \\(\\dfrac{2}{5}+\\dfrac{3}{10}\\)", "ops": [{"t": "\\(\\dfrac{5}{15}\\)", "ok": 0}, {"t": "\\(\\dfrac{7}{10}\\)", "ok": 1}, {"t": "\\(\\dfrac{1}{2}\\)", "ok": 0}, {"t": "\\(\\dfrac{1}{5}\\)", "ok": 0}], "exp": "mcm(5,10)=10. \\(\\frac{4}{10}+\\frac{3}{10}=\\frac{7}{10}\\)."}, {"niv": 1, "tex": "Calcula: \\(\\dfrac{7}{8}\\div\\dfrac{7}{4}\\)", "ops": [{"t": "\\(\\dfrac{49}{32}\\)", "ok": 0}, {"t": "\\(\\dfrac{1}{2}\\)", "ok": 1}, {"t": "\\(\\dfrac{2}{1}\\)", "ok": 0}, {"t": "\\(\\dfrac{7}{4}\\)", "ok": 0}], "exp": "\\(\\frac{7}{8}\\times\\frac{4}{7}=\\frac{28}{56}=\\frac{1}{2}\\)."}, {"niv": 2, "tex": "Calcula: \\(\\dfrac{5}{6}-\\dfrac{2}{9}\\)", "ops": [{"t": "\\(\\dfrac{3}{3}\\)", "ok": 0}, {"t": "\\(\\dfrac{11}{18}\\)", "ok": 1}, {"t": "\\(\\dfrac{7}{18}\\)", "ok": 0}, {"t": "\\(\\dfrac{1}{2}\\)", "ok": 0}], "exp": "mcm(6,9)=18. \\(\\frac{15}{18}-\\frac{4}{18}=\\frac{11}{18}\\)."}, {"niv": 2, "tex": "Calcula: \\(\\dfrac{4}{5}+\\dfrac{2}{3}-\\dfrac{1}{2}\\)", "ops": [{"t": "\\(\\dfrac{29}{30}\\)", "ok": 1}, {"t": "\\(\\dfrac{19}{30}\\)", "ok": 0}, {"t": "\\(\\dfrac{1}{2}\\)", "ok": 0}, {"t": "\\(\\dfrac{5}{6}\\)", "ok": 0}], "exp": "mcm(5,3,2)=30. \\(\\frac{24}{30}+\\frac{20}{30}-\\frac{15}{30}=\\frac{29}{30}\\)."}, {"niv": 2, "tex": "Calcula: \\(\\left(\\dfrac{2}{3}\\right)^2\\)", "ops": [{"t": "\\(\\dfrac{2}{3}\\)", "ok": 0}, {"t": "\\(\\dfrac{4}{3}\\)", "ok": 0}, {"t": "\\(\\dfrac{4}{9}\\)", "ok": 1}, {"t": "\\(\\dfrac{2}{9}\\)", "ok": 0}], "exp": "\\(\\left(\\frac{2}{3}\\right)^2=\\frac{4}{9}\\). Se elevan numerador y denominador por separado."}, {"niv": 2, "tex": "Ordena de menor a mayor: \\(\\dfrac{3}{4},\\;\\dfrac{5}{6},\\;\\dfrac{2}{3}\\)", "ops": [{"t": "\\(\\frac{3}{4}<\\frac{2}{3}<\\frac{5}{6}\\)", "ok": 0}, {"t": "\\(\\frac{2}{3}<\\frac{3}{4}<\\frac{5}{6}\\)", "ok": 1}, {"t": "\\(\\frac{5}{6}<\\frac{3}{4}<\\frac{2}{3}\\)", "ok": 0}, {"t": "\\(\\frac{2}{3}<\\frac{5}{6}<\\frac{3}{4}\\)", "ok": 0}], "exp": "mcm=12: \\(\\frac{2}{3}=\\frac{8}{12}\\), \\(\\frac{3}{4}=\\frac{9}{12}\\), \\(\\frac{5}{6}=\\frac{10}{12}\\). Orden: \\(\\frac{2}{3}<\\frac{3}{4}<\\frac{5}{6}\\)."}, {"niv": 2, "tex": "Calcula: \\(\\dfrac{7}{12}+\\dfrac{5}{8}\\)", "ops": [{"t": "\\(\\dfrac{12}{20}\\)", "ok": 0}, {"t": "\\(\\dfrac{29}{24}\\)", "ok": 1}, {"t": "\\(\\dfrac{1}{24}\\)", "ok": 0}, {"t": "\\(\\dfrac{5}{6}\\)", "ok": 0}], "exp": "mcm(12,8)=24. \\(\\frac{14}{24}+\\frac{15}{24}=\\frac{29}{24}\\)."}, {"niv": 2, "tex": "Calcula: \\(\\dfrac{4}{7}\\div\\dfrac{8}{21}\\)", "ops": [{"t": "\\(\\dfrac{32}{147}\\)", "ok": 0}, {"t": "\\(\\dfrac{3}{2}\\)", "ok": 1}, {"t": "\\(\\dfrac{2}{3}\\)", "ok": 0}, {"t": "\\(\\dfrac{3}{7}\\)", "ok": 0}], "exp": "\\(\\frac{4}{7}\\times\\frac{21}{8}=\\frac{84}{56}=\\frac{3}{2}\\)."}, {"niv": 3, "tex": "Calcula: \\(\\dfrac{5}{6}-\\dfrac{3}{4}+\\dfrac{1}{3}\\)", "ops": [{"t": "\\(\\dfrac{5}{12}\\)", "ok": 1}, {"t": "\\(\\dfrac{1}{4}\\)", "ok": 0}, {"t": "\\(\\dfrac{7}{12}\\)", "ok": 0}, {"t": "\\(\\dfrac{3}{4}\\)", "ok": 0}], "exp": "mcm(6,4,3)=12. \\(\\frac{10}{12}-\\frac{9}{12}+\\frac{4}{12}=\\frac{5}{12}\\)."}, {"niv": 3, "tex": "Calcula: \\(\\left(\\dfrac{3}{4}\\right)^2-\\dfrac{1}{2}\\times\\dfrac{3}{4}\\)", "ops": [{"t": "\\(\\dfrac{3}{16}\\)", "ok": 1}, {"t": "\\(\\dfrac{3}{8}\\)", "ok": 0}, {"t": "\\(\\dfrac{9}{16}\\)", "ok": 0}, {"t": "\\(\\dfrac{3}{4}\\)", "ok": 0}], "exp": "\\(\\frac{9}{16}-\\frac{3}{8}=\\frac{9}{16}-\\frac{6}{16}=\\frac{3}{16}\\)."}, {"niv": 3, "tex": "¿Cuál es el número racional cuyo doble es \\(\\dfrac{5}{6}\\)?", "ops": [{"t": "\\(\\dfrac{5}{3}\\)", "ok": 0}, {"t": "\\(\\dfrac{5}{12}\\)", "ok": 1}, {"t": "\\(\\dfrac{10}{6}\\)", "ok": 0}, {"t": "\\(\\dfrac{5}{6}\\)", "ok": 0}], "exp": "\\(2x=\\frac{5}{6}\\Rightarrow x=\\frac{5}{12}\\)."}, {"niv": 3, "tex": "Calcula: \\(\\dfrac{\\frac{3}{4}-\\frac{1}{2}}{\\frac{1}{6}+\\frac{1}{3}}\\)", "ops": [{"t": "\\(\\dfrac{1}{2}\\)", "ok": 1}, {"t": "\\(\\dfrac{1}{4}\\)", "ok": 0}, {"t": "\\(\\dfrac{3}{4}\\)", "ok": 0}, {"t": "\\(\\dfrac{2}{3}\\)", "ok": 0}], "exp": "Numerador: \\(\\frac{1}{4}\\). Denominador: \\(\\frac{1}{2}\\). División: \\(\\frac{1}{4}\\div\\frac{1}{2}=\\frac{1}{2}\\)."}, {"niv": 3, "tex": "Calcula: \\(\\left(\\dfrac{1}{2}+\\dfrac{1}{3}\\right)^2\\)", "ops": [{"t": "\\(\\dfrac{1}{4}+\\dfrac{1}{9}\\)", "ok": 0}, {"t": "\\(\\dfrac{25}{36}\\)", "ok": 1}, {"t": "\\(\\dfrac{5}{6}\\)", "ok": 0}, {"t": "\\(\\dfrac{1}{6}\\)", "ok": 0}], "exp": "Primero: \\(\\frac{1}{2}+\\frac{1}{3}=\\frac{5}{6}\\). Luego: \\(\\left(\\frac{5}{6}\\right)^2=\\frac{25}{36}\\)."}, {"niv": 3, "tex": "Halla \\(x\\): \\(\\dfrac{3}{4}x-\\dfrac{1}{6}=\\dfrac{7}{12}\\)", "ops": [{"t": "\\(x=1\\)", "ok": 1}, {"t": "\\(x=\\dfrac{1}{2}\\)", "ok": 0}, {"t": "\\(x=\\dfrac{4}{3}\\)", "ok": 0}, {"t": "\\(x=2\\)", "ok": 0}], "exp": "\\(\\frac{3}{4}x=\\frac{7}{12}+\\frac{2}{12}=\\frac{9}{12}=\\frac{3}{4}\\Rightarrow x=1\\)."}];
 function shuffle(a){return a.sort(()=>Math.random()-.5);}
 function nuevaSerie(){
+  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
   const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
   const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
   sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
-  window._sel=sel;if(window.MathJax)MathJax.typesetPromise([cont]);
+  window._sel=sel;
+  document.getElementById('completar-wrap').style.display='none';
+  document.getElementById('completado-msg').style.display='none';
+  document.getElementById('progreso-serie').textContent='';
+  document.getElementById('aviso-repetir').style.display='none';
+  document.getElementById('aviso-repetir').innerHTML='';
+  if(window.MathJax)MathJax.typesetPromise([cont]);
 }
-function comprobar(i){const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}const ok=q.ops[parseInt(sel.value)].ok===1;fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;MathJax.typesetPromise([fb]);}
-function enviarASheets(){const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';if(!n||!a)return;fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});}
-function marcarCompletado(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(!c.includes(MODULE_ID))c.push(MODULE_ID);sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));enviarASheets();document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
-(function(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}})();
+function comprobar(i){
+  if(window._respondidas.has(i))return;
+  const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);
+  if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}
+  window._respondidas.add(i);
+  window._comprobados++;
+  const ok=q.ops[parseInt(sel.value)].ok===1;
+  if(ok)window._aciertos++;
+  fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';
+  fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;
+  MathJax.typesetPromise([fb]);
+  actualizarProgresoCuestionario();
+}
+function actualizarProgresoCuestionario(){
+  const total=window._sel?window._sel.length:12;
+  const respondidas=window._respondidas.size;
+  const pct=Math.round(window._aciertos/total*100);
+  document.getElementById('progreso-serie').textContent='Respondidas: '+respondidas+'/'+total+' · Aciertos: '+window._aciertos+' ('+pct+'%)';
+  if(respondidas===total && !window._serieEnviada){
+    window._serieEnviada=true;
+    const aprobado=window._aciertos>=Math.ceil(total*0.8);
+    enviarIntento(window._aciertos,total,aprobado);
+    if(aprobado){
+      document.getElementById('completar-wrap').style.display='block';
+      document.getElementById('aviso-repetir').style.display='none';
+    } else {
+      document.getElementById('completar-wrap').style.display='none';
+      document.getElementById('aviso-repetir').style.display='block';
+      document.getElementById('aviso-repetir').innerHTML='⚠️ Has acertado '+window._aciertos+' de '+total+' ('+pct+'%). Necesitas al menos el 80% para completar el módulo. Pulsa <strong>↻ Nueva serie</strong> e inténtalo de nuevo.';
+    }
+  }
+}
+function enviarIntento(aciertos,total,aprobado){
+  const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';
+  if(!n||!a)return;
+  const params='?accion=intento&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE+'&aciertos='+aciertos+'&total='+total+'&aprobado='+(aprobado?'1':'0');
+  fetch(SHEETS_URL+params,{method:'GET',mode:'no-cors'}).catch(()=>{});
+}
+function marcarCompletado(){
+  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(!c.includes(MODULE_ID))c.push(MODULE_ID);
+  sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));
+  document.getElementById('completar-wrap').style.display='none';
+  document.getElementById('completado-msg').style.display='block';
+}
+(function(){
+  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}
+})();
 </script>
 </body>
 </html>

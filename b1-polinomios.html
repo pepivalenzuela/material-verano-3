@@ -87,15 +87,69 @@ const MODULE_ID='b1-poli', SESSION_KEY='modulos_3eso_b1', BLOQUE='b1';
 const BANCO=[{"niv": 1, "tex": "¿Cuál es el grado de \\(5x^4-3x^2+7\\)?", "ops": [{"t": "2", "ok": 0}, {"t": "4", "ok": 1}, {"t": "3", "ok": 0}, {"t": "7", "ok": 0}], "exp": "El grado es el mayor exponente con coeficiente no nulo: \\(4\\)."}, {"niv": 1, "tex": "Suma: \\((2x^2+3x-1)+(x^2-x+4)\\)", "ops": [{"t": "\\(3x^2+4x+3\\)", "ok": 0}, {"t": "\\(3x^2+2x+3\\)", "ok": 1}, {"t": "\\(3x^2+2x-3\\)", "ok": 0}, {"t": "\\(x^2+2x+3\\)", "ok": 0}], "exp": "Semejantes: \\((2+1)x^2+(3-1)x+(-1+4)=3x^2+2x+3\\)."}, {"niv": 1, "tex": "Resta: \\((3x^2-2x+5)-(x^2+x-3)\\)", "ops": [{"t": "\\(2x^2-x+2\\)", "ok": 0}, {"t": "\\(2x^2-3x+8\\)", "ok": 1}, {"t": "\\(4x^2-x+2\\)", "ok": 0}, {"t": "\\(2x^2-3x+2\\)", "ok": 0}], "exp": "Cambia todos los signos del segundo: \\(3x^2-2x+5-x^2-x+3=2x^2-3x+8\\)."}, {"niv": 1, "tex": "Calcula \\(p(2)\\) si \\(p(x)=x^2-3x+1\\)", "ops": [{"t": "1", "ok": 0}, {"t": "-1", "ok": 1}, {"t": "3", "ok": 0}, {"t": "5", "ok": 0}], "exp": "\\(p(2)=4-6+1=-1\\)."}, {"niv": 1, "tex": "Multiplica: \\((x+3)(x-2)\\)", "ops": [{"t": "\\(x^2-6\\)", "ok": 0}, {"t": "\\(x^2+x-6\\)", "ok": 1}, {"t": "\\(x^2-x-6\\)", "ok": 0}, {"t": "\\(x^2+x+6\\)", "ok": 0}], "exp": "\\(x^2-2x+3x-6=x^2+x-6\\)."}, {"niv": 1, "tex": "¿Cuántos términos tiene \\(4x^3-2x+1\\)?", "ops": [{"t": "2", "ok": 0}, {"t": "3", "ok": 1}, {"t": "4", "ok": 0}, {"t": "1", "ok": 0}], "exp": "Tres términos: \\(4x^3\\), \\(-2x\\) y \\(1\\). Es un trinomio."}, {"niv": 1, "tex": "Calcula \\(p(-1)\\) si \\(p(x)=x^3-2x^2+3x-1\\)", "ops": [{"t": "-7", "ok": 1}, {"t": "7", "ok": 0}, {"t": "-3", "ok": 0}, {"t": "5", "ok": 0}], "exp": "\\((-1)^3-2(-1)^2+3(-1)-1=-1-2-3-1=-7\\)."}, {"niv": 1, "tex": "Suma: \\((x^3-4x+2)+(-x^3+2x^2+x-5)\\)", "ops": [{"t": "\\(2x^2-3x-3\\)", "ok": 1}, {"t": "\\(2x^2-3x+3\\)", "ok": 0}, {"t": "\\(-3x-3\\)", "ok": 0}, {"t": "\\(2x^2+5x-3\\)", "ok": 0}], "exp": "\\((1-1)x^3+2x^2+(-4+1)x+(2-5)=2x^2-3x-3\\)."}, {"niv": 2, "tex": "Multiplica: \\((2x^2-3x+1)(x+4)\\)", "ops": [{"t": "\\(2x^3+5x^2-11x+4\\)", "ok": 1}, {"t": "\\(2x^3-5x^2+11x+4\\)", "ok": 0}, {"t": "\\(2x^3+5x^2+11x-4\\)", "ok": 0}, {"t": "\\(2x^3+8x^2-11x+4\\)", "ok": 0}], "exp": "\\(2x^3+8x^2-3x^2-12x+x+4=2x^3+5x^2-11x+4\\)."}, {"niv": 2, "tex": "Si el resto de dividir \\(p(x)\\) entre \\((x-2)\\) es \\(0\\), ¿qué vale \\(p(2)\\)?", "ops": [{"t": "2", "ok": 0}, {"t": "1", "ok": 0}, {"t": "0", "ok": 1}, {"t": "Depende del polinomio", "ok": 0}], "exp": "Por el Teorema del resto: el resto de \\(p(x)\\div(x-a)\\) es \\(p(a)\\). Si el resto es \\(0\\), entonces \\(p(2)=0\\)."}, {"niv": 2, "tex": "Calcula el resto de dividir \\(p(x)=x^3-2x^2+3x-4\\) entre \\((x-1)\\).", "ops": [{"t": "0", "ok": 0}, {"t": "-2", "ok": 1}, {"t": "2", "ok": 0}, {"t": "-4", "ok": 0}], "exp": "Por el Teorema del resto: \\(p(1)=1-2+3-4=-2\\)."}, {"niv": 2, "tex": "Multiplica: \\((x^2+x-1)(x-2)\\)", "ops": [{"t": "\\(x^3-x^2-3x+2\\)", "ok": 1}, {"t": "\\(x^3+x^2-3x-2\\)", "ok": 0}, {"t": "\\(x^3-x^2+3x+2\\)", "ok": 0}, {"t": "\\(x^3-x^2-3x-2\\)", "ok": 0}], "exp": "\\(x^3-2x^2+x^2-2x-x+2=x^3-x^2-3x+2\\)."}, {"niv": 2, "tex": "¿Para qué valor de \\(a\\) el polinomio \\(p(x)=x^2+ax-6\\) vale \\(0\\) en \\(x=2\\)?", "ops": [{"t": "-1", "ok": 1}, {"t": "1", "ok": 0}, {"t": "2", "ok": 0}, {"t": "-2", "ok": 0}], "exp": "\\(p(2)=4+2a-6=0\\Rightarrow 2a=2\\Rightarrow a=1\\). Espera: \\(4+2a-6=0\\Rightarrow 2a=2\\Rightarrow a=1\\)."}, {"niv": 2, "tex": "El polinomio \\(2x^3+x^2-5x+2\\) dividido entre \\((x-1)\\) da resto:", "ops": [{"t": "0", "ok": 1}, {"t": "2", "ok": 0}, {"t": "-2", "ok": 0}, {"t": "1", "ok": 0}], "exp": "\\(p(1)=2+1-5+2=0\\). Resto cero significa que \\((x-1)\\) es factor de \\(p(x)\\)."}, {"niv": 3, "tex": "Halla \\(a\\) y \\(b\\) si \\(p(x)=ax^3+bx^2-x+2\\) cumple \\(p(1)=4\\) y \\(p(-1)=0\\).", "ops": [{"t": "\\(a=2, b=1\\)", "ok": 0}, {"t": "\\(a=1, b=2\\)", "ok": 1}, {"t": "\\(a=3, b=0\\)", "ok": 0}, {"t": "\\(a=0, b=3\\)", "ok": 0}], "exp": "\\(p(1)=a+b-1+2=4\\Rightarrow a+b=3\\). \\(p(-1)=-a+b+1+2=0\\Rightarrow -a+b=-3\\). Sumando: \\(2b=0\\Rightarrow b=0\\)... Hmm: \\(a+b=3\\) y \\(-a+b=-3\\). Sumando: \\(2b=0\\Rightarrow b=0\\), \\(a=3\\). La respuesta es \\(a=3, b=0\\)."}, {"niv": 3, "tex": "Divide \\(x^3-6x^2+11x-6\\) entre \\((x^2-3x+2)\\).", "ops": [{"t": "\\(x-3\\) resto \\(0\\)", "ok": 0}, {"t": "\\(x-3\\) resto \\(0\\)... cociente \\(x-3\\)", "ok": 0}, {"t": "Cociente \\(x-3\\), resto \\(0\\)", "ok": 1}, {"t": "Cociente \\(x^2-3x\\), resto \\(-6\\)", "ok": 0}], "exp": "\\(x^3-6x^2+11x-6=(x^2-3x+2)(x-3)\\). Verificación: \\((x-1)(x-2)(x-3)\\) ✓."}, {"niv": 3, "tex": "¿Para qué valores enteros de \\(x\\) es \\(p(x)=x^3-6x^2+11x-6\\) igual a cero?", "ops": [{"t": "\\(x=1, 2, 3\\)", "ok": 1}, {"t": "\\(x=1, 2, 6\\)", "ok": 0}, {"t": "\\(x=-1, 2, 3\\)", "ok": 0}, {"t": "\\(x=2, 3, 6\\)", "ok": 0}], "exp": "\\(p(1)=1-6+11-6=0\\), \\(p(2)=8-24+22-6=0\\), \\(p(3)=27-54+33-6=0\\). Las raíces son \\(1, 2, 3\\)."}, {"niv": 3, "tex": "El producto \\((x^2+ax+b)(x-2)=x^3-5x^2+8x-4\\). ¿Cuánto valen \\(a\\) y \\(b\\)?", "ops": [{"t": "\\(a=-3, b=2\\)", "ok": 1}, {"t": "\\(a=3, b=-2\\)", "ok": 0}, {"t": "\\(a=-2, b=3\\)", "ok": 0}, {"t": "\\(a=2, b=-3\\)", "ok": 0}], "exp": "Expandiendo: \\(x^3+ax^2+bx-2x^2-2ax-2b=x^3+(a-2)x^2+(b-2a)x-2b\\). Igualando: \\(a-2=-5\\Rightarrow a=-3\\); \\(-2b=-4\\Rightarrow b=2\\)."}];
 function shuffle(a){return a.sort(()=>Math.random()-.5);}
 function nuevaSerie(){
+  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
   const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
   const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
   sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
-  window._sel=sel;if(window.MathJax)MathJax.typesetPromise([cont]);
+  window._sel=sel;
+  document.getElementById('completar-wrap').style.display='none';
+  document.getElementById('completado-msg').style.display='none';
+  document.getElementById('progreso-serie').textContent='';
+  document.getElementById('aviso-repetir').style.display='none';
+  document.getElementById('aviso-repetir').innerHTML='';
+  if(window.MathJax)MathJax.typesetPromise([cont]);
 }
-function comprobar(i){const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}const ok=q.ops[parseInt(sel.value)].ok===1;fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;MathJax.typesetPromise([fb]);}
-function enviarASheets(){const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';if(!n||!a)return;fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});}
-function marcarCompletado(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(!c.includes(MODULE_ID))c.push(MODULE_ID);sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));enviarASheets();document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
-(function(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}})();
+function comprobar(i){
+  if(window._respondidas.has(i))return;
+  const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);
+  if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}
+  window._respondidas.add(i);
+  window._comprobados++;
+  const ok=q.ops[parseInt(sel.value)].ok===1;
+  if(ok)window._aciertos++;
+  fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';
+  fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;
+  MathJax.typesetPromise([fb]);
+  actualizarProgresoCuestionario();
+}
+function actualizarProgresoCuestionario(){
+  const total=window._sel?window._sel.length:12;
+  const respondidas=window._respondidas.size;
+  const pct=Math.round(window._aciertos/total*100);
+  document.getElementById('progreso-serie').textContent='Respondidas: '+respondidas+'/'+total+' · Aciertos: '+window._aciertos+' ('+pct+'%)';
+  if(respondidas===total && !window._serieEnviada){
+    window._serieEnviada=true;
+    const aprobado=window._aciertos>=Math.ceil(total*0.8);
+    enviarIntento(window._aciertos,total,aprobado);
+    if(aprobado){
+      document.getElementById('completar-wrap').style.display='block';
+      document.getElementById('aviso-repetir').style.display='none';
+    } else {
+      document.getElementById('completar-wrap').style.display='none';
+      document.getElementById('aviso-repetir').style.display='block';
+      document.getElementById('aviso-repetir').innerHTML='⚠️ Has acertado '+window._aciertos+' de '+total+' ('+pct+'%). Necesitas al menos el 80% para completar el módulo. Pulsa <strong>↻ Nueva serie</strong> e inténtalo de nuevo.';
+    }
+  }
+}
+function enviarIntento(aciertos,total,aprobado){
+  const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';
+  if(!n||!a)return;
+  const params='?accion=intento&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE+'&aciertos='+aciertos+'&total='+total+'&aprobado='+(aprobado?'1':'0');
+  fetch(SHEETS_URL+params,{method:'GET',mode:'no-cors'}).catch(()=>{});
+}
+function marcarCompletado(){
+  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(!c.includes(MODULE_ID))c.push(MODULE_ID);
+  sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));
+  document.getElementById('completar-wrap').style.display='none';
+  document.getElementById('completado-msg').style.display='block';
+}
+(function(){
+  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}
+})();
 </script>
 </body>
 </html>

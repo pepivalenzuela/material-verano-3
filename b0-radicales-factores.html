@@ -81,15 +81,69 @@ const MODULE_ID='b0-rad-fac', SESSION_KEY='modulos_3eso_b0', BLOQUE='b0';
 const BANCO=[{"niv": 1, "tex": "Simplifica: \\(\\sqrt{12}\\)", "ops": [{"t": "\\(3\\sqrt{2}\\)", "ok": 0}, {"t": "\\(2\\sqrt{3}\\)", "ok": 1}, {"t": "\\(4\\sqrt{3}\\)", "ok": 0}, {"t": "\\(6\\sqrt{2}\\)", "ok": 0}], "exp": "\\(\\sqrt{12}=\\sqrt{4\\cdot3}=2\\sqrt{3}\\)."}, {"niv": 1, "tex": "Simplifica: \\(\\sqrt{50}\\)", "ops": [{"t": "\\(5\\sqrt{2}\\)", "ok": 1}, {"t": "\\(2\\sqrt{5}\\)", "ok": 0}, {"t": "\\(10\\sqrt{5}\\)", "ok": 0}, {"t": "\\(25\\sqrt{2}\\)", "ok": 0}], "exp": "\\(\\sqrt{50}=\\sqrt{25\\cdot2}=5\\sqrt{2}\\)."}, {"niv": 1, "tex": "Simplifica: \\(\\sqrt{75}\\)", "ops": [{"t": "\\(3\\sqrt{5}\\)", "ok": 0}, {"t": "\\(5\\sqrt{3}\\)", "ok": 1}, {"t": "\\(15\\sqrt{5}\\)", "ok": 0}, {"t": "\\(25\\sqrt{3}\\)", "ok": 0}], "exp": "\\(\\sqrt{75}=\\sqrt{25\\cdot3}=5\\sqrt{3}\\)."}, {"niv": 1, "tex": "Introduce dentro del radical: \\(3\\sqrt{5}\\)", "ops": [{"t": "\\(\\sqrt{15}\\)", "ok": 0}, {"t": "\\(\\sqrt{45}\\)", "ok": 1}, {"t": "\\(\\sqrt{35}\\)", "ok": 0}, {"t": "\\(\\sqrt{9}\\)", "ok": 0}], "exp": "\\(3\\sqrt{5}=\\sqrt{3^2\\cdot5}=\\sqrt{9\\cdot5}=\\sqrt{45}\\)."}, {"niv": 1, "tex": "Simplifica: \\(\\sqrt{48}\\)", "ops": [{"t": "\\(3\\sqrt{4}\\)", "ok": 0}, {"t": "\\(4\\sqrt{3}\\)", "ok": 1}, {"t": "\\(6\\sqrt{2}\\)", "ok": 0}, {"t": "\\(2\\sqrt{12}\\)", "ok": 0}], "exp": "\\(\\sqrt{48}=\\sqrt{16\\cdot3}=4\\sqrt{3}\\)."}, {"niv": 1, "tex": "Introduce dentro del radical: \\(5\\sqrt{2}\\)", "ops": [{"t": "\\(\\sqrt{10}\\)", "ok": 0}, {"t": "\\(\\sqrt{50}\\)", "ok": 1}, {"t": "\\(\\sqrt{25}\\)", "ok": 0}, {"t": "\\(\\sqrt{52}\\)", "ok": 0}], "exp": "\\(5\\sqrt{2}=\\sqrt{25\\cdot2}=\\sqrt{50}\\)."}, {"niv": 1, "tex": "Simplifica: \\(\\sqrt{98}\\)", "ops": [{"t": "\\(9\\sqrt{2}\\)", "ok": 0}, {"t": "\\(7\\sqrt{2}\\)", "ok": 1}, {"t": "\\(14\\sqrt{7}\\)", "ok": 0}, {"t": "\\(7\\sqrt{14}\\)", "ok": 0}], "exp": "\\(\\sqrt{98}=\\sqrt{49\\cdot2}=7\\sqrt{2}\\)."}, {"niv": 1, "tex": "Introduce dentro del radical: \\(4\\sqrt{7}\\)", "ops": [{"t": "\\(\\sqrt{28}\\)", "ok": 0}, {"t": "\\(\\sqrt{112}\\)", "ok": 1}, {"t": "\\(\\sqrt{56}\\)", "ok": 0}, {"t": "\\(\\sqrt{47}\\)", "ok": 0}], "exp": "\\(4\\sqrt{7}=\\sqrt{16\\cdot7}=\\sqrt{112}\\)."}, {"niv": 2, "tex": "Simplifica: \\(\\sqrt{72}\\)", "ops": [{"t": "\\(6\\sqrt{3}\\)", "ok": 0}, {"t": "\\(6\\sqrt{2}\\)", "ok": 1}, {"t": "\\(8\\sqrt{2}\\)", "ok": 0}, {"t": "\\(9\\sqrt{2}\\)", "ok": 0}], "exp": "\\(\\sqrt{72}=\\sqrt{36\\cdot2}=6\\sqrt{2}\\)."}, {"niv": 2, "tex": "Simplifica: \\(\\sqrt{200}\\)", "ops": [{"t": "\\(5\\sqrt{8}\\)", "ok": 0}, {"t": "\\(10\\sqrt{2}\\)", "ok": 1}, {"t": "\\(20\\sqrt{5}\\)", "ok": 0}, {"t": "\\(4\\sqrt{5}\\)", "ok": 0}], "exp": "\\(\\sqrt{200}=\\sqrt{100\\cdot2}=10\\sqrt{2}\\)."}, {"niv": 2, "tex": "¿Es cierto que \\(\\sqrt{9+16}=\\sqrt{9}+\\sqrt{16}\\)?", "ops": [{"t": "Sí, siempre se puede separar", "ok": 0}, {"t": "No: \\(\\sqrt{25}=5\neq3+4=7\\)", "ok": 1}, {"t": "Solo para cuadrados perfectos", "ok": 0}, {"t": "Solo cuando los sumandos son distintos", "ok": 0}], "exp": "\\(\\sqrt{9+16}=\\sqrt{25}=5\\). Pero \\(\\sqrt{9}+\\sqrt{16}=3+4=7\\). Son distintos. El radical no distribuye sobre la suma."}, {"niv": 2, "tex": "Simplifica: \\(\\sqrt{108}\\)", "ops": [{"t": "\\(6\\sqrt{4}\\)", "ok": 0}, {"t": "\\(6\\sqrt{3}\\)", "ok": 1}, {"t": "\\(3\\sqrt{12}\\)", "ok": 0}, {"t": "\\(9\\sqrt{3}\\)", "ok": 0}], "exp": "\\(\\sqrt{108}=\\sqrt{36\\cdot3}=6\\sqrt{3}\\)."}, {"niv": 2, "tex": "¿Qué expresión es igual a \\(\\sqrt{300}\\)?", "ops": [{"t": "\\(15\\sqrt{2}\\)", "ok": 0}, {"t": "\\(10\\sqrt{3}\\)", "ok": 1}, {"t": "\\(5\\sqrt{12}\\)", "ok": 0}, {"t": "\\(30\\sqrt{1}\\)", "ok": 0}], "exp": "\\(\\sqrt{300}=\\sqrt{100\\cdot3}=10\\sqrt{3}\\)."}, {"niv": 2, "tex": "Simplifica y compara: ¿es \\(3\\sqrt{2}\\) mayor o menor que \\(2\\sqrt{3}\\)?", "ops": [{"t": "\\(3\\sqrt{2}>2\\sqrt{3}\\)", "ok": 0}, {"t": "\\(3\\sqrt{2}<2\\sqrt{3}\\)", "ok": 1}, {"t": "Son iguales", "ok": 0}, {"t": "No se puede comparar", "ok": 0}], "exp": "\\((3\\sqrt{2})^2=18\\) y \\((2\\sqrt{3})^2=12\\). Espera: \\((3\\sqrt{2})^2=9\\cdot2=18\\) y \\((2\\sqrt{3})^2=4\\cdot3=12\\). Como \\(12<18\\), entonces \\(2\\sqrt{3}<3\\sqrt{2}\\)."}, {"niv": 3, "tex": "Simplifica completamente: \\(\\sqrt{180}\\)", "ops": [{"t": "\\(6\\sqrt{5}\\)", "ok": 1}, {"t": "\\(9\\sqrt{5}\\)", "ok": 0}, {"t": "\\(3\\sqrt{20}\\)", "ok": 0}, {"t": "\\(4\\sqrt{5}\\)", "ok": 0}], "exp": "\\(\\sqrt{180}=\\sqrt{36\\cdot5}=6\\sqrt{5}\\)."}, {"niv": 3, "tex": "Simplifica: \\(\\sqrt{\\dfrac{75}{3}}\\)", "ops": [{"t": "\\(\\sqrt{5}\\)", "ok": 0}, {"t": "\\(5\\)", "ok": 1}, {"t": "\\(5\\sqrt{3}\\)", "ok": 0}, {"t": "\\(\\sqrt{25}\\)", "ok": 0}], "exp": "\\(\\sqrt{\\frac{75}{3}}=\\sqrt{25}=5\\)."}, {"niv": 3, "tex": "Expresa como un único radical: \\(2\\sqrt{3}\\cdot3\\sqrt{2}\\)", "ops": [{"t": "\\(\\sqrt{36}\\)", "ok": 0}, {"t": "\\(6\\sqrt{6}\\)", "ok": 1}, {"t": "\\(\\sqrt{216}\\)", "ok": 0}, {"t": "\\(36\\sqrt{6}\\)", "ok": 0}], "exp": "\\(2\\sqrt{3}\\cdot3\\sqrt{2}=(2\\cdot3)\\sqrt{3\\cdot2}=6\\sqrt{6}\\). O bien: \\(\\sqrt{4\\cdot3}\\cdot\\sqrt{9\\cdot2}=\\sqrt{36\\cdot6}\\)... pero \\(6\\sqrt{6}=\\sqrt{36\\cdot6}=\\sqrt{216}\\). Ambas formas son correctas."}, {"niv": 3, "tex": "¿Cuánto vale \\((\\sqrt{a}+\\sqrt{b})^2\\) si \\(a=3\\) y \\(b=12\\)?", "ops": [{"t": "15", "ok": 0}, {"t": "\\(15+6\\sqrt{6}\\)", "ok": 0}, {"t": "\\(15+12\\sqrt{3}\\)", "ok": 0}, {"t": "27", "ok": 1}], "exp": "\\((\\sqrt{3}+\\sqrt{12})^2=(\\sqrt{3}+2\\sqrt{3})^2=(3\\sqrt{3})^2=9\\cdot3=27\\)."}];
 function shuffle(a){return a.sort(()=>Math.random()-.5);}
 function nuevaSerie(){
+  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
   const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
   const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
   sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
-  window._sel=sel;if(window.MathJax)MathJax.typesetPromise([cont]);
+  window._sel=sel;
+  document.getElementById('completar-wrap').style.display='none';
+  document.getElementById('completado-msg').style.display='none';
+  document.getElementById('progreso-serie').textContent='';
+  document.getElementById('aviso-repetir').style.display='none';
+  document.getElementById('aviso-repetir').innerHTML='';
+  if(window.MathJax)MathJax.typesetPromise([cont]);
 }
-function comprobar(i){const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}const ok=q.ops[parseInt(sel.value)].ok===1;fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;MathJax.typesetPromise([fb]);}
-function enviarASheets(){const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';if(!n||!a)return;fetch(SHEETS_URL+'?accion=completar&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE,{method:'GET',mode:'no-cors'}).catch(()=>{});}
-function marcarCompletado(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(!c.includes(MODULE_ID))c.push(MODULE_ID);sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));enviarASheets();document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
-(function(){const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}})();
+function comprobar(i){
+  if(window._respondidas.has(i))return;
+  const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);
+  if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}
+  window._respondidas.add(i);
+  window._comprobados++;
+  const ok=q.ops[parseInt(sel.value)].ok===1;
+  if(ok)window._aciertos++;
+  fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';
+  fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;
+  MathJax.typesetPromise([fb]);
+  actualizarProgresoCuestionario();
+}
+function actualizarProgresoCuestionario(){
+  const total=window._sel?window._sel.length:12;
+  const respondidas=window._respondidas.size;
+  const pct=Math.round(window._aciertos/total*100);
+  document.getElementById('progreso-serie').textContent='Respondidas: '+respondidas+'/'+total+' · Aciertos: '+window._aciertos+' ('+pct+'%)';
+  if(respondidas===total && !window._serieEnviada){
+    window._serieEnviada=true;
+    const aprobado=window._aciertos>=Math.ceil(total*0.8);
+    enviarIntento(window._aciertos,total,aprobado);
+    if(aprobado){
+      document.getElementById('completar-wrap').style.display='block';
+      document.getElementById('aviso-repetir').style.display='none';
+    } else {
+      document.getElementById('completar-wrap').style.display='none';
+      document.getElementById('aviso-repetir').style.display='block';
+      document.getElementById('aviso-repetir').innerHTML='⚠️ Has acertado '+window._aciertos+' de '+total+' ('+pct+'%). Necesitas al menos el 80% para completar el módulo. Pulsa <strong>↻ Nueva serie</strong> e inténtalo de nuevo.';
+    }
+  }
+}
+function enviarIntento(aciertos,total,aprobado){
+  const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';
+  if(!n||!a)return;
+  const params='?accion=intento&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE+'&aciertos='+aciertos+'&total='+total+'&aprobado='+(aprobado?'1':'0');
+  fetch(SHEETS_URL+params,{method:'GET',mode:'no-cors'}).catch(()=>{});
+}
+function marcarCompletado(){
+  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(!c.includes(MODULE_ID))c.push(MODULE_ID);
+  sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));
+  document.getElementById('completar-wrap').style.display='none';
+  document.getElementById('completado-msg').style.display='block';
+}
+(function(){
+  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
+  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}
+})();
 </script>
 </body>
 </html>
