@@ -79,6 +79,8 @@
   <div id="ejercicios-container"></div>
   <button class="nueva-serie" onclick="nuevaSerie()">↻ Nueva serie de ejercicios</button>
 </div>
+<div class="aviso-repetir" id="aviso-repetir" style="display:none;background:#fff3e0;border-left:4px solid #e65100;border-radius:8px;padding:.9rem 1.1rem;margin-bottom:1rem;font-size:.9rem;color:#bf360c;line-height:1.6"></div>
+<div id="progreso-serie" style="text-align:center;font-size:.83rem;color:#888;margin-bottom:.6rem;min-height:1.2em"></div>
 <div class="completar-wrap" id="completar-wrap"><p>Cuando hayas trabajado todos los ejercicios, marca el módulo como completado.</p><button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button></div>
 <div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Buen trabajo!</div>
 <div class="nav-modulos">
@@ -92,69 +94,146 @@ const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4o
 const MODULE_ID='b2-ecbicuad', SESSION_KEY='modulos_3eso_b2', BLOQUE='b2';
 const BANCO=[{"niv": 1, "tex": "¿Qué cambio de variable se usa en \\(x^4-5x^2+4=0\\)?", "ops": [{"t": "\\(t=x^4\\)", "ok": 0}, {"t": "\\(t=x^2\\)", "ok": 1}, {"t": "\\(t=x^3\\)", "ok": 0}, {"t": "\\(t=\\sqrt{x}\\)", "ok": 0}], "exp": "Se sustituye \\(t=x^2\\), convirtiendo la ecuación en \\(t^2-5t+4=0\\), que es de 2º grado."}, {"niv": 1, "tex": "Resuelve: \\(x^4-5x^2+4=0\\)", "ops": [{"t": "\\(x=\\pm1, \\pm2\\)", "ok": 1}, {"t": "\\(x=1, 4\\)", "ok": 0}, {"t": "\\(x=\\pm2\\)", "ok": 0}, {"t": "\\(x=\\pm1\\)", "ok": 0}], "exp": "Con \\(t=x^2\\): \\(t^2-5t+4=0\\Rightarrow t=1\\) o \\(t=4\\). Deshacemos: \\(x^2=1\\Rightarrow x=\\pm1\\); \\(x^2=4\\Rightarrow x=\\pm2\\)."}, {"niv": 1, "tex": "Resuelve: \\(x^4-10x^2+9=0\\)", "ops": [{"t": "\\(x=\\pm1, \\pm3\\)", "ok": 1}, {"t": "\\(x=1, 9\\)", "ok": 0}, {"t": "\\(x=\\pm3\\)", "ok": 0}, {"t": "\\(x=\\pm9\\)", "ok": 0}], "exp": "\\(t=x^2\\): \\(t^2-10t+9=0\\Rightarrow(t-1)(t-9)=0\\). \\(t=1\\Rightarrow x=\\pm1\\); \\(t=9\\Rightarrow x=\\pm3\\)."}, {"niv": 1, "tex": "Si al resolver una bicuadrada obtenemos \\(t=-4\\) y \\(t=3\\), ¿cuántas soluciones reales hay?", "ops": [{"t": "4", "ok": 0}, {"t": "2", "ok": 1}, {"t": "0", "ok": 0}, {"t": "6", "ok": 0}], "exp": "\\(t=-4\\) no da soluciones reales (\\(x^2\\geq0\\) siempre). \\(t=3\\Rightarrow x=\\pm\\sqrt{3}\\). Solo 2 soluciones reales."}, {"niv": 1, "tex": "Resuelve: \\(x^4-13x^2+36=0\\)", "ops": [{"t": "\\(x=\\pm2, \\pm3\\)", "ok": 1}, {"t": "\\(x=\\pm4, \\pm9\\)", "ok": 0}, {"t": "\\(x=\\pm6\\)", "ok": 0}, {"t": "\\(x=\\pm2\\)", "ok": 0}], "exp": "\\(t=x^2\\): \\(t^2-13t+36=0\\Rightarrow(t-4)(t-9)=0\\). \\(t=4\\Rightarrow x=\\pm2\\); \\(t=9\\Rightarrow x=\\pm3\\)."}, {"niv": 1, "tex": "¿Cuántas soluciones reales tiene \\(x^4-2x^2+1=0\\)?", "ops": [{"t": "4", "ok": 0}, {"t": "2", "ok": 1}, {"t": "1", "ok": 0}, {"t": "0", "ok": 0}], "exp": "\\(t=x^2\\): \\((t-1)^2=0\\Rightarrow t=1\\) (doble). \\(x^2=1\\Rightarrow x=\\pm1\\). Solo 2 soluciones reales (aunque \\(t\\) sea doble)."}, {"niv": 1, "tex": "Resuelve: \\(x^4-8x^2+16=0\\)", "ops": [{"t": "\\(x=\\pm2\\) (doble)", "ok": 1}, {"t": "\\(x=\\pm4\\)", "ok": 0}, {"t": "\\(x=\\pm2, \\pm4\\)", "ok": 0}, {"t": "\\(x=\\pm8\\)", "ok": 0}], "exp": "\\((t-4)^2=0\\Rightarrow t=4\\) (doble). \\(x^2=4\\Rightarrow x=\\pm2\\)."}, {"niv": 1, "tex": "Resuelve: \\(x^4+x^2-6=0\\)", "ops": [{"t": "\\(x=\\pm\\sqrt{2}\\)", "ok": 1}, {"t": "\\(x=\\pm\\sqrt{2}, \\pm\\sqrt{3}\\)", "ok": 0}, {"t": "Sin solución real", "ok": 0}, {"t": "\\(x=\\pm\\sqrt{6}\\)", "ok": 0}], "exp": "\\(t=x^2\\): \\(t^2+t-6=0\\Rightarrow(t+3)(t-2)=0\\). \\(t=-3\\) (descartada, negativa); \\(t=2\\Rightarrow x=\\pm\\sqrt{2}\\)."}, {"niv": 2, "tex": "Resuelve: \\(x^4-7x^2+12=0\\)", "ops": [{"t": "\\(x=\\pm\\sqrt{3}, \\pm2\\)", "ok": 1}, {"t": "\\(x=\\pm3, \\pm4\\)", "ok": 0}, {"t": "\\(x=\\pm\\sqrt{7}\\)", "ok": 0}, {"t": "\\(x=\\pm2\\)", "ok": 0}], "exp": "\\(t^2-7t+12=0\\Rightarrow(t-3)(t-4)=0\\). \\(t=3\\Rightarrow x=\\pm\\sqrt{3}\\); \\(t=4\\Rightarrow x=\\pm2\\)."}, {"niv": 2, "tex": "Resuelve: \\(x^4-5x^2+6=0\\)", "ops": [{"t": "\\(x=\\pm\\sqrt{2}, \\pm\\sqrt{3}\\)", "ok": 1}, {"t": "\\(x=\\pm2, \\pm3\\)", "ok": 0}, {"t": "\\(x=\\pm\\sqrt{5}\\)", "ok": 0}, {"t": "\\(x=\\pm\\sqrt{6}\\)", "ok": 0}], "exp": "\\(t^2-5t+6=0\\Rightarrow(t-2)(t-3)=0\\). \\(t=2\\Rightarrow x=\\pm\\sqrt{2}\\); \\(t=3\\Rightarrow x=\\pm\\sqrt{3}\\)."}, {"niv": 2, "tex": "Resuelve: \\(2x^4-7x^2+3=0\\)", "ops": [{"t": "\\(x=\\pm\\dfrac{\\sqrt{2}}{2}, \\pm\\sqrt{3}\\)", "ok": 1}, {"t": "\\(x=\\pm1, \\pm3\\)", "ok": 0}, {"t": "\\(x=\\pm\\sqrt{3}\\)", "ok": 0}, {"t": "\\(x=\\pm\\dfrac{1}{2}, \\pm3\\)", "ok": 0}], "exp": "\\(2t^2-7t+3=0\\Rightarrow t=\\frac{7\\pm5}{4}\\Rightarrow t=3\\) o \\(t=\\frac{1}{2}\\). \\(t=3\\Rightarrow x=\\pm\\sqrt{3}\\); \\(t=\\frac{1}{2}\\Rightarrow x=\\pm\\frac{\\sqrt{2}}{2}\\)."}, {"niv": 2, "tex": "Resuelve: \\(x^4-5x^2-36=0\\)", "ops": [{"t": "\\(x=\\pm3\\)", "ok": 1}, {"t": "\\(x=\\pm3, \\pm2\\)", "ok": 0}, {"t": "\\(x=\\pm6\\)", "ok": 0}, {"t": "Sin solución real", "ok": 0}], "exp": "\\(t^2-5t-36=0\\Rightarrow(t-9)(t+4)=0\\). \\(t=-4\\) (descartada); \\(t=9\\Rightarrow x=\\pm3\\). Solo 2 soluciones."}, {"niv": 2, "tex": "¿Cuántas soluciones reales puede tener como máximo una ecuación bicuadrada?", "ops": [{"t": "2", "ok": 0}, {"t": "3", "ok": 0}, {"t": "4", "ok": 1}, {"t": "Infinitas", "ok": 0}], "exp": "Una bicuadrada \\(ax^4+bx^2+c=0\\) tiene como máximo 4 soluciones reales: \\(\\pm\\sqrt{t_1}\\) y \\(\\pm\\sqrt{t_2}\\) si ambas raíces de la cuadrática son positivas."}, {"niv": 2, "tex": "Resuelve: \\(x^4+2x^2-8=0\\)", "ops": [{"t": "\\(x=\\pm\\sqrt{2}\\)", "ok": 1}, {"t": "\\(x=\\pm2, \\pm\\sqrt{2}\\)", "ok": 0}, {"t": "\\(x=\\pm2\\)", "ok": 0}, {"t": "Sin solución real", "ok": 0}], "exp": "\\(t^2+2t-8=0\\Rightarrow(t+4)(t-2)=0\\). \\(t=-4\\) (descartada); \\(t=2\\Rightarrow x=\\pm\\sqrt{2}\\)."}, {"niv": 2, "tex": "La ecuación bicuadrada \\(t^2-5t+k=0\\) (con \\(t=x^2\\)) tiene solución doble. ¿Cuánto vale \\(k\\)?", "ops": [{"t": "\\(k=\\dfrac{25}{4}\\)", "ok": 1}, {"t": "\\(k=5\\)", "ok": 0}, {"t": "\\(k=25\\)", "ok": 0}, {"t": "\\(k=4\\)", "ok": 0}], "exp": "Solución doble cuando \\(\\Delta=0\\): \\(25-4k=0\\Rightarrow k=\\frac{25}{4}\\). La raíz sería \\(t=\\frac{5}{2}\\Rightarrow x=\\pm\\sqrt{5/2}\\)."}, {"niv": 3, "tex": "Resuelve: \\(3x^4-10x^2+3=0\\)", "ops": [{"t": "\\(x=\\pm\\dfrac{\\sqrt{3}}{3}, \\pm\\sqrt{3}\\)", "ok": 1}, {"t": "\\(x=\\pm1, \\pm3\\)", "ok": 0}, {"t": "\\(x=\\pm\\sqrt{3}\\)", "ok": 0}, {"t": "\\(x=\\pm\\dfrac{1}{3}, \\pm3\\)", "ok": 0}], "exp": "\\(3t^2-10t+3=0\\Rightarrow t=\\frac{10\\pm8}{6}\\Rightarrow t=3\\) o \\(t=\\frac{1}{3}\\). \\(t=3\\Rightarrow x=\\pm\\sqrt{3}\\); \\(t=\\frac{1}{3}\\Rightarrow x=\\pm\\frac{1}{\\sqrt{3}}=\\pm\\frac{\\sqrt{3}}{3}\\)."}, {"niv": 3, "tex": "¿Para qué valores de \\(k\\) la ecuación \\(x^4-kx^2+9=0\\) tiene 4 soluciones reales?", "ops": [{"t": "\\(k>6\\)", "ok": 1}, {"t": "\\(k>3\\)", "ok": 0}, {"t": "\\(k=6\\)", "ok": 0}, {"t": "\\(k>9\\)", "ok": 0}], "exp": "Con \\(t=x^2\\): \\(t^2-kt+9=0\\). Para 4 soluciones reales necesitamos dos raíces positivas distintas: \\(\\Delta>0\\Rightarrow k^2-36>0\\Rightarrow k>6\\) (tomando positivo), y ambas raíces positivas (suma=\\(k>0\\), producto=\\(9>0\\)). Por tanto \\(k>6\\)."}, {"niv": 3, "tex": "Resuelve: \\(x^4-5x^2+4=0\\) y calcula la suma de todas sus soluciones.", "ops": [{"t": "0", "ok": 1}, {"t": "8", "ok": 0}, {"t": "4", "ok": 0}, {"t": "±4", "ok": 0}], "exp": "Las soluciones son \\(-2,-1,1,2\\). Su suma es \\(-2-1+1+2=0\\). Siempre ocurre esto en bicuadradas: si \\(x_0\\) es solución, también lo es \\(-x_0\\)."}, {"niv": 3, "tex": "La ecuación \\(x^4-ax^2+b=0\\) tiene soluciones \\(x=\\pm1\\) y \\(x=\\pm3\\). ¿Cuánto valen \\(a\\) y \\(b\\)?", "ops": [{"t": "\\(a=10,\\; b=9\\)", "ok": 1}, {"t": "\\(a=4,\\; b=3\\)", "ok": 0}, {"t": "\\(a=9,\\; b=10\\)", "ok": 0}, {"t": "\\(a=3,\\; b=4\\)", "ok": 0}], "exp": "Las raíces de la cuadrática en \\(t\\) son \\(t=1\\) y \\(t=9\\): \\((t-1)(t-9)=t^2-10t+9\\). Por tanto \\(a=10\\) y \\(b=9\\)."}, {"niv": 3, "tex": "¿Cuántas soluciones reales tiene \\(x^4+4x^2+3=0\\)?", "ops": [{"t": "4", "ok": 0}, {"t": "2", "ok": 0}, {"t": "0", "ok": 1}, {"t": "1", "ok": 0}], "exp": "\\(t=x^2\\): \\(t^2+4t+3=0\\Rightarrow(t+1)(t+3)=0\\Rightarrow t=-1\\) o \\(t=-3\\). Ambas negativas → ninguna da \\(x\\) real. Sin solución real."}, {"niv": 3, "tex": "Resuelve \\(x^4-17x^2+16=0\\) y ordena las soluciones de menor a mayor.", "ops": [{"t": "\\(-4,-1,1,4\\)", "ok": 1}, {"t": "\\(-4,-2,2,4\\)", "ok": 0}, {"t": "\\(-4,-\\sqrt{2},\\sqrt{2},4\\)", "ok": 0}, {"t": "\\(-16,-1,1,16\\)", "ok": 0}], "exp": "\\(t^2-17t+16=0\\Rightarrow(t-1)(t-16)=0\\). \\(t=1\\Rightarrow x=\\pm1\\); \\(t=16\\Rightarrow x=\\pm4\\). Ordenadas: \\(-4,-1,1,4\\)."}];
 function shuffle(a){return a.sort(()=>Math.random()-.5);}
+
 function nuevaSerie(){
-  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
-  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
-  const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
-  sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
+  window._aciertos=0;
+  window._respondidas=new Set();
+  window._serieEnviada=false;
+
+  const sel=[
+    ...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),
+    ...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),
+    ...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)
+  ];
   window._sel=sel;
-  document.getElementById('completar-wrap').style.display='none';
-  document.getElementById('completado-msg').style.display='none';
-  document.getElementById('progreso-serie').textContent='';
-  document.getElementById('aviso-repetir').style.display='none';
-  document.getElementById('aviso-repetir').innerHTML='';
-  if(window.MathJax)MathJax.typesetPromise([cont]);
+
+  const cont=document.getElementById('ejercicios-container');
+  cont.innerHTML='';
+  sel.forEach((q,i)=>{
+    const lbl=['Básico','Medio','Avanzado'][q.niv-1];
+    const cls=['d1','d2','d3'][q.niv-1];
+    cont.innerHTML+=`<div class="ejercicio">
+      <span class="dificultad ${cls}">${lbl}</span>
+      <div class="enunciado">${q.tex}</div>
+      <div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div>
+      <button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button>
+      <div class="feedback" id="fb${i}"></div>
+    </div>`;
+  });
+
+  // Ocultar mensajes, mostrar ejercicios
+  mostrar('completar-wrap', false);
+  mostrar('aviso-repetir', false);
+  mostrar('completado-msg', false);
+  setText('progreso-serie', '');
+
+  if(window.MathJax) MathJax.typesetPromise([cont]);
 }
+
+function mostrar(id, visible){
+  const el=document.getElementById(id);
+  if(el) el.style.display = visible ? (id==='completar-wrap'?'block':'block') : 'none';
+}
+
+function setText(id, txt){
+  const el=document.getElementById(id);
+  if(el) el.textContent=txt;
+}
+
+function setHTML(id, html){
+  const el=document.getElementById(id);
+  if(el) el.innerHTML=html;
+}
+
 function comprobar(i){
-  if(window._respondidas.has(i))return;
-  const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);
-  if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}
+  if(window._respondidas.has(i)) return;
+  const q=window._sel[i];
+  const selEl=document.querySelector(`input[name="ej${i}"]:checked`);
+  const fb=document.getElementById('fb'+i);
+  if(!selEl){
+    fb.style.display='block';
+    fb.className='feedback incorrecto';
+    fb.textContent='Selecciona una opción antes de comprobar.';
+    return;
+  }
   window._respondidas.add(i);
-  window._comprobados++;
-  const ok=q.ops[parseInt(sel.value)].ok===1;
-  if(ok)window._aciertos++;
-  fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';
-  fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;
-  MathJax.typesetPromise([fb]);
-  actualizarProgresoCuestionario();
-}
-function actualizarProgresoCuestionario(){
-  const total=window._sel?window._sel.length:12;
-  const respondidas=window._respondidas.size;
+  const ok=q.ops[parseInt(selEl.value)].ok===1;
+  if(ok) window._aciertos++;
+  fb.style.display='block';
+  fb.className=ok?'feedback correcto':'feedback incorrecto';
+  fb.innerHTML=(ok?'✓ ¡Correcto! ':'✗ No es correcto. ')+q.exp;
+  if(window.MathJax) MathJax.typesetPromise([fb]);
+
+  // Actualizar contador
+  const total=window._sel.length;
+  const resp=window._respondidas.size;
   const pct=Math.round(window._aciertos/total*100);
-  document.getElementById('progreso-serie').textContent='Respondidas: '+respondidas+'/'+total+' · Aciertos: '+window._aciertos+' ('+pct+'%)';
-  if(respondidas===total && !window._serieEnviada){
+  setText('progreso-serie','Respondidas: '+resp+'/'+total+' · Aciertos: '+window._aciertos+' ('+pct+'%)');
+
+  // Al completar todas
+  if(resp===total && !window._serieEnviada){
     window._serieEnviada=true;
-    const aprobado=window._aciertos>=Math.ceil(total*0.8);
-    enviarIntento(window._aciertos,total,aprobado);
-    if(aprobado){
-      document.getElementById('completar-wrap').style.display='block';
-      document.getElementById('aviso-repetir').style.display='none';
+    enviarIntento(window._aciertos, total, window._aciertos>=Math.ceil(total*0.8));
+    if(window._aciertos>=Math.ceil(total*0.8)){
+      // Superado
+      mostrar('completar-wrap', true);
+      mostrar('aviso-repetir', false);
+      setHTML('aviso-repetir','');
     } else {
-      document.getElementById('completar-wrap').style.display='none';
-      document.getElementById('aviso-repetir').style.display='block';
-      document.getElementById('aviso-repetir').innerHTML='⚠️ Has acertado '+window._aciertos+' de '+total+' ('+pct+'%). Necesitas al menos el 80% para completar el módulo. Pulsa <strong>↻ Nueva serie</strong> e inténtalo de nuevo.';
+      // No superado
+      mostrar('completar-wrap', false);
+      mostrar('aviso-repetir', true);
+      setHTML('aviso-repetir',
+        '⚠️ Has acertado <strong>'+window._aciertos+' de '+total+'</strong> ('+pct+'%). '+
+        'Necesitas al menos el <strong>80%</strong> para completar este módulo. '+
+        'Es <strong>obligatorio repetir</strong> hasta conseguirlo. '+
+        'Pulsa <strong>↻ Nueva serie</strong> para intentarlo de nuevo con ejercicios diferentes.'
+      );
     }
   }
 }
-function enviarIntento(aciertos,total,aprobado){
-  const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';
-  if(!n||!a)return;
-  const params='?accion=intento&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE+'&aciertos='+aciertos+'&total='+total+'&aprobado='+(aprobado?'1':'0');
-  fetch(SHEETS_URL+params,{method:'GET',mode:'no-cors'}).catch(()=>{});
+
+function enviarIntento(aciertos, total, aprobado){
+  const n=sessionStorage.getItem('alumno_nombre')||'';
+  const a=sessionStorage.getItem('alumno_apellidos')||'';
+  const g=sessionStorage.getItem('alumno_grupo')||'';
+  if(!n||!a) return;
+  const url=SHEETS_URL+
+    '?accion=intento'+
+    '&nombre='+encodeURIComponent(n)+
+    '&apellidos='+encodeURIComponent(a)+
+    '&grupo='+encodeURIComponent(g)+
+    '&modulo='+MODULE_ID+
+    '&bloque='+BLOQUE+
+    '&aciertos='+aciertos+
+    '&total='+total+
+    '&aprobado='+(aprobado?'1':'0');
+  fetch(url,{method:'GET',mode:'no-cors'}).catch(()=>{});
 }
+
 function marcarCompletado(){
   const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
-  if(!c.includes(MODULE_ID))c.push(MODULE_ID);
-  sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));
-  document.getElementById('completar-wrap').style.display='none';
-  document.getElementById('completado-msg').style.display='block';
+  if(!c.includes(MODULE_ID)) c.push(MODULE_ID);
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify(c));
+  mostrar('completar-wrap', false);
+  mostrar('completado-msg', true);
 }
+
+// Inicialización
 (function(){
-  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
-  if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
-  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}
+  window._aciertos=0;
+  window._respondidas=new Set();
+  window._serieEnviada=false;
+  const completados=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(completados.includes(MODULE_ID)){
+    mostrar('completado-msg', true);
+    mostrar('completar-wrap', false);
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', nuevaSerie);
+  } else {
+    nuevaSerie();
+  }
 })();
 </script>
 </body>

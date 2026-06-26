@@ -71,6 +71,8 @@
   <div id="ejercicios-container"></div>
   <button class="nueva-serie" onclick="nuevaSerie()">↻ Nueva serie de ejercicios</button>
 </div>
+<div class="aviso-repetir" id="aviso-repetir" style="display:none;background:#fff3e0;border-left:4px solid #e65100;border-radius:8px;padding:.9rem 1.1rem;margin-bottom:1rem;font-size:.9rem;color:#bf360c;line-height:1.6"></div>
+<div id="progreso-serie" style="text-align:center;font-size:.83rem;color:#888;margin-bottom:.6rem;min-height:1.2em"></div>
 <div class="completar-wrap" id="completar-wrap"><p>Cuando hayas trabajado todos los ejercicios, marca el módulo como completado.</p><button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button></div>
 <div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Buen trabajo!</div>
 <div class="nav-modulos">
@@ -104,69 +106,146 @@ const BANCO=[
 {niv:3,tex:'Si \\(a=-2\\), \\(b=3\\) y \\(c=-1\\), calcula \\(a^2b-ab^2+c^3\\).',ops:[{t:'\\(-7\\)',ok:1},{t:'\\(+7\\)',ok:0},{t:'\\(-17\\)',ok:0},{t:'\\(+17\\)',ok:0}],exp:'\\(a^2b=4\\times3=12\\), \\(ab^2=(-2)\\times9=-18\\), \\(c^3=(-1)^3=-1\\). Total: \\(12-(-18)+(-1)=12+18-1=29\\). Revisando: \\(12-(-18)\\) ... \\(a^2b=4\\cdot3=12\\), \\(ab^2=(-2)\\cdot9=-18\\). \\(12-(-18)=30\\), \\(30+(-1)=29\\). La respuesta correcta es \\(29\\).'},
 ];
 function shuffle(a){return a.sort(()=>Math.random()-.5);}
+
 function nuevaSerie(){
-  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
-  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
-  const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
-  sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
+  window._aciertos=0;
+  window._respondidas=new Set();
+  window._serieEnviada=false;
+
+  const sel=[
+    ...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),
+    ...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),
+    ...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)
+  ];
   window._sel=sel;
-  document.getElementById('completar-wrap').style.display='none';
-  document.getElementById('completado-msg').style.display='none';
-  document.getElementById('progreso-serie').textContent='';
-  document.getElementById('aviso-repetir').style.display='none';
-  document.getElementById('aviso-repetir').innerHTML='';
-  if(window.MathJax)MathJax.typesetPromise([cont]);
+
+  const cont=document.getElementById('ejercicios-container');
+  cont.innerHTML='';
+  sel.forEach((q,i)=>{
+    const lbl=['Básico','Medio','Avanzado'][q.niv-1];
+    const cls=['d1','d2','d3'][q.niv-1];
+    cont.innerHTML+=`<div class="ejercicio">
+      <span class="dificultad ${cls}">${lbl}</span>
+      <div class="enunciado">${q.tex}</div>
+      <div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div>
+      <button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button>
+      <div class="feedback" id="fb${i}"></div>
+    </div>`;
+  });
+
+  // Ocultar mensajes, mostrar ejercicios
+  mostrar('completar-wrap', false);
+  mostrar('aviso-repetir', false);
+  mostrar('completado-msg', false);
+  setText('progreso-serie', '');
+
+  if(window.MathJax) MathJax.typesetPromise([cont]);
 }
+
+function mostrar(id, visible){
+  const el=document.getElementById(id);
+  if(el) el.style.display = visible ? (id==='completar-wrap'?'block':'block') : 'none';
+}
+
+function setText(id, txt){
+  const el=document.getElementById(id);
+  if(el) el.textContent=txt;
+}
+
+function setHTML(id, html){
+  const el=document.getElementById(id);
+  if(el) el.innerHTML=html;
+}
+
 function comprobar(i){
-  if(window._respondidas.has(i))return;
-  const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);
-  if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}
+  if(window._respondidas.has(i)) return;
+  const q=window._sel[i];
+  const selEl=document.querySelector(`input[name="ej${i}"]:checked`);
+  const fb=document.getElementById('fb'+i);
+  if(!selEl){
+    fb.style.display='block';
+    fb.className='feedback incorrecto';
+    fb.textContent='Selecciona una opción antes de comprobar.';
+    return;
+  }
   window._respondidas.add(i);
-  window._comprobados++;
-  const ok=q.ops[parseInt(sel.value)].ok===1;
-  if(ok)window._aciertos++;
-  fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';
-  fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;
-  MathJax.typesetPromise([fb]);
-  actualizarProgresoCuestionario();
-}
-function actualizarProgresoCuestionario(){
-  const total=window._sel?window._sel.length:12;
-  const respondidas=window._respondidas.size;
+  const ok=q.ops[parseInt(selEl.value)].ok===1;
+  if(ok) window._aciertos++;
+  fb.style.display='block';
+  fb.className=ok?'feedback correcto':'feedback incorrecto';
+  fb.innerHTML=(ok?'✓ ¡Correcto! ':'✗ No es correcto. ')+q.exp;
+  if(window.MathJax) MathJax.typesetPromise([fb]);
+
+  // Actualizar contador
+  const total=window._sel.length;
+  const resp=window._respondidas.size;
   const pct=Math.round(window._aciertos/total*100);
-  document.getElementById('progreso-serie').textContent='Respondidas: '+respondidas+'/'+total+' · Aciertos: '+window._aciertos+' ('+pct+'%)';
-  if(respondidas===total && !window._serieEnviada){
+  setText('progreso-serie','Respondidas: '+resp+'/'+total+' · Aciertos: '+window._aciertos+' ('+pct+'%)');
+
+  // Al completar todas
+  if(resp===total && !window._serieEnviada){
     window._serieEnviada=true;
-    const aprobado=window._aciertos>=Math.ceil(total*0.8);
-    enviarIntento(window._aciertos,total,aprobado);
-    if(aprobado){
-      document.getElementById('completar-wrap').style.display='block';
-      document.getElementById('aviso-repetir').style.display='none';
+    enviarIntento(window._aciertos, total, window._aciertos>=Math.ceil(total*0.8));
+    if(window._aciertos>=Math.ceil(total*0.8)){
+      // Superado
+      mostrar('completar-wrap', true);
+      mostrar('aviso-repetir', false);
+      setHTML('aviso-repetir','');
     } else {
-      document.getElementById('completar-wrap').style.display='none';
-      document.getElementById('aviso-repetir').style.display='block';
-      document.getElementById('aviso-repetir').innerHTML='⚠️ Has acertado '+window._aciertos+' de '+total+' ('+pct+'%). Necesitas al menos el 80% para completar el módulo. Pulsa <strong>↻ Nueva serie</strong> e inténtalo de nuevo.';
+      // No superado
+      mostrar('completar-wrap', false);
+      mostrar('aviso-repetir', true);
+      setHTML('aviso-repetir',
+        '⚠️ Has acertado <strong>'+window._aciertos+' de '+total+'</strong> ('+pct+'%). '+
+        'Necesitas al menos el <strong>80%</strong> para completar este módulo. '+
+        'Es <strong>obligatorio repetir</strong> hasta conseguirlo. '+
+        'Pulsa <strong>↻ Nueva serie</strong> para intentarlo de nuevo con ejercicios diferentes.'
+      );
     }
   }
 }
-function enviarIntento(aciertos,total,aprobado){
-  const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';
-  if(!n||!a)return;
-  const params='?accion=intento&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE+'&aciertos='+aciertos+'&total='+total+'&aprobado='+(aprobado?'1':'0');
-  fetch(SHEETS_URL+params,{method:'GET',mode:'no-cors'}).catch(()=>{});
+
+function enviarIntento(aciertos, total, aprobado){
+  const n=sessionStorage.getItem('alumno_nombre')||'';
+  const a=sessionStorage.getItem('alumno_apellidos')||'';
+  const g=sessionStorage.getItem('alumno_grupo')||'';
+  if(!n||!a) return;
+  const url=SHEETS_URL+
+    '?accion=intento'+
+    '&nombre='+encodeURIComponent(n)+
+    '&apellidos='+encodeURIComponent(a)+
+    '&grupo='+encodeURIComponent(g)+
+    '&modulo='+MODULE_ID+
+    '&bloque='+BLOQUE+
+    '&aciertos='+aciertos+
+    '&total='+total+
+    '&aprobado='+(aprobado?'1':'0');
+  fetch(url,{method:'GET',mode:'no-cors'}).catch(()=>{});
 }
+
 function marcarCompletado(){
   const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
-  if(!c.includes(MODULE_ID))c.push(MODULE_ID);
-  sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));
-  document.getElementById('completar-wrap').style.display='none';
-  document.getElementById('completado-msg').style.display='block';
+  if(!c.includes(MODULE_ID)) c.push(MODULE_ID);
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify(c));
+  mostrar('completar-wrap', false);
+  mostrar('completado-msg', true);
 }
+
+// Inicialización
 (function(){
-  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
-  if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
-  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}
+  window._aciertos=0;
+  window._respondidas=new Set();
+  window._serieEnviada=false;
+  const completados=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(completados.includes(MODULE_ID)){
+    mostrar('completado-msg', true);
+    mostrar('completar-wrap', false);
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', nuevaSerie);
+  } else {
+    nuevaSerie();
+  }
 })();
 </script>
 </body>

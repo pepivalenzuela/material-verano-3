@@ -61,6 +61,8 @@
   <div id="ejercicios-container"></div>
   <button class="nueva-serie" onclick="nuevaSerie()">↻ Nueva serie de ejercicios</button>
 </div>
+<div class="aviso-repetir" id="aviso-repetir" style="display:none;background:#fff3e0;border-left:4px solid #e65100;border-radius:8px;padding:.9rem 1.1rem;margin-bottom:1rem;font-size:.9rem;color:#bf360c;line-height:1.6"></div>
+<div id="progreso-serie" style="text-align:center;font-size:.83rem;color:#888;margin-bottom:.6rem;min-height:1.2em"></div>
 <div class="completar-wrap" id="completar-wrap"><p>Cuando hayas trabajado todos los ejercicios, marca el módulo como completado.</p><button class="btn-completar" onclick="marcarCompletado()">✓ Marcar como completado</button></div>
 <div class="completado-msg" id="completado-msg">✅ Módulo completado. ¡Buen trabajo!</div>
 <div class="nav-modulos">
@@ -74,69 +76,146 @@ const SHEETS_URL='https://script.google.com/macros/s/AKfycbwcJft2w9uotsAZkyOtd4o
 const MODULE_ID='b0-rac-prob', SESSION_KEY='modulos_3eso_b0', BLOQUE='b0';
 const BANCO=[{"niv": 1, "tex": "¿Cuánto es \\(\\dfrac{2}{5}\\) de 60 kg?", "ops": [{"t": "20 kg", "ok": 0}, {"t": "24 kg", "ok": 1}, {"t": "30 kg", "ok": 0}, {"t": "12 kg", "ok": 0}], "exp": "\\(\\frac{2}{5}\\times60=24\\) kg."}, {"niv": 1, "tex": "¿Cuánto es \\(\\dfrac{3}{8}\\) de 120 €?", "ops": [{"t": "30 €", "ok": 0}, {"t": "45 €", "ok": 1}, {"t": "40 €", "ok": 0}, {"t": "36 €", "ok": 0}], "exp": "\\(\\frac{3}{8}\\times120=45\\) €."}, {"niv": 1, "tex": "Una botella tiene \\(\\dfrac{3}{4}\\) de litro. Si bebemos \\(\\dfrac{1}{3}\\) de esa cantidad, ¿cuánto bebemos?", "ops": [{"t": "\\(\\dfrac{1}{4}\\) L", "ok": 1}, {"t": "\\(\\dfrac{1}{2}\\) L", "ok": 0}, {"t": "\\(\\dfrac{1}{3}\\) L", "ok": 0}, {"t": "\\(\\dfrac{3}{4}\\) L", "ok": 0}], "exp": "\\(\\frac{1}{3}\\times\\frac{3}{4}=\\frac{3}{12}=\\frac{1}{4}\\) L."}, {"niv": 1, "tex": "Si \\(\\dfrac{1}{4}\\) de un saco de arroz pesa 15 kg, ¿cuánto pesa el saco entero?", "ops": [{"t": "45 kg", "ok": 0}, {"t": "60 kg", "ok": 1}, {"t": "30 kg", "ok": 0}, {"t": "75 kg", "ok": 0}], "exp": "\\(\\frac{1}{4}\\to15\\text{ kg}\\Rightarrow\\text{total}=15\\times4=60\\) kg."}, {"niv": 1, "tex": "Un artículo vale 80 € y tiene un descuento de \\(\\dfrac{1}{5}\\). ¿Cuánto cuesta con descuento?", "ops": [{"t": "16 €", "ok": 0}, {"t": "64 €", "ok": 1}, {"t": "60 €", "ok": 0}, {"t": "70 €", "ok": 0}], "exp": "Descuento: \\(\\frac{1}{5}\\times80=16\\)€. Precio final: \\(80-16=64\\)€."}, {"niv": 1, "tex": "¿Qué fracción de 60 son 15?", "ops": [{"t": "\\(\\dfrac{1}{5}\\)", "ok": 0}, {"t": "\\(\\dfrac{1}{4}\\)", "ok": 1}, {"t": "\\(\\dfrac{1}{3}\\)", "ok": 0}, {"t": "\\(\\dfrac{3}{4}\\)", "ok": 0}], "exp": "\\(\\frac{15}{60}=\\frac{1}{4}\\)."}, {"niv": 1, "tex": "Un camino tiene \\(\\dfrac{3}{4}\\) de km. Hemos recorrido \\(\\dfrac{1}{3}\\) del camino. ¿Cuántos km nos faltan?", "ops": [{"t": "\\(\\dfrac{1}{4}\\) km", "ok": 0}, {"t": "\\(\\dfrac{1}{2}\\) km", "ok": 1}, {"t": "\\(\\dfrac{1}{3}\\) km", "ok": 0}, {"t": "\\(\\dfrac{2}{3}\\) km", "ok": 0}], "exp": "Recorridos: \\(\\frac{1}{3}\\times\\frac{3}{4}=\\frac{1}{4}\\) km. Restan: \\(\\frac{3}{4}-\\frac{1}{4}=\\frac{1}{2}\\) km."}, {"niv": 1, "tex": "¿Cuánto es \\(\\dfrac{5}{6}\\) de 24?", "ops": [{"t": "15", "ok": 0}, {"t": "20", "ok": 1}, {"t": "18", "ok": 0}, {"t": "16", "ok": 0}], "exp": "\\(\\frac{5}{6}\\times24=20\\)."}, {"niv": 2, "tex": "Para una receta de <strong>4 personas</strong> necesitas 250 g de harina. ¿Cuánto necesitas para <strong>6 personas</strong>?", "ops": [{"t": "300 g", "ok": 0}, {"t": "375 g", "ok": 1}, {"t": "350 g", "ok": 0}, {"t": "400 g", "ok": 0}], "exp": "Factor: \\(\\frac{6}{4}=\\frac{3}{2}\\). Harina: \\(250\\times\\frac{3}{2}=375\\) g."}, {"niv": 2, "tex": "Ana ha leído \\(\\dfrac{3}{8}\\) de un libro de 320 páginas. Bea ha leído \\(\\dfrac{5}{16}\\). ¿Cuántas páginas ha leído más Ana?", "ops": [{"t": "10 págs", "ok": 1}, {"t": "20 págs", "ok": 0}, {"t": "40 págs", "ok": 0}, {"t": "5 págs", "ok": 0}], "exp": "Ana: \\(\\frac{3}{8}\\times320=120\\). Bea: \\(\\frac{5}{16}\\times320=100\\). Diferencia: \\(120-100=20\\). Espera: \\(120-100=20\\) páginas."}, {"niv": 2, "tex": "Un depósito tiene \\(\\dfrac{3}{5}\\) de su capacidad lleno. Si contiene 900 litros, ¿cuál es su capacidad total?", "ops": [{"t": "1350 L", "ok": 0}, {"t": "1500 L", "ok": 1}, {"t": "1200 L", "ok": 0}, {"t": "540 L", "ok": 0}], "exp": "\\(\\frac{3}{5}\\times C=900\\Rightarrow C=900\\div\\frac{3}{5}=900\\times\\frac{5}{3}=1500\\) L."}, {"niv": 2, "tex": "El precio de un artículo sube \\(\\dfrac{1}{8}\\) y luego baja \\(\\dfrac{1}{5}\\). Si costaba 80 €, ¿cuánto cuesta al final?", "ops": [{"t": "72 €", "ok": 1}, {"t": "76 €", "ok": 0}, {"t": "78 €", "ok": 0}, {"t": "70 €", "ok": 0}], "exp": "Tras la subida: \\(80\\times\\left(1+\\frac{1}{8}\\right)=80\\times\\frac{9}{8}=90\\)€. Tras la bajada: \\(90\\times\\left(1-\\frac{1}{5}\\right)=90\\times\\frac{4}{5}=72\\)€."}, {"niv": 2, "tex": "Encuentra un número racional entre \\(\\dfrac{1}{3}\\) y \\(\\dfrac{1}{2}\\).", "ops": [{"t": "\\(\\dfrac{1}{5}\\)", "ok": 0}, {"t": "\\(\\dfrac{5}{12}\\)", "ok": 1}, {"t": "\\(\\dfrac{2}{3}\\)", "ok": 0}, {"t": "\\(\\dfrac{1}{6}\\)", "ok": 0}], "exp": "La media aritmética: \\(\\frac{\\frac{1}{3}+\\frac{1}{2}}{2}=\\frac{\\frac{5}{6}}{2}=\\frac{5}{12}\\). Comprobación: \\(\\frac{1}{3}=\\frac{4}{12}<\\frac{5}{12}<\\frac{6}{12}=\\frac{1}{2}\\)✓."}, {"niv": 2, "tex": "Tres hermanos heredan un terreno. El primero recibe \\(\\dfrac{1}{2}\\), el segundo \\(\\dfrac{1}{3}\\), y el tercero el resto. ¿Qué fracción le toca al tercero?", "ops": [{"t": "\\(\\dfrac{1}{4}\\)", "ok": 0}, {"t": "\\(\\dfrac{1}{6}\\)", "ok": 1}, {"t": "\\(\\dfrac{1}{5}\\)", "ok": 0}, {"t": "\\(\\dfrac{1}{3}\\)", "ok": 0}], "exp": "\\(1-\\frac{1}{2}-\\frac{1}{3}=\\frac{6}{6}-\\frac{3}{6}-\\frac{2}{6}=\\frac{1}{6}\\)."}, {"niv": 3, "tex": "Un tren recorre \\(\\dfrac{2}{3}\\) del trayecto en 2 horas. ¿Cuánto tardará en recorrer el trayecto completo?", "ops": [{"t": "2,5 h", "ok": 0}, {"t": "3 h", "ok": 1}, {"t": "4 h", "ok": 0}, {"t": "2 h", "ok": 0}], "exp": "\\(\\frac{2}{3}\\to2\\text{ h}\\Rightarrow 1\\to 2\\div\\frac{2}{3}=2\\times\\frac{3}{2}=3\\) h."}, {"niv": 3, "tex": "Gastamos \\(\\dfrac{1}{4}\\) del dinero en libros, \\(\\dfrac{1}{3}\\) en comida y \\(\\dfrac{1}{6}\\) en transporte. ¿Qué fracción nos queda?", "ops": [{"t": "\\(\\dfrac{1}{6}\\)", "ok": 0}, {"t": "\\(\\dfrac{1}{4}\\)", "ok": 1}, {"t": "\\(\\dfrac{1}{3}\\)", "ok": 0}, {"t": "\\(\\dfrac{5}{12}\\)", "ok": 0}], "exp": "Gastado: \\(\\frac{1}{4}+\\frac{1}{3}+\\frac{1}{6}=\\frac{3}{12}+\\frac{4}{12}+\\frac{2}{12}=\\frac{9}{12}=\\frac{3}{4}\\). Queda: \\(1-\\frac{3}{4}=\\frac{1}{4}\\)."}, {"niv": 3, "tex": "Si \\(\\dfrac{3}{4}\\) de un número menos \\(\\dfrac{1}{3}\\) del mismo número es igual a 5, ¿cuál es el número?", "ops": [{"t": "10", "ok": 0}, {"t": "12", "ok": 1}, {"t": "15", "ok": 0}, {"t": "20", "ok": 0}], "exp": "\\(\\left(\\frac{3}{4}-\\frac{1}{3}\\right)x=5\\Rightarrow\\frac{5}{12}x=5\\Rightarrow x=12\\)."}, {"niv": 3, "tex": "Un grifo llena \\(\\dfrac{1}{6}\\) de una piscina por hora y otro la vacía a razón de \\(\\dfrac{1}{8}\\) por hora. Si los dos funcionan a la vez, ¿cuántas horas tardan en llenarla?", "ops": [{"t": "12 h", "ok": 0}, {"t": "24 h", "ok": 1}, {"t": "14 h", "ok": 0}, {"t": "48 h", "ok": 0}], "exp": "Ritmo neto: \\(\\frac{1}{6}-\\frac{1}{8}=\\frac{4}{24}-\\frac{3}{24}=\\frac{1}{24}\\) por hora. Tiempo: \\(24\\) horas."}, {"niv": 3, "tex": "El precio de un producto aumenta \\(\\dfrac{1}{5}\\) cada año. Si ahora vale 100 €, ¿cuánto valdrá en 2 años?", "ops": [{"t": "140 €", "ok": 1}, {"t": "144 €", "ok": 0}, {"t": "120 €", "ok": 0}, {"t": "150 €", "ok": 0}], "exp": "Año 1: \\(100\\times\\frac{6}{5}=120\\)€. Año 2: \\(120\\times\\frac{6}{5}=144\\)€. Espera: \\(120\\times\\frac{6}{5}=144\\)€. La respuesta correcta es \\(144\\)€."}];
 function shuffle(a){return a.sort(()=>Math.random()-.5);}
+
 function nuevaSerie(){
-  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
-  const sel=[...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)];
-  const cont=document.getElementById('ejercicios-container');cont.innerHTML='';
-  sel.forEach((q,i)=>{const lbl=['Básico','Medio','Avanzado'][q.niv-1],cls=['d1','d2','d3'][q.niv-1];cont.innerHTML+=`<div class="ejercicio"><span class="dificultad ${cls}">${lbl}</span><div class="enunciado">${q.tex}</div><div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div><button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button><div class="feedback" id="fb${i}"></div></div>`;});
+  window._aciertos=0;
+  window._respondidas=new Set();
+  window._serieEnviada=false;
+
+  const sel=[
+    ...shuffle(BANCO.filter(e=>e.niv===1)).slice(0,4),
+    ...shuffle(BANCO.filter(e=>e.niv===2)).slice(0,4),
+    ...shuffle(BANCO.filter(e=>e.niv===3)).slice(0,4)
+  ];
   window._sel=sel;
-  document.getElementById('completar-wrap').style.display='none';
-  document.getElementById('completado-msg').style.display='none';
-  document.getElementById('progreso-serie').textContent='';
-  document.getElementById('aviso-repetir').style.display='none';
-  document.getElementById('aviso-repetir').innerHTML='';
-  if(window.MathJax)MathJax.typesetPromise([cont]);
+
+  const cont=document.getElementById('ejercicios-container');
+  cont.innerHTML='';
+  sel.forEach((q,i)=>{
+    const lbl=['Básico','Medio','Avanzado'][q.niv-1];
+    const cls=['d1','d2','d3'][q.niv-1];
+    cont.innerHTML+=`<div class="ejercicio">
+      <span class="dificultad ${cls}">${lbl}</span>
+      <div class="enunciado">${q.tex}</div>
+      <div class="opciones">${q.ops.map((o,j)=>`<label class="opcion"><input type="radio" name="ej${i}" value="${j}"> ${o.t}</label>`).join('')}</div>
+      <button class="btn-comprobar" onclick="comprobar(${i})">Comprobar</button>
+      <div class="feedback" id="fb${i}"></div>
+    </div>`;
+  });
+
+  // Ocultar mensajes, mostrar ejercicios
+  mostrar('completar-wrap', false);
+  mostrar('aviso-repetir', false);
+  mostrar('completado-msg', false);
+  setText('progreso-serie', '');
+
+  if(window.MathJax) MathJax.typesetPromise([cont]);
 }
+
+function mostrar(id, visible){
+  const el=document.getElementById(id);
+  if(el) el.style.display = visible ? (id==='completar-wrap'?'block':'block') : 'none';
+}
+
+function setText(id, txt){
+  const el=document.getElementById(id);
+  if(el) el.textContent=txt;
+}
+
+function setHTML(id, html){
+  const el=document.getElementById(id);
+  if(el) el.innerHTML=html;
+}
+
 function comprobar(i){
-  if(window._respondidas.has(i))return;
-  const q=window._sel[i],sel=document.querySelector(`input[name="ej${i}"]:checked`),fb=document.getElementById('fb'+i);
-  if(!sel){fb.style.display='block';fb.className='feedback incorrecto';fb.textContent='Selecciona una opción.';return;}
+  if(window._respondidas.has(i)) return;
+  const q=window._sel[i];
+  const selEl=document.querySelector(`input[name="ej${i}"]:checked`);
+  const fb=document.getElementById('fb'+i);
+  if(!selEl){
+    fb.style.display='block';
+    fb.className='feedback incorrecto';
+    fb.textContent='Selecciona una opción antes de comprobar.';
+    return;
+  }
   window._respondidas.add(i);
-  window._comprobados++;
-  const ok=q.ops[parseInt(sel.value)].ok===1;
-  if(ok)window._aciertos++;
-  fb.style.display='block';fb.className=ok?'feedback correcto':'feedback incorrecto';
-  fb.innerHTML=ok?'✓ ¡Correcto! '+q.exp:'✗ No es correcto. '+q.exp;
-  MathJax.typesetPromise([fb]);
-  actualizarProgresoCuestionario();
-}
-function actualizarProgresoCuestionario(){
-  const total=window._sel?window._sel.length:12;
-  const respondidas=window._respondidas.size;
+  const ok=q.ops[parseInt(selEl.value)].ok===1;
+  if(ok) window._aciertos++;
+  fb.style.display='block';
+  fb.className=ok?'feedback correcto':'feedback incorrecto';
+  fb.innerHTML=(ok?'✓ ¡Correcto! ':'✗ No es correcto. ')+q.exp;
+  if(window.MathJax) MathJax.typesetPromise([fb]);
+
+  // Actualizar contador
+  const total=window._sel.length;
+  const resp=window._respondidas.size;
   const pct=Math.round(window._aciertos/total*100);
-  document.getElementById('progreso-serie').textContent='Respondidas: '+respondidas+'/'+total+' · Aciertos: '+window._aciertos+' ('+pct+'%)';
-  if(respondidas===total && !window._serieEnviada){
+  setText('progreso-serie','Respondidas: '+resp+'/'+total+' · Aciertos: '+window._aciertos+' ('+pct+'%)');
+
+  // Al completar todas
+  if(resp===total && !window._serieEnviada){
     window._serieEnviada=true;
-    const aprobado=window._aciertos>=Math.ceil(total*0.8);
-    enviarIntento(window._aciertos,total,aprobado);
-    if(aprobado){
-      document.getElementById('completar-wrap').style.display='block';
-      document.getElementById('aviso-repetir').style.display='none';
+    enviarIntento(window._aciertos, total, window._aciertos>=Math.ceil(total*0.8));
+    if(window._aciertos>=Math.ceil(total*0.8)){
+      // Superado
+      mostrar('completar-wrap', true);
+      mostrar('aviso-repetir', false);
+      setHTML('aviso-repetir','');
     } else {
-      document.getElementById('completar-wrap').style.display='none';
-      document.getElementById('aviso-repetir').style.display='block';
-      document.getElementById('aviso-repetir').innerHTML='⚠️ Has acertado '+window._aciertos+' de '+total+' ('+pct+'%). Necesitas al menos el 80% para completar el módulo. Pulsa <strong>↻ Nueva serie</strong> e inténtalo de nuevo.';
+      // No superado
+      mostrar('completar-wrap', false);
+      mostrar('aviso-repetir', true);
+      setHTML('aviso-repetir',
+        '⚠️ Has acertado <strong>'+window._aciertos+' de '+total+'</strong> ('+pct+'%). '+
+        'Necesitas al menos el <strong>80%</strong> para completar este módulo. '+
+        'Es <strong>obligatorio repetir</strong> hasta conseguirlo. '+
+        'Pulsa <strong>↻ Nueva serie</strong> para intentarlo de nuevo con ejercicios diferentes.'
+      );
     }
   }
 }
-function enviarIntento(aciertos,total,aprobado){
-  const n=sessionStorage.getItem('alumno_nombre')||'',a=sessionStorage.getItem('alumno_apellidos')||'',g=sessionStorage.getItem('alumno_grupo')||'';
-  if(!n||!a)return;
-  const params='?accion=intento&nombre='+encodeURIComponent(n)+'&apellidos='+encodeURIComponent(a)+'&grupo='+encodeURIComponent(g)+'&modulo='+MODULE_ID+'&bloque='+BLOQUE+'&aciertos='+aciertos+'&total='+total+'&aprobado='+(aprobado?'1':'0');
-  fetch(SHEETS_URL+params,{method:'GET',mode:'no-cors'}).catch(()=>{});
+
+function enviarIntento(aciertos, total, aprobado){
+  const n=sessionStorage.getItem('alumno_nombre')||'';
+  const a=sessionStorage.getItem('alumno_apellidos')||'';
+  const g=sessionStorage.getItem('alumno_grupo')||'';
+  if(!n||!a) return;
+  const url=SHEETS_URL+
+    '?accion=intento'+
+    '&nombre='+encodeURIComponent(n)+
+    '&apellidos='+encodeURIComponent(a)+
+    '&grupo='+encodeURIComponent(g)+
+    '&modulo='+MODULE_ID+
+    '&bloque='+BLOQUE+
+    '&aciertos='+aciertos+
+    '&total='+total+
+    '&aprobado='+(aprobado?'1':'0');
+  fetch(url,{method:'GET',mode:'no-cors'}).catch(()=>{});
 }
+
 function marcarCompletado(){
   const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
-  if(!c.includes(MODULE_ID))c.push(MODULE_ID);
-  sessionStorage.setItem(SESSION_KEY,JSON.stringify(c));
-  document.getElementById('completar-wrap').style.display='none';
-  document.getElementById('completado-msg').style.display='block';
+  if(!c.includes(MODULE_ID)) c.push(MODULE_ID);
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify(c));
+  mostrar('completar-wrap', false);
+  mostrar('completado-msg', true);
 }
+
+// Inicialización
 (function(){
-  const c=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
-  if(c.includes(MODULE_ID)){document.getElementById('completar-wrap').style.display='none';document.getElementById('completado-msg').style.display='block';}
-  window._aciertos=0;window._comprobados=0;window._respondidas=new Set();window._serieEnviada=false;
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',nuevaSerie);}else{nuevaSerie();}
+  window._aciertos=0;
+  window._respondidas=new Set();
+  window._serieEnviada=false;
+  const completados=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'[]');
+  if(completados.includes(MODULE_ID)){
+    mostrar('completado-msg', true);
+    mostrar('completar-wrap', false);
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', nuevaSerie);
+  } else {
+    nuevaSerie();
+  }
 })();
 </script>
 </body>
